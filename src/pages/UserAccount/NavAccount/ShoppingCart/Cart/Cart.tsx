@@ -7,8 +7,8 @@ import classes from "./Cart.module.css";
 
 export function Cart({ cartItems }: { cartItems: OrderItem[] }) {
   const {
-    productMap,
-    productsByIds: cartProducts,
+    productsMap,
+    filteredProducts: cartProducts,
     isLoading,
     error,
   } = useItemsByIds(cartItems.map((i) => i.id));
@@ -19,7 +19,7 @@ export function Cart({ cartItems }: { cartItems: OrderItem[] }) {
         <ul className={classes.orderList}>
           {cartItems.map((cartItem) => {
             const stockQuantity =
-              productMap.get(cartItem.id)?.stockQuantity ?? 0;
+              productsMap[cartItem.id]?.stockQuantity ?? 0;
             return (
               <li className={classes.orderItem} key={cartItem.id}>
                 <OrderItemRow

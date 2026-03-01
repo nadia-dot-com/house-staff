@@ -17,5 +17,3 @@ export const SHOP_SOCIALS = {
 export const SHOP_WORKING_HOURS = "Mon – Sun: 10:00 – 20:00";
 
 export const CONTACT_FORM_URL = "https://api.web3forms.com/submit";
-
-export const CART_MAX_ITEMS = 100;

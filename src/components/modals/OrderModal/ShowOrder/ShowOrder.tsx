@@ -17,8 +17,8 @@ export function ShowOrder({ cartItems }: { cartItems: OrderItem[] }) {
   const { user } = useUserContext();
   const navigate = useNavigate();
   const {
-    productMap,
-    productsByIds: cartProducts,
+    productsMap,
+    filteredProducts: cartProducts,
     isLoading,
     error,
   } = useItemsByIds(cartItems.map((i) => i.id));
@@ -44,7 +44,7 @@ export function ShowOrder({ cartItems }: { cartItems: OrderItem[] }) {
           <div className={classes.orderList}>
             {cartItems.map((cartItem) => {
               const stockQuantity =
-                productMap.get(cartItem.id)?.stockQuantity ?? 0;
+                productsMap[cartItem.id]?.stockQuantity ?? 0;
               return (
                 <OrderItemRow
                   key={cartItem.id}

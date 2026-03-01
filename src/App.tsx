@@ -19,15 +19,13 @@ import { ErrorBoundary } from "react-error-boundary";
 import { ErrorFallback } from "./components/ErrorFallback/ErrorFallback";
 import { lazy, Suspense } from "react";
 import { LoadingSpinner } from "./components/LoadingSpinner/LoadingSpinner";
+import { Wishlist } from "./pages/Wishlist/Wishlist";
+import { ShoppingCart } from "./pages/UserAccount/NavAccount/ShoppingCart/ShoppingCart";
 
 const Contact = lazy(() => import("./pages/Contact/Contact"));
 const UserAccount = lazy(() => import("./pages/UserAccount/UserAccount"));
-const Wishlist = lazy(() => import("./pages/Wishlist/Wishlist"));
 const ProductsPage = lazy(() => import("./pages/ProductsPage/ProductsPage"));
 const ProductPage = lazy(() => import("./pages/ProductsPage/ProductPage/ProductPage"));
-const ShoppingCart = lazy(
-  () => import("./pages/UserAccount/NavAccount/ShoppingCart/ShoppingCart"),
-);
 
 function App() {
   return (

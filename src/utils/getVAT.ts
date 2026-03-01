@@ -1,3 +1,5 @@
+import { roundMoney } from "./roundMoney";
+
 export const getVAT = (subtotal: number, vatRate: number) => {
-  return (vatRate * subtotal) / 100;
+  return roundMoney((vatRate * subtotal) / 100);
 };

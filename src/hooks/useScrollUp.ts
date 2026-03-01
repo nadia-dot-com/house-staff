@@ -4,17 +4,21 @@ import { useWindowEvent } from "./useWindowEvent";
 export function useScrollUp() {
   const [isScrollingUp, setIsScrollingUp] = useState(true);
   const lastYRef = useRef(window.scrollY);
+  const isThrottled = useRef(false);
 
   useWindowEvent("scroll", () => {
+    if(isThrottled.current) return;
+    isThrottled.current = true;
+
     const currentY = window.scrollY;
 
-    if (currentY < lastYRef.current) {
-      setIsScrollingUp(true);
-    } else if (currentY > lastYRef.current) {
-      setIsScrollingUp(false);
-    }
+    setIsScrollingUp(currentY < lastYRef.current);
 
     lastYRef.current = currentY;
+
+    setTimeout(() => {
+      isThrottled.current = false;
+    }, 100)
   });
 
   return { isScrollingUp };

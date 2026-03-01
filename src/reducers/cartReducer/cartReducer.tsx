@@ -1,4 +1,3 @@
-import { CART_MAX_ITEMS } from "../../config";
 import { CartState } from "../../types/cartTypes";
 import { CartAction } from "./cartAction";
 
@@ -6,11 +5,6 @@ export function cartReducer(state: CartState, action: CartAction) {
   switch (action.type) {
     case "ADD_TO_CART": {
       const { product, quantity } = action.payload;
-      const totalItems = state.reduce((sum, i) => sum + i.quantity, 0);
-
-      if (totalItems + quantity > CART_MAX_ITEMS) {
-        return state;
-      }
 
       const existing = state.find((i) => i.id === product.id);
       if (existing) {

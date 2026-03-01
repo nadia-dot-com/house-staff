@@ -13,18 +13,26 @@ import { categoriesGroups } from "../../../../data/categories";
 import { useCheckoutPrice } from "../../../../hooks/useCheckoutPrice";
 import { useCreateOrder } from "../../../../hooks/orders/useCreateOrder";
 import { buildOrderPayload } from "../../../../utils/buildOrderPayload";
-import { CHECKOUT_STEP } from "./checkoutStep";
-
-import classes from './ShoppingCart.module.css';
+import classes from "./ShoppingCart.module.css";
 import { OrderError } from "./OrderError/OrderError";
 import { ERROR_MESSAGES } from "../../../../constants/messages";
 import { OrderSuccess } from "./OrderSuccess/OrderSuccess";
 import { useCartContext } from "../../../../context/CartContext";
+import { CHECKOUT_STEP } from "../../../../constants/checkout";
 
-export default function ShoppingCart() {
+export function ShoppingCart() {
   const { cartItems, clearCart } = useCartContext();
   const { user } = useUserContext();
-  const { shippingData, delivery, payment, updateItems, updateData, updateDelivery, updatePayment, resetCheckout } = useCheckoutContext();
+  const {
+    shippingData,
+    delivery,
+    payment,
+    updateItems,
+    updateData,
+    updateDelivery,
+    updatePayment,
+    resetCheckout,
+  } = useCheckoutContext();
   const [step, setStep] = useState(CHECKOUT_STEP.CART_OVERVIEW);
   const addressFormRef = useRef<HTMLFormElement>(null);
   const { navigateToCategory } = useShoppingNavigation();
@@ -34,9 +42,12 @@ export default function ShoppingCart() {
     () => {
       clearCart();
       resetCheckout();
+      setStep(CHECKOUT_STEP.ORDER_COMPLETE);
     },
-    () => setStep(CHECKOUT_STEP.ORDER_COMPLETE),
-    (err) => setError(err),
+    (err) => {
+      setError(err);
+      setStep(CHECKOUT_STEP.ORDER_COMPLETE);
+    },
   );
 
   const country = shippingData?.country ?? null;
@@ -49,7 +60,7 @@ export default function ShoppingCart() {
   const handleAddressForm = (data: DataProps) => {
     updateData(data);
     setStep(CHECKOUT_STEP.ORDER_REVIEW);
-  }
+  };
 
   if (!user) return null;
 
@@ -86,7 +97,7 @@ export default function ShoppingCart() {
       return;
     }
 
-    setStep((s) => s + 1)
+    setStep((s) => s + 1);
   };
 
   const prevStep = () => setStep((s) => s - 1);
@@ -95,41 +106,34 @@ export default function ShoppingCart() {
 
   const onContinue = () => navigateToCategory(categoriesGroups.all);
 
-  const renderStep = () => {
-    switch (step) {
-      case CHECKOUT_STEP.CART_OVERVIEW:
-        return <Cart cartItems={cartItems} />;
-      case CHECKOUT_STEP.SHIPPING_ADDRESS:
-        return (
-          <AddressForm
-            formRef={addressFormRef}
-            onSubmit={handleAddressForm}
-          />
-        );
-      case CHECKOUT_STEP.ORDER_REVIEW:
-        return (
-          <CheckoutReview
-            order={cartItems}
-            delivery={delivery}
-            payment={payment}
-            vat={vat}
-            total={total}
-            updatePayment={updatePayment}
-            updateDelivery={updateDelivery}
-          />
-        );
-    }
+  const stepsRenderers = {
+    [CHECKOUT_STEP.CART_OVERVIEW]: () => <Cart cartItems={cartItems} />,
+    [CHECKOUT_STEP.SHIPPING_ADDRESS]: () => (
+      <AddressForm formRef={addressFormRef} onSubmit={handleAddressForm} />
+    ),
+    [CHECKOUT_STEP.ORDER_REVIEW]: () => (
+      <CheckoutReview
+        order={cartItems}
+        delivery={delivery}
+        payment={payment}
+        vat={vat}
+        total={total}
+        updatePayment={updatePayment}
+        updateDelivery={updateDelivery}
+      />
+    ),
   };
 
   return (
     <div className={classes.shoppingCart}>
-
       {step === CHECKOUT_STEP.ORDER_COMPLETE ? (
         <div>
           <ShoppingCartNav step={step} />
           <div className={classes.orderContent}>
             {error ? (
-              <OrderError message={`${ERROR_MESSAGES.GENERIC} ${ERROR_MESSAGES.TRY_AGAIN}`} />
+              <OrderError
+                message={`${ERROR_MESSAGES.GENERIC} ${ERROR_MESSAGES.TRY_AGAIN}`}
+              />
             ) : (
               <OrderSuccess />
             )}
@@ -142,12 +146,11 @@ export default function ShoppingCart() {
       ) : (
         <div>
           <ShoppingCartNav step={step} />
-          <div>{renderStep()}</div>
+          <div>{stepsRenderers[step]()}</div>
         </div>
       )}
 
-
-      < CheckoutButtons
+      <CheckoutButtons
         error={error}
         onError={onError}
         step={step}
@@ -158,6 +161,6 @@ export default function ShoppingCart() {
         onPost={handlePlaceOrder}
         disabled={isPending}
       />
-    </div >
-  )
+    </div>
+  );
 }

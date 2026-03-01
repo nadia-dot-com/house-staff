@@ -7,7 +7,6 @@ import { Product } from "../types/api/product";
 import { OrderItem } from "../types/orderTypes";
 import { CartContextValue } from "../types/cartTypes";
 import { cartReducer } from "../reducers/cartReducer/cartReducer";
-import { CART_MAX_ITEMS } from "../config";
 
 export const CartContext = createContext<CartContextValue | null>(null);
 
@@ -28,21 +27,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [cartItems, setStoredCart]);
 
   useEffect(() => {
-    if (isCartOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = isCartOpen ? "hidden" : "";
   }, [isCartOpen]);
 
   const addToCart = (product: Product, quantity: number = 1) => {
-    const totalItems = cartItems.reduce((sum, i) => sum + i.quantity, 0);
-
-    if (totalItems + quantity > CART_MAX_ITEMS) {
-      toast.error("Cart limit reached (100 items)");
-      return;
-    }
-
     dispatch({ type: "ADD_TO_CART", payload: { product, quantity } });
     toast.success(`${product.name} added to Shopping Cart!`);
   };

@@ -15,6 +15,6 @@ export const useRemoveFromWishlist = () => {
       return fetchDeleteFromWiszlist(productId, token);
     },
     onSuccess: () => qc.invalidateQueries({ queryKey: ["wishlist"] }),
-    onError: (err) => console.error(err.message ?? " to remove from wishlist"),
+    onError: (err) => console.error(err.message ?? "Failed to remove item from wishlist"),
   });
 };

@@ -7,7 +7,6 @@ import { queryClient } from "../../query/queryClient";
 
 export function useCreateOrder(
   onSuccessCallback?: () => void,
-  onNextStepCallback?: () => void,
   onErrorCallback?: (err: Error) => void,
 ) {
   const { token } = useUserContext();
@@ -22,12 +21,8 @@ export function useCreateOrder(
 
     onSuccess: () => {
       onSuccessCallback?.();
-      onNextStepCallback?.();
       queryClient.invalidateQueries({ queryKey: ["orders"] });
     },
-    onError: (err) => {
-      onErrorCallback?.(err);
-      onNextStepCallback?.();
-    },
+    onError: (err) => onErrorCallback?.(err),
   });
 }
