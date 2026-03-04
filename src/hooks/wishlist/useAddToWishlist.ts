@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useUserContext } from "../../context/UserContext";
-import { fetchAddToWiszlist } from "../../api/wishlist.api";
+import { addToWishlist } from "../../api/wishlist.api";
 
 export const useAddToWishlist = () => {
   const { token } = useUserContext();
@@ -12,7 +12,7 @@ export const useAddToWishlist = () => {
         throw new Error("No token");
       }
 
-     return fetchAddToWiszlist(productsIds, token);
+     return addToWishlist(productsIds, token);
     },
     onSuccess: () => qc.invalidateQueries({ queryKey: ["wishlist"] }),
   });

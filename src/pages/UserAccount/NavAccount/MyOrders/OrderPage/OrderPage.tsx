@@ -11,7 +11,7 @@ import { DataLoader } from "../../../../../components/DataLoader/DataLoader";
 import classes from "./OrderPage.module.css";
 import { useMemo } from "react";
 
-export function OrderPage() {
+export default function OrderPage() {
   const { orderId } = useParams();
   const { order, isLoading, error } = useOrderFromOrders(orderId);
 

@@ -5,12 +5,11 @@ import { useUpdateUserProfile } from "../../../../hooks/user/useUpdateUserProfil
 import { useOptions } from "../../../../hooks/options/useOptions"; 
 import isEqual from "lodash/isEqual";
 import omitBy from "lodash/omitBy";
-
-import classes from './MyProfile.module.css';
 import { ERROR_MESSAGES } from "../../../../constants/messages";
 import { ErrorState } from "../../../../components/ErrorState/ErrorState";
+import classes from './MyProfile.module.css';
 
-export function MyProfile() {
+export default function MyProfile() {
     const { user } = useUserContext();
     const updateProfileMutation = useUpdateUserProfile();
 

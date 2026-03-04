@@ -1,0 +1,26 @@
+.wishlistContainer {
+  width: 35px; 
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icon {
+  position: absolute; 
+
+  font-size: 25px; 
+  width: 25px;
+  height: 25px;
+  transition: transform 0.2s ease;
+}
+
+.icon:hover {
+  color: #DD701D;
+}
+
+
+
+
+

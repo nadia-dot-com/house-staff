@@ -1,6 +1,5 @@
 import { StyledLink } from "../StyledLink/StyledLink";
 import { ShopingCardIcon } from "./ShopingCardIcon/ShopingCartIcon";
-import { useCartContext } from "../../context/CartContext";
 import { ROUTES } from "../../config/Routes";
 import { AccountIcon } from "./AccountIcon/AccountIcon";
 import { WishlistIcon } from "./WishlistIcon/WishlistIcon";
@@ -8,6 +7,7 @@ import { useToggle } from "../../hooks/useToggle";
 import { useEffect } from "react";
 
 import classes from "./Menu.module.css";
+import { useCartUiContext } from "../../context/CartUIContext";
 
 type MenuLinksProps = {
   to: string;
@@ -22,7 +22,7 @@ const menuLinks: MenuLinksProps[] = [
 
 export function Menu() {
   const [isOpen, setIsOpen] = useToggle(false);
-  const { isCartOpen } = useCartContext();
+  const { isCartOpen } = useCartUiContext();
 
   useEffect(() => {
     const closeMenuOnScroll = () => {

@@ -3,12 +3,13 @@ import { ROUTES } from "../config/Routes";
 import { useCategoryContext } from "../context/CategoryContext";
 import { slugify } from "../utils/slugify";
 import { compact } from "lodash";
+import { useCallback } from "react";
 
 export function useShoppingNavigation() {
   const { setSelectedCategory } = useCategoryContext();
   const navigate = useNavigate();
 
-  const navigateToCategory = (category: string, productId?: string) => {
+  const navigateToCategory = useCallback((category: string, productId?: string) => {
     const toUrl = compact([
       `/${ROUTES.products}`,
       slugify(category),
@@ -16,7 +17,7 @@ export function useShoppingNavigation() {
     ]).join("/");
     setSelectedCategory(category);
     navigate(toUrl);
-  };
+  }, [setSelectedCategory, navigate]);
 
   return { navigateToCategory };
 }

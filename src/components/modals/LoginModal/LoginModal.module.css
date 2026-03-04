@@ -1,16 +1,16 @@
 .loginModal {
-  position: absolute;
+  position: fixed;
   top: 50px;
   right: 0;
   width: 450px;
 
-  box-shadow: 10px 11px 11px -2px #CEC6C6C9;
-  background: #FFFFFFE6;
+  box-shadow: 10px 11px 11px -2px #cec6c6c9;
+  background: #ffffffe6;
   backdrop-filter: blur(5px);
   text-align: center;
   font-size: 11px;
-  z-index: 30;
-
+  z-index: 9999;
+  max-height: calc(100vh - 50px);
   padding: 30px;
 }
 

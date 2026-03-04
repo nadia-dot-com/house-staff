@@ -20,7 +20,7 @@ import { OrderSuccess } from "./OrderSuccess/OrderSuccess";
 import { useCartContext } from "../../../../context/CartContext";
 import { CHECKOUT_STEP } from "../../../../constants/checkout";
 
-export function ShoppingCart() {
+export default function ShoppingCart() {
   const { cartItems, clearCart } = useCartContext();
   const { user } = useUserContext();
   const {

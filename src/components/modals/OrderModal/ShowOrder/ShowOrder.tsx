@@ -10,17 +10,16 @@ import { LoginButton } from "../../../LoginButton/LoginButton";
 import { useItemsByIds } from "../../../../hooks/products/useItemByIds";
 
 import classes from "./ShowOrder.module.css";
-import { DataLoader } from "../../../DataLoader/DataLoader";
+import { useCartUiContext } from "../../../../context/CartUIContext";
 
 export function ShowOrder({ cartItems }: { cartItems: OrderItem[] }) {
-  const { clearCart, toggleCartOpen } = useCartContext();
+  const {toggleCartOpen} = useCartUiContext();
+  const { clearCart } = useCartContext();
   const { user } = useUserContext();
   const navigate = useNavigate();
   const {
     productsMap,
     filteredProducts: cartProducts,
-    isLoading,
-    error,
   } = useItemsByIds(cartItems.map((i) => i.id));
 
   const handleOrder = () => {
@@ -39,7 +38,6 @@ export function ShowOrder({ cartItems }: { cartItems: OrderItem[] }) {
         </button>
       </div>
 
-      <DataLoader loaded={!!cartProducts} loading={isLoading} error={error}>
         {cartProducts && (
           <div className={classes.orderList}>
             {cartItems.map((cartItem) => {
@@ -55,7 +53,6 @@ export function ShowOrder({ cartItems }: { cartItems: OrderItem[] }) {
             })}
           </div>
         )}
-      </DataLoader>
 
       <div className={classes.subtotal}>
         <Subtotal arr={cartItems} />

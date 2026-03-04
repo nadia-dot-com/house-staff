@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useCallback, useEffect, useMemo, useState } from "react";
 import { UserContextProps, UserData } from "../types/userTypes";
 import { createContextHook } from "../hooks/createContextHook";
 import { useLocalStorage } from "../hooks/useLocalStorage";
@@ -25,28 +25,36 @@ export function UserProvider({ children }: { children: ReactNode }) {
     document.body.style.overflow = isLoginModalOpen ? "hidden" : "";
   }, [isLoginModalOpen]);
 
-  const logout = () => {
+  const logout = useCallback(() => {
     setUser(null);
     setToken(null);
-  };
+  }, [setUser, setToken]);
 
-  return (
-    <UserContext.Provider
-      value={{
-        user,
-        token,
-        updateToken: setToken,
-        isLoginModalOpen,
-        updateUser: setUser,
-        toggleModalOpen: setIsLoginModalOpen,
-        logout,
-        isLoading,
-        error,
-      }}
-    >
-      {children}
-    </UserContext.Provider>
+  const value = useMemo(
+    () => ({
+      user,
+      token,
+      updateToken: setToken,
+      isLoginModalOpen,
+      updateUser: setUser,
+      toggleModalOpen: setIsLoginModalOpen,
+      logout,
+      isLoading,
+      error,
+    }),
+    [
+      user,
+      token,
+      setToken,
+      isLoginModalOpen,
+      setUser,
+      setIsLoginModalOpen,
+      logout,
+      isLoading,
+      error,
+    ],
   );
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 }
 
 export const useUserContext = createContextHook(UserContext, UserProvider);

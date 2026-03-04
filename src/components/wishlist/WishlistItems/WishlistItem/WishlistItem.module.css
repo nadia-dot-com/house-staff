@@ -60,9 +60,17 @@
   color: #d83030;
 }
 
+.closeContainer {
+  width: 35px; 
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
 .closeBth {
   text-align: center;
-
   font-size: 16px;
   font-weight: 300;
   cursor: pointer;
@@ -71,22 +79,6 @@
 
 .closeBth:hover {
   opacity: 1;
-}
-
-.addToCard {
-  display: none;
-  right: 20px;
-  bottom: 20px;
-  background: silver;
-  font-size: 15px;
-  border: none;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  color: black;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 500ms ease;
 }
 
 @media (max-width: 576px) {

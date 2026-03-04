@@ -14,7 +14,7 @@ export function ProductNavView({
   categories?: Category[];
   collections?: Collection[];
 }) {
-  const [isOpen, setIsOpen] = useToggle(true);
+  const [isOpen, setIsOpen] = useToggle(false);
   const { navigateToCategory } = useShoppingNavigation();
 
   const categoriesNav = new Set([
@@ -44,7 +44,7 @@ export function ProductNavView({
       <ul className={classes.mobileCategories}>
         <li className={classes.categoryButton} onClick={setIsOpen}>
           Categories
-          {isOpen ? (
+          {!isOpen ? (
             <svg
               className={classes.icon}
               xmlns="http://www.w3.org/2000/svg"
@@ -65,20 +65,18 @@ export function ProductNavView({
             </svg>
           )}
         </li>
-        {isOpen
-          ? null
-          : Array.from(categoriesNav).map((category, index) => (
-              <li
-                className={cn(
-                  classes.mobileCategory,
-                  category === categoriesGroups.sale && classes.saleCategory,
-                )}
-                key={index}
-                onClick={() => navigateToCategory(category)}
-              >
-                {category}
-              </li>
-            ))}
+          {isOpen && Array.from(categoriesNav).map((category, index) => (
+            <li
+              className={cn(
+                classes.mobileCategory,
+                category === categoriesGroups.sale && classes.saleCategory,
+              )}
+              key={index}
+              onClick={() => navigateToCategory(category)}
+            >
+              {category}
+            </li>
+          ))}
       </ul>
     </aside>
   );

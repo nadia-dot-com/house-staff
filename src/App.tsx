@@ -9,24 +9,36 @@ import { MainLayout } from "./components/layouts/MainLayout/MainLayout";
 import { NotFounded } from "./pages/NotFound/NotFound";
 import { MainPage } from "./pages/MainPage/MainPage";
 import { ROUTES } from "./config/Routes";
-import { MyProfile } from "./pages/UserAccount/NavAccount/MyProfile/MyProfile";
-import { MyOrders } from "./pages/UserAccount/NavAccount/MyOrders/MyOrders";
-import { OrderPage } from "./pages/UserAccount/NavAccount/MyOrders/OrderPage/OrderPage";
-import { MyWishlist } from "./pages/UserAccount/NavAccount/MyWishlist/MyWishlist";
 import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
 import { GoogleCallback } from "./pages/GoogleCallback/GoogleCallback";
 import { ErrorBoundary } from "react-error-boundary";
 import { ErrorFallback } from "./components/ErrorFallback/ErrorFallback";
 import { lazy, Suspense } from "react";
 import { LoadingSpinner } from "./components/LoadingSpinner/LoadingSpinner";
-import { Wishlist } from "./pages/Wishlist/Wishlist";
-import { ShoppingCart } from "./pages/UserAccount/NavAccount/ShoppingCart/ShoppingCart";
 
 const Contact = lazy(() => import("./pages/Contact/Contact"));
-const UserAccount = lazy(() => import("./pages/UserAccount/UserAccount"));
 const ProductsPage = lazy(() => import("./pages/ProductsPage/ProductsPage"));
-const ProductPage = lazy(() => import("./pages/ProductsPage/ProductPage/ProductPage"));
+const ProductPage = lazy(
+  () => import("./pages/ProductsPage/ProductPage/ProductPage"),
+);
+const Wishlist = lazy(() => import("./pages/Wishlist/Wishlist"));
 
+const UserAccount = lazy(() => import("./pages/UserAccount/UserAccount"));
+const MyProfile = lazy(
+  () => import("./pages/UserAccount/NavAccount/MyProfile/MyProfile"),
+);
+const ShoppingCart = lazy(
+  () => import("./pages/UserAccount/NavAccount/ShoppingCart/ShoppingCart"),
+);
+const MyOrders = lazy(
+  () => import("./pages/UserAccount/NavAccount/MyOrders/MyOrders"),
+);
+const MyWishlist = lazy(
+  () => import("./pages/UserAccount/NavAccount/MyWishlist/MyWishlist"),
+);
+const OrderPage = lazy(
+  () => import("./pages/UserAccount/NavAccount/MyOrders/OrderPage/OrderPage"),
+);
 function App() {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>

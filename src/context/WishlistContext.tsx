@@ -1,4 +1,4 @@
-import { createContext, ReactNode } from "react";
+import { createContext, ReactNode, useCallback, useMemo } from "react";
 import { createContextHook } from "../hooks/createContextHook";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { GUEST_WISHLIST_KEY } from "../data/locatStorageKey";
@@ -12,24 +12,27 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
     [],
   );
 
-  const toggleGuestWishlist = (productId: string) => {
+  const toggleGuestWishlist = useCallback((productId: string) => {
     setGuestWishlist((prev) =>
       prev.includes(productId)
         ? prev.filter((id) => id !== productId)
         : [...prev, productId],
     );
-  };
+  }, []);
 
-  const cleanGuestWishlist = () => setGuestWishlist([]);
+  const cleanGuestWishlist = useCallback(() => setGuestWishlist([]), []);
+
+  const value = useMemo(
+    () => ({
+      guestWishlist,
+      toggleGuestWishlist,
+      cleanGuestWishlist,
+    }),
+    [guestWishlist, toggleGuestWishlist, cleanGuestWishlist],
+  );
 
   return (
-    <WishlistContext.Provider
-      value={{
-        guestWishlist,
-        toggleGuestWishlist,
-        cleanGuestWishlist,
-      }}
-    >
+    <WishlistContext.Provider value={value}>
       {children}
     </WishlistContext.Provider>
   );

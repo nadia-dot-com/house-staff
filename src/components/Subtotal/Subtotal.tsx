@@ -12,13 +12,13 @@ export function Subtotal({ arr }: { arr: OrderItem[] }) {
       <div className={classes.price}>
         {discount ? (
           <div>
-            <p className={classes.oldPrice}>${getSubtotal(arr).toFixed(2)}</p>
-            <p className={classes.discountPrice}>
+            <div className={classes.oldPrice}>${getSubtotal(arr).toFixed(2)}</div>
+            <div className={classes.discountPrice}>
               ${getDiscountSubtotal(arr).toFixed(2)}
-            </p>
+            </div>
           </div>
         ) : (
-          <p>${getSubtotal(arr).toFixed(2)}</p>
+          <div>${getSubtotal(arr).toFixed(2)}</div>
         )}
       </div>
     </section>
