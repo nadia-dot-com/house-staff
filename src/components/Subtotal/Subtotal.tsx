@@ -1,9 +1,10 @@
+import { OrderItemResponse } from "../../types/api/order.response";
 import { OrderItem } from "../../types/orderTypes";
 import { getDiscountSubtotal, getSubtotal } from "../../utils/getSubtotals";
 
 import classes from "./Subtotal.module.css";
 
-export function Subtotal({ arr }: { arr: OrderItem[] }) {
+export function Subtotal({ arr }: { arr: OrderItem[] | OrderItemResponse[] }) {
   const discount = arr.find((el) => el.discount > 0);
 
   return (
