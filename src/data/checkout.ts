@@ -1,6 +1,6 @@
-import { CheckoutItitial } from "../types/checkoutTypes";
+import { CheckoutState } from "../types/checkoutTypes";
 
-export const CHECKOUT_INITIAL: CheckoutItitial = {
+export const CHECKOUT_INITIAL: CheckoutState = {
   items: [],
   shippingData: null,
   delivery: null,

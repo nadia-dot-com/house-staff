@@ -4,7 +4,14 @@ import { createContextHook } from "../hooks/createContextHook";
 import { CHECKOUT_INITIAL } from "../data/checkout";
 import { OrderItem } from "../types/orderTypes";
 import { DeliveryMethod, PaymentMethod } from "../types/api/options";
-import { checkoutReducer } from "../reducers/checkoutReducer/checkoutReducer";
+import { checkoutReducer } from "../store/reducers/checkout";
+import {
+  resetCheckoutAction,
+  updateDataAction,
+  updateDeliveryAction,
+  updateItemsAction,
+  updatePaymentAction,
+} from "../store/actions/checkout";
 
 export const CheckoutContext = createContext<CheckoutContextType | null>(null);
 
@@ -12,18 +19,17 @@ export function CheckoutProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(checkoutReducer, CHECKOUT_INITIAL);
 
   const updateItems = (items: OrderItem[]) =>
-    dispatch({ type: "UPDATE_ITEMS", payload: items });
+    dispatch(updateItemsAction(items));
 
-  const updateData = (data: DataProps) =>
-    dispatch({ type: "UPDATE_DATA", payload: data });
+  const updateData = (data: DataProps) => dispatch(updateDataAction(data));
 
   const updateDelivery = (data: DeliveryMethod) =>
-    dispatch({ type: "UPDATE_DELIVERY", payload: data });
+    dispatch(updateDeliveryAction(data));
 
   const updatePayment = (data: PaymentMethod) =>
-    dispatch({ type: "UPDATE_PAYMENT", payload: data });
+    dispatch(updatePaymentAction(data));
 
-  const resetCheckout = () => dispatch({ type: "RESET_CHECKOUT" });
+  const resetCheckout = () => dispatch(resetCheckoutAction());
 
   return (
     <CheckoutContext.Provider

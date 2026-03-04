@@ -96,7 +96,7 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                         defaultValue={shippingData?.country ?? user?.country ?? ""}
                         required
                     >
-                        <option value= "" disabled>Select Country</option>
+                        <option value= "Select Country" disabled>Select Country</option>
 
                         {
                             countries.map(country => (

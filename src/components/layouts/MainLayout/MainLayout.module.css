@@ -7,7 +7,7 @@
 }
 .toastContainer {
   --toastify-color-progress-success: #DD701D;
-  top: 80px;
+  top: 50px;
 }
 
 .toastContainer svg {

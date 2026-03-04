@@ -16,9 +16,11 @@ export function calculateCheckoutPrice({
 }: Args) {
   const subtotal = getDiscountSubtotal(cartItems);
 
-  const vat = roundMoney(getVAT(subtotal, vatRate));
+  const totalWithoutVat = subtotal + deliveryPrice;
 
-  const total = roundMoney(subtotal + deliveryPrice + vat);
+  const vat = getVAT(totalWithoutVat,vatRate);
+
+  const total = roundMoney(totalWithoutVat + vat);
 
   return {
     subtotal,

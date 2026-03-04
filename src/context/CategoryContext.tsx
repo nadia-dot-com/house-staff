@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useMemo, useState } from "react";
 import { CategoryContextValue } from "../types/categoryTypes";
 import { categoriesGroups } from "../data/categories";
 import { createContextHook } from "../hooks/createContextHook";
@@ -10,13 +10,16 @@ export function CategoryProvider({ children }: { children: ReactNode }) {
     categoriesGroups.all,
   );
 
+  const value = useMemo(
+    () => ({
+      selectedCategory,
+      setSelectedCategory,
+    }),
+    [selectedCategory, setSelectedCategory],
+  );
+
   return (
-    <CategoryContext.Provider
-      value={{
-        selectedCategory,
-        setSelectedCategory,
-      }}
-    >
+    <CategoryContext.Provider value={value}>
       {children}
     </CategoryContext.Provider>
   );

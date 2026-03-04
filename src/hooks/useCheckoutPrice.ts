@@ -1,7 +1,9 @@
+import { keyBy } from "lodash";
 import { DeliveryMethod } from "../types/api/options";
 import { OrderItem } from "../types/orderTypes";
 import { calculateCheckoutPrice } from "../utils/calculateCheckoutPrice";
 import { useOptions } from "./options/useOptions";
+import { useMemo } from "react";
 
 export function useCheckoutPrice({
   cartItems,
@@ -14,7 +16,12 @@ export function useCheckoutPrice({
 }) {
   const { data } = useOptions();
 
-  const vatRate = data?.countries.find((c) => c.name === country)?.vatRate ?? 0;
+  const countriesMap = useMemo(
+    () => keyBy(data?.countries, "name"),
+    [data?.countries],
+  );
+  const vatRate =
+    country && countriesMap[country] ? countriesMap[country].vatRate : 0;
 
   const deliveryPrice = delivery?.price ?? 0;
 

@@ -17,6 +17,8 @@ import {
 } from "../../utils/product";
 
 import classes from "./ProductDetails.module.css";
+import { WishlistButton } from "../wishlist/WishlistButton/WishlistButton";
+import { Price } from "../Price/Price";
 
 export function ProductDetails({ product }: { product: Product }) {
   const {
@@ -37,7 +39,7 @@ export function ProductDetails({ product }: { product: Product }) {
   const { addToCart } = useCartContext();
   const { navigateToCategory } = useShoppingNavigation();
 
-  const { liked, toggleLike } = useWishlist(id);
+  const { liked, toggleLike, isLoading } = useWishlist(id);
 
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -125,32 +127,13 @@ export function ProductDetails({ product }: { product: Product }) {
       <div className={classes.container}>
         <h2 className={classes.title}>
           {name}
-          <span>
-            {liked ? (
-              <IoIosHeart
-                className={classes.wishlistButton}
-                onClick={toggleLike}
-              />
-            ) : (
-              <IoIosHeartEmpty
-                className={classes.wishlistButton}
-                onClick={toggleLike}
-              />
-            )}
-          </span>
+          <WishlistButton
+            isLoading={isLoading}
+            toggleLike={toggleLike}
+            liked={liked}
+          />
         </h2>
-        <div className={cn(classes.price)}>
-          {discount <= 0 ? (
-            <p>${Number(price).toFixed(2)}</p>
-          ) : (
-            <div>
-              <p className={classes.oldPrice}>${Number(price).toFixed(2)}</p>
-              <p className={classes.discountPrice}>
-                ${getDiscountPrice(price, discount).toFixed(2)}
-              </p>
-            </div>
-          )}
-        </div>
+        <Price price={price} discount={discount} />
         <div className={classes.quantityContainer}>
           <QuantityInput
             quantity={quantityValue}

@@ -1,28 +1,26 @@
 import { PresentationProps } from "../../../../types/presentation";
 import { cn } from "../../../../utils/cn";
 import { Button } from "../../../../components/Button/Button";
-
-import classes from "./PresentationItem.module.css";
 import { useShoppingNavigation } from "../../../../hooks/useShoppingNavigation";
 import { getImagePath } from "../../../../utils/getImagePath";
+import { PRESENTATION } from "../../../../data/presentation";
+import classes from "./PresentationItem.module.css";
 
 export function PresentationItem({
-  array,
-  index,
-  currentItem,
+  slideIndex,
+  item,
 }: {
-  array: PresentationProps[];
-  index: number;
-  currentItem: PresentationProps;
+  slideIndex: number;
+  item: PresentationProps;
 }) {
   const { navigateToCategory } = useShoppingNavigation();
 
-  return array.map((current, i) => (
+  return PRESENTATION.map((current, i) => (
     <div className={classes.slide} key={current.id}>
       <img
         src={getImagePath(current.img)}
         alt={current.title}
-        className={cn(classes.image, i === index && classes.active)}
+        className={cn(classes.image, i === slideIndex && classes.active)}
         width="1760"
         height="600"
         fetchPriority="high"
@@ -30,7 +28,7 @@ export function PresentationItem({
       <div
         className={cn(
           classes.content,
-          i === index && classes.active,
+          i === slideIndex && classes.active,
           i === 0 && classes.contentColor1,
         )}
       >
@@ -39,7 +37,7 @@ export function PresentationItem({
         <Button
           bgColor="white"
           textColor="black"
-          onClick={() => navigateToCategory(currentItem.category)}
+          onClick={() => navigateToCategory(item.category)}
           text={"• SHOP NOW"}
         />
       </div>

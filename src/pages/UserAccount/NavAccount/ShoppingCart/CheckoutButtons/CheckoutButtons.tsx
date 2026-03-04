@@ -1,5 +1,5 @@
 import { Button } from '../../../../../components/Button/Button';
-import { CHECKOUT_STEP } from '../checkoutStep';
+import { CHECKOUT_STEP } from '../../../../../constants/checkout';
 import classes from './CheckoutButtons.module.css';
 
 type CheckoutButtonsProps = {

@@ -1,13 +1,18 @@
 import { Product } from "../../../types/api/product";
+import { DataLoader } from "../../DataLoader/DataLoader";
 import { EmptyWishList } from "../EmptyWishList/EmptyWishList";
 import { WishlistItem } from "./WishlistItem/WishlistItem";
 
 import classes from "./WishlistItems.module.css";
 
-export function WishlistItems({ list }: { list: Product[] }) {
+export function WishlistItems({ list, isLoading, error }: { list: Product[], isLoading: boolean, error: Error | null }) {
+  
+  const isEmpty = (list === null && !isLoading )|| (list.length === 0 && !isLoading);
+
   return (
+    <DataLoader error={error} loading={isLoading} loaded={!!list}>
     <div>
-      {list.length === 0 ? (
+      {isEmpty ? (
         <EmptyWishList />
       ) : (
         <ul className={classes.wishlist}>
@@ -19,5 +24,6 @@ export function WishlistItems({ list }: { list: Product[] }) {
         </ul>
       )}
     </div>
+    </DataLoader>
   );
 }

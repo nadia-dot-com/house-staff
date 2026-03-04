@@ -1,13 +1,14 @@
 import { useMemo } from "react";
 import { useOrders } from "./useOrders";
+import { keyBy } from "lodash";
 
 export const useOrderFromOrders = (orderId?: string) => {
   const { data, ...rest } = useOrders();
 
-  const order = useMemo(
-    () => data?.find((o) => o.id === orderId),
-    [data, orderId],
+  const ordersMap = useMemo(
+    () => keyBy(data, 'id'),
+    [data],
   );
 
-  return { order, ...rest };
+  return { order: orderId ? ordersMap?.[orderId]: null, ...rest };
 };

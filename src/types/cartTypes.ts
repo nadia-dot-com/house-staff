@@ -6,10 +6,6 @@ export type CartContextValue = {
   addToCart: (product: Product, quantity?: number) => void;
   removeFromCart: (id: string) => void;
   clearCart: () => void;
-
-  isCartOpen: boolean;
-  toggleCartOpen: () => void;
-
   updateQuantity: (id: string, quantity: number, stock?: number) => void;
 };
 

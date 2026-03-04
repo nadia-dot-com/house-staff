@@ -1,7 +1,5 @@
-import { Dispatch } from "react";
 import { DeliveryMethod, PaymentMethod } from "./api/options";
 import { OrderItem } from "./orderTypes";
-import { CheckoutAction } from "../reducers/checkoutReducer/checkoutAction";
 
 export type DataProps = {
   fullName: string | null;
@@ -14,14 +12,14 @@ export type DataProps = {
   notes?: string | null;
 };
 
-export type CheckoutItitial = {
+export type CheckoutState = {
   items: OrderItem[];
   shippingData: DataProps | null;
   delivery: DeliveryMethod | null;
   payment: PaymentMethod | null;
 };
 
-export type CheckoutContextType = CheckoutItitial & {
+export type CheckoutContextType = CheckoutState & {
   updateItems: (items: OrderItem[]) => void;
   updateData: (data: DataProps) => void;
   updateDelivery: (data: DeliveryMethod) => void;

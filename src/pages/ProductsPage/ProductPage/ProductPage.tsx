@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { ProductDetails } from '../../../components/ProductDetails/ProductDetails.tsx';
-import { slugity } from '../../../utils/slugify.ts';
+import { slugify } from '../../../utils/slugify.ts';
 import { useProducts } from '../../../hooks/products/useProducts.ts';
 import { DataLoader } from '../../../components/DataLoader/DataLoader.tsx';
 
@@ -13,7 +13,7 @@ export default function ProductPage() {
 
     const name = itemId?.toLowerCase() ?? "";
 
-    const product = products?.find((i) => slugity(i.name) === name);
+    const product = products?.find((i) => slugify(i.name) === name);
 
     return (
         <DataLoader

@@ -13,9 +13,14 @@
   width: 6px;
 }
 
+.orderList::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 10px 0;
+}
+
 .orderList::-webkit-scrollbar-thumb {
   background: #888;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 .orderList::-webkit-scrollbar-thumb:hover {
@@ -55,9 +60,8 @@
   top: 2px;
 }
 
-@media(max-width:400px) {
+@media (max-width: 400px) {
   .orderList {
-  margin: 0px 5px;
-}
-
+    margin: 0px 5px;
+  }
 }

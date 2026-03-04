@@ -37,7 +37,7 @@ export const fetchDeleteFromWiszlist = async (
   });
 };
 
-export const fetchAddToWiszlist = async (
+export const addToWishlist = async (
   productsIds: string[],
   token: string,
 ) => {

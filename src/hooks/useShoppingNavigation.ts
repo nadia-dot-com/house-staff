@@ -1,23 +1,23 @@
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../config/Routes";
 import { useCategoryContext } from "../context/CategoryContext";
-import { slugity } from "../utils/slugify";
+import { slugify } from "../utils/slugify";
+import { compact } from "lodash";
+import { useCallback } from "react";
 
 export function useShoppingNavigation() {
   const { setSelectedCategory } = useCategoryContext();
   const navigate = useNavigate();
 
-  const navigateToCategory = (category: string, productId?: string) => {
-    const categorySlug = slugity(category).toLowerCase();
+  const navigateToCategory = useCallback((category: string, productId?: string) => {
+    const toUrl = compact([
+      `/${ROUTES.products}`,
+      slugify(category),
+      productId && slugify(productId),
+    ]).join("/");
     setSelectedCategory(category);
-
-    if (productId) {
-      const productSlug = slugity(productId).toLowerCase();
-      navigate(`/${ROUTES.products}/${categorySlug}/${productSlug}`);
-    } else {
-      navigate(`/${ROUTES.products}/${categorySlug}`);
-    }
-  };
+    navigate(toUrl);
+  }, [setSelectedCategory, navigate]);
 
   return { navigateToCategory };
 }

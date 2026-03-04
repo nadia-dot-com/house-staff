@@ -3,6 +3,8 @@ import { fetchWishlist } from "../../api/wishlist.api";
 import { fetchProducts } from "../../api/products.api";
 import { Product } from "../../types/api/product";
 import { useUserContext } from "../../context/UserContext";
+import { keyBy } from "lodash";
+import { queryClient } from "../../query/queryClient";
 
 export const useWishlistQuery = () => {
   const { token } = useUserContext();
@@ -10,18 +12,14 @@ export const useWishlistQuery = () => {
   return useQuery<Product[], Error>({
     queryKey: ["wishlist"],
     queryFn: async () => {
-      if (!token) {
-        throw new Error("No token");
-      }
+      if (!token) throw new Error("No token");
 
       const wishlist = await fetchWishlist(token);
-      const products = await fetchProducts();
+      const products = queryClient.getQueryData(["products"]) ?? await fetchProducts();
 
-      const productMap = new Map(products.map((p) => [p.id, p]));
+      const productsMap = keyBy(products, "id");
 
-      const isProduct = (p: Product | undefined): p is Product => Boolean(p);
-
-      return wishlist.map((w) => productMap.get(w.id)).filter(isProduct);
+      return wishlist.map((wishlistItem) => productsMap[wishlistItem.id]);
     },
     enabled: !!token,
   });

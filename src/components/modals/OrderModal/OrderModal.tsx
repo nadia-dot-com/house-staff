@@ -2,12 +2,15 @@ import { EmptyCard } from "../../EmptyCard/EmptyCard";
 import { useCartContext } from "../../../context/CartContext";
 import { useClickOutside } from "../../../hooks/useClickOutside";
 import { ShowOrder } from "./ShowOrder/ShowOrder";
-
+import { useCartUiContext } from "../../../context/CartUIContext";
 import classes from "./OrderModal.module.css";
 
 export function OrderModal() {
-  const { cartItems, toggleCartOpen } = useCartContext();
+  const { toggleCartOpen } = useCartUiContext();
+  const { cartItems } = useCartContext();
   const refCallback = useClickOutside(toggleCartOpen);
+
+  const showContent = cartItems.length > 0;
 
   return (
     <div
@@ -17,10 +20,10 @@ export function OrderModal() {
       ref={refCallback}
       className={classes.orderModal}
     >
-      {cartItems.length > 0 ? (
+      {showContent ? (
         <ShowOrder cartItems={cartItems} />
       ) : (
-        <EmptyCard />
+           <EmptyCard />
       )}
     </div>
   );

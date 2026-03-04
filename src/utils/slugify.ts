@@ -1,1 +1,1 @@
-export const slugity = (str: string) => str.toLowerCase().replace(/\s+/g, "-");
+export const slugify = (str: string) => str.toLowerCase().replace(/\s+/g, "-");

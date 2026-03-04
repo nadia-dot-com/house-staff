@@ -5,7 +5,7 @@ import { DataLoader } from '../../../../components/DataLoader/DataLoader';
 
 import classes from './MyOrders.module.css';
 
-export function MyOrders() {
+export default function MyOrders() {
     const { data: orders, isLoading, error } = useOrders();
     const navigate = useNavigate();
 

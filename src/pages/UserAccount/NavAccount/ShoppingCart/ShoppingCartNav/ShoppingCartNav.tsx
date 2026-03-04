@@ -1,5 +1,5 @@
+import { CHECKOUT_STEP } from '../../../../../constants/checkout';
 import { cn } from '../../../../../utils/cn';
-import { CHECKOUT_STEP } from '../checkoutStep';
 
 import classes from './ShoppingCartNav.module.css'
 

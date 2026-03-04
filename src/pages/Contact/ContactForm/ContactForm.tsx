@@ -1,45 +1,28 @@
-import { FormEvent, useRef, useState } from "react";
 import { Button } from "../../../components/Button/Button";
+import { CONTACT_FORM_STATE } from "../../../constants/contactForm";
+import { useContactForm } from "../../../hooks/useContactForm";
 import { cn } from "../../../utils/cn";
-import { WEB3FORMS_KEY } from "../../../api/config";
-
 import classes from "./ContactForm.module.css";
-import { CONTACT_FORM_URL } from "../../../config";
 
 export function ContactForm() {
-  const [result, setResult] = useState("");
-  const formRef = useRef<HTMLFormElement | null>(null);
+  const {
+    mutate: sendContactForm,
+    isError,
+    isSuccess,
+    isPending,
+    formRef,
+  } = useContactForm();
 
-  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    formData.append("access_key", WEB3FORMS_KEY);
-
-    try {
-      const response = await fetch(CONTACT_FORM_URL, {
-        method: "POST",
-        body: formData,
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        setResult(" Your submission was successful!");
-        formRef.current?.reset();
-      } else {
-        setResult(" Something went wrong. Please try again.");
-      }
-    } catch (error) {
-      const err = error as Error;
-      setResult(`Network error: ${err.message}. Please try later.`);
-    }
+    sendContactForm(event.currentTarget);
   };
 
   return (
     <section className={classes.formWrapper}>
       <form
         className={classes.form}
-        onSubmit={onSubmit}
+        onSubmit={(e) => handleSubmit(e)}
         ref={formRef}
         autoComplete="on"
       >
@@ -86,19 +69,17 @@ export function ContactForm() {
             required
           />
         </div>
-        <Button
-          bgColor="white"
-          textColor="black"
-          text={"• SEND ENQUIRY"}
-        />
+        <Button bgColor="white" textColor="black" text={"• SEND ENQUIRY"} />
         <p
           className={cn(
             classes.result,
-            result.toLowerCase().includes("success") && classes.success,
-            result.toLowerCase().includes("error") && classes.error,
+            isSuccess && classes.success,
+            isError && classes.error,
           )}
         >
-          {result}
+          {isSuccess && CONTACT_FORM_STATE.success}
+          {isError && CONTACT_FORM_STATE.error}
+          {isPending && "Sending..."}
         </p>
       </form>
     </section>

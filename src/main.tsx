@@ -12,6 +12,7 @@ import { CategoryProvider } from "./context/CategoryContext.tsx";
 import { WishlistProvider } from "./context/WishlistContext.tsx";
 
 import "./index.css";
+import { CartUIProvider } from "./context/CartUIContext.tsx";
 
 initGlobalErrorHandler();
 
@@ -24,7 +25,9 @@ function Main() {
             <CartProvider>
               <WishlistProvider>
                 <CheckoutProvider>
-                  <App />
+                  <CartUIProvider>
+                    <App />
+                  </CartUIProvider>
                 </CheckoutProvider>
               </WishlistProvider>
             </CartProvider>
