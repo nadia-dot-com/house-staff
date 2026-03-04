@@ -1,1 +1,0 @@
-import{j as e}from"./jsx-runtime-D_zvdyIk.js";const t="_errorState_hit2s_1",s={errorState:t};function o({message:r}){return e.jsx("div",{className:s.errorState,children:r})}o.__docgenInfo={description:"",methods:[],displayName:"ErrorState",props:{message:{required:!0,tsType:{name:"string"},description:""}}};export{o as E};
