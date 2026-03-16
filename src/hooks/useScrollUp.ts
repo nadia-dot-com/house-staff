@@ -12,7 +12,7 @@ export function useScrollUp() {
 
     const currentY = window.scrollY;
 
-    setIsScrollingUp(currentY < lastYRef.current);
+    setIsScrollingUp(currentY < lastYRef.current || currentY < 50);
 
     lastYRef.current = currentY;
 
