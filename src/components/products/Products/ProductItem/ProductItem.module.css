@@ -66,23 +66,24 @@
 
 .addToCard {
   position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
   right: 20px;
   bottom: 20px;
-  padding: 0;
+  width: 25px; /* Przy 25px szerokości, plusik 8px jest ok, ale 10-12px byłby lepiej widoczny */
+  height: 25px;
   background: black;
   color: #fff;
   border: none;
-  width: 25px;
-  height: 25px;
-  text-align: center;
   border-radius: 50%;
   cursor: pointer;
   transition: all 500ms ease;
   opacity: 0.7;
+  
+  /* RESET DLA IPHONE */
+  padding: 0;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none; /* Wyłącza systemowe style Apple */
+  overflow: hidden;
 }
 
 .addToCard:hover {
@@ -90,8 +91,11 @@
 }
 
 .addToCard svg {
-  display: block;        
-  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  display: block;
 }
 
 .labels {

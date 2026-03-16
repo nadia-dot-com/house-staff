@@ -73,6 +73,7 @@ const ProductItemVisual = memo(
             className={classes.addToCard}
             onClick={addToCart}
             disabled={!isInStock}
+            type="button"
           >
             <svg
               width="8"
