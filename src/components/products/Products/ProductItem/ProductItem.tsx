@@ -1,3 +1,4 @@
+import classes from "./ProductItem.module.css";
 import { cn } from "@/utils/cn";
 import { useCartContext } from "@/context/CartContext";
 import { SaleLabel } from "../../../SaleLabel/SaleLabel";
@@ -10,7 +11,7 @@ import { isProductInStock, isProductOnSale } from "@/utils/product";
 import { memo, useCallback } from "react";
 import { WishlistButton } from "../../../wishlist/WishlistButton/WishlistButton";
 import { Price } from "../../../Price/Price";
-import classes from "./ProductItem.module.css";
+import { motion } from "motion/react";
 
 const ProductItemVisual = memo(
   ({
@@ -36,8 +37,14 @@ const ProductItemVisual = memo(
     const isNew = checkProductDate(releaseDate);
 
     return (
-      <div
+      <motion.div
         className={cn(classes.product, !isInStock && classes.disableProduct)}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.5,
+          ease: "easeOut",
+        }}
       >
         <WishlistButton
           isLoading={isLoading}
@@ -79,7 +86,7 @@ const ProductItemVisual = memo(
               width="8"
               height="8"
               viewBox="0 0 14 14"
-              style={{ display: 'block' }}
+              style={{ display: "block" }}
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -92,7 +99,7 @@ const ProductItemVisual = memo(
             </svg>
           </button>
         </div>
-      </div>
+      </motion.div>
     );
   },
 );

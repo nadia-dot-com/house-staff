@@ -1,9 +1,10 @@
+import classes from "./Hotspot.module.css";
 import { useToggle } from "@/hooks/useToggle";
 import { HotspotItem } from "./HotspotItem/HotspotItem";
 import { HotspotButton } from "./HotspotButton/HotspotButton";
 import { ProductNotFound } from "./ProductNotFound/ProductNotFound";
 import { Product } from "@/types/api/product";
-import classes from "./Hotspot.module.css";
+import { AnimatePresence } from "motion/react";
 
 export function Hotspot({
   top,
@@ -22,15 +23,15 @@ export function Hotspot({
     products.find((p) => String(p.id) === String(productId)) ?? null;
 
   return (
-    <>
-      <div
-        className={classes.hotspotWrapper}
-        style={{ top, left, position: "absolute" }}
-      >
-        <HotspotButton onClick={toggleVisible} />
+    <div
+      className={classes.hotspotWrapper}
+      style={{ top, left, position: "absolute" }}
+    >
+      <HotspotButton onClick={toggleVisible} />
+      <AnimatePresence>
         {visible &&
           (product ? <HotspotItem item={product} /> : <ProductNotFound />)}
-      </div>
-    </>
+      </AnimatePresence>
+    </div>
   );
 }

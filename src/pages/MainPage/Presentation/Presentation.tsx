@@ -3,6 +3,7 @@ import { PRESENTATION } from "@/data/presentation";
 import { PresentationItem } from "./PresentationItem/PresentationItem";
 import { useHover } from "@/hooks/useHover";
 import classes from "./Presentation.module.css";
+import { AnimatePresence } from "motion/react";
 
 const DELAY = 3000;
 
@@ -34,10 +35,12 @@ export function Presentation() {
 
   return (
     <section ref={refCallback} className={classes.presentation}>
-      <PresentationItem
-        slideIndex={activeSlideIndex}
-        item={PRESENTATION[activeSlideIndex]}
-      />
+      <AnimatePresence mode="popLayout">
+        <PresentationItem
+          key={activeSlideIndex}
+          item={PRESENTATION[activeSlideIndex]}
+        />
+      </AnimatePresence>
     </section>
   );
 }

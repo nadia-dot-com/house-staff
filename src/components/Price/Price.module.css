@@ -1,9 +1,10 @@
-.price {margin:0px 0px;
+.price {
+  margin: 0px 0px;
   color: black;
   font-weight: 500;
 }
 
-.discountContainer{
+.discountContainer {
   display: flex;
   gap: 5px;
 }

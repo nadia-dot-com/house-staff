@@ -10,7 +10,9 @@ export function AccountIcon() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent<SVGElement>) => {
+    e.stopPropagation();
+
     if (!user) {
       toggleModalOpen();
     } else {
@@ -26,7 +28,7 @@ export function AccountIcon() {
         classes.accountIcon,
         (isLoginModalOpen || isAccountPage) && classes.active,
       )}
-      onClick={() => handleClick()}
+      onClick={handleClick}
       aria-label={user ? "My Account" : "Login"}
     />
   );

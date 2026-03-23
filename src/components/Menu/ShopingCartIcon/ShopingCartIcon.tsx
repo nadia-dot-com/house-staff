@@ -3,17 +3,24 @@ import { cn } from "@/utils/cn";
 import { useCartContext } from "@/context/CartContext";
 import { OrderQuantity } from "./OrderQuantity/OrderQuantity";
 import { useCartUiContext } from "@/context/CartUIContext";
-import classes from "./ShopingCardIcon.module.css";
+import classes from "./ShopingCartIcon.module.css";
 
-export function ShopingCardIcon({ active }: { active: boolean }) {
+export function ShopingCartIcon({ active }: { active: boolean }) {
   const { toggleCartOpen } = useCartUiContext();
   const { cartItems } = useCartContext();
 
+  const handleClick = (e: React.MouseEvent<SVGElement>) => {
+    e.stopPropagation();
+    toggleCartOpen();
+  };
+
   return (
-    <div>
+    <div
+    
+    >
       <FaCartShopping
         className={cn(classes.shopingCardIcon, active && classes.active)}
-        onClick={() => toggleCartOpen()}
+        onClick={handleClick}
       />
       {cartItems.length > 0 && <OrderQuantity />}
     </div>

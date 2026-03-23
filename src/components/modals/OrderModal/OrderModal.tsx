@@ -1,9 +1,10 @@
+import classes from "./OrderModal.module.css";
 import { EmptyCard } from "../../EmptyCard/EmptyCard";
 import { useCartContext } from "@/context/CartContext";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { ShowOrder } from "./ShowOrder/ShowOrder";
 import { useCartUiContext } from "@/context/CartUIContext";
-import classes from "./OrderModal.module.css";
+import { motion } from "motion/react";
 
 export function OrderModal() {
   const { toggleCartOpen } = useCartUiContext();
@@ -13,18 +14,21 @@ export function OrderModal() {
   const showContent = cartItems.length > 0;
 
   return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label="Shopping cart"
-      ref={refCallback}
-      className={classes.orderModal}
+    <motion.div
+      key="login-modal"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
-      {showContent ? (
-        <ShowOrder cartItems={cartItems} />
-      ) : (
-           <EmptyCard />
-      )}
-    </div>
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Shopping cart"
+        ref={refCallback}
+        className={classes.orderModal}
+      >
+        {showContent ? <ShowOrder cartItems={cartItems} /> : <EmptyCard />}
+      </div>
+    </motion.div>
   );
 }

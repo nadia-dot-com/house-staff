@@ -4,7 +4,6 @@ import { ProductNavView } from "./ProductNavView/ProductNavView";
 
 export function ProductNav() {
   const { data: categories } = useCategories();
-
   const { data: collections } = useCollections();
 
   return (

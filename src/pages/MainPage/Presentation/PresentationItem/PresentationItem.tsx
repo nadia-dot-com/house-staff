@@ -4,23 +4,35 @@ import { Button } from "@/components/Button/Button";
 import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
 import { getImagePath } from "@/utils/getImagePath";
 import { PRESENTATION } from "@/data/presentation";
+import { motion } from "motion/react";
 import classes from "./PresentationItem.module.css";
 
 export function PresentationItem({
-  slideIndex,
   item,
 }: {
-  slideIndex: number;
   item: PresentationProps;
 }) {
   const { navigateToCategory } = useShoppingNavigation();
 
-  return PRESENTATION.map((current, i) => (
-    <div className={classes.slide} key={current.id}>
-      <img
-        src={getImagePath(current.img)}
-        alt={current.title}
-        className={cn(classes.image, i === slideIndex && classes.active)}
+  return (
+    <motion.div
+      className={classes.slide}
+      key={item.id}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{
+        duration: 1,
+        ease: "easeInOut",
+      }}
+    >
+      <motion.img
+        src={getImagePath(item.img)}
+        alt={item.title}
+        className={cn(classes.image)}
+        initial={{ scale: 1.1 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 4 }}
         width="1760"
         height="600"
         fetchPriority="high"
@@ -28,12 +40,11 @@ export function PresentationItem({
       <div
         className={cn(
           classes.content,
-          i === slideIndex && classes.active,
-          i === 0 && classes.contentColor1,
+          item === PRESENTATION[0] && classes.contentColor1,
         )}
       >
-        <h1 className={classes.title}>{current.title}</h1>
-        <p className={classes.desc}>{current.desc}</p>
+        <h1 className={classes.title}>{item.title}</h1>
+        <p className={classes.desc}>{item.desc}</p>
         <Button
           bgColor="white"
           textColor="black"
@@ -41,6 +52,6 @@ export function PresentationItem({
           text={"• SHOP NOW"}
         />
       </div>
-    </div>
-  ));
+    </motion.div>
+  );
 }
