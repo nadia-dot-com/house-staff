@@ -14,7 +14,6 @@ import { isProductInStock, isProductOnSale } from "@/utils/product";
 import { WishlistButton } from "../wishlist/WishlistButton/WishlistButton";
 import { Price } from "../Price/Price";
 import { PageTransition } from "../PageTransition/PageTransition";
-import { useLocation } from "react-router-dom";
 
 export function ProductDetails({ product }: { product: Product }) {
   const {
@@ -33,7 +32,6 @@ export function ProductDetails({ product }: { product: Product }) {
   
   const { addToCart } = useCartContext();
   const { navigateToCategory } = useShoppingNavigation();
-  const location = useLocation();
 
   const { liked, toggleLike, isLoading } = useWishlist(id);
 
