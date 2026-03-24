@@ -1,3 +1,4 @@
+import classes from "./ShoppingCart.module.css";
 import { useRef, useState } from "react";
 import { useUserContext } from "@/context/UserContext";
 import { EmptyCard } from "@/components/EmptyCard/EmptyCard";
@@ -13,7 +14,6 @@ import { categoriesGroups } from "@/data/categories";
 import { useCheckoutPrice } from "@/hooks/useCheckoutPrice";
 import { useCreateOrder } from "@/hooks/orders/useCreateOrder";
 import { buildOrderPayload } from "@/utils/buildOrderPayload";
-import classes from "./ShoppingCart.module.css";
 import { OrderError } from "./OrderError/OrderError";
 import { ERROR_MESSAGES } from "@/constants/messages";
 import { OrderSuccess } from "./OrderSuccess/OrderSuccess";

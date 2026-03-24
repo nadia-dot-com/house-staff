@@ -12,13 +12,17 @@ export default function UserAccount() {
   const { user, isLoading, error } = useUserContext();
   const location = useLocation();
 
+  const displayName = user?.name
+    ? Array.from(new Set(user.name.split(" "))).join(" ")
+    : "";
+
   return (
     <DataLoader loading={isLoading} loaded={!isLoading} error={error}>
       <PageTransition>
         <div className={classes.userWrapper}>
           {user ? (
             <>
-              <h1 className={classes.helloUser}>Hello, {user.name} ;)</h1>
+              <h1 className={classes.helloUser}>Hello, {displayName} ;)</h1>
 
               <NavAccount />
 
