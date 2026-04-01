@@ -1,7 +1,7 @@
 import classes from "./RadioGroup.module.scss";
 
 export function RadioGroup<
-  T extends { id: string | number; name: string; price: number },
+  T extends { id: string | number; name: string; price?: number },
 >({
   title,
   options,
