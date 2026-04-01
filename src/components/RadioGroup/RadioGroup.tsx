@@ -23,13 +23,13 @@ export function RadioGroup<
             <input
               className={classes.radio}
               type="radio"
-              name="radio-group"
+              name={title}
               checked={method?.id === option.id}
               onChange={() => onClick(option)}
             />
             {option.name}
           </label>
-          <p className={classes.price}>${option.price}</p>
+          {option.price && <p className={classes.price}>${option.price}</p>}
         </div>
       ))}
     </fieldset>
