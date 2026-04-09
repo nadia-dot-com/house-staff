@@ -1,3 +1,4 @@
+import { useCartUiContext } from "@/context/CartUIContext";
 import classes from "./ProductNavView.module.scss";
 import { categoriesGroups } from "@/data/categories";
 import { useHover } from "@/hooks/useHover";
@@ -15,11 +16,12 @@ export function ProductNavView({
   categories?: Category[];
   collections?: Collection[];
 }) {
+  const {isMenuOpen} = useCartUiContext();
   const [isOpen, setIsOpen] = useState(false);
   const { navigateToCategory } = useShoppingNavigation();
   const hoverRef = useHover(
-    () => setIsOpen(true),
-    () => setIsOpen(false),
+    () => { if (!isMenuOpen) setIsOpen(true)},
+    () => { if (!isMenuOpen)setIsOpen(false)},
   );
 
   const categoriesNav = new Set([

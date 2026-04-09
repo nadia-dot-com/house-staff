@@ -3,10 +3,7 @@
 .showOrderWrapper {
   margin-bottom: 20px;
   height: auto;
-
-  @media (max-width: 576px) {
-    overflow-y: auto;
-  }
+  overflow-y: auto;
 }
 
 .orderList {

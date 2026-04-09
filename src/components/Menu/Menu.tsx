@@ -4,7 +4,6 @@ import { ShoppingCartIcon } from "./ShoppingCartIcon/ShoppingCartIcon";
 import { ROUTES } from "@/config/Routes";
 import { AccountIcon } from "./AccountIcon/AccountIcon";
 import { WishlistIcon } from "./WishlistIcon/WishlistIcon";
-import { useToggle } from "@/hooks/useToggle";
 import { useEffect } from "react";
 import { useCartUiContext } from "@/context/CartUIContext";
 import { AnimatePresence, motion } from "motion/react";
@@ -21,17 +20,16 @@ const menuLinks: MenuLinksProps[] = [
 ];
 
 export function Menu() {
-  const [isOpen, setIsOpen] = useToggle(false);
-  const { isCartOpen } = useCartUiContext();
+  const { isCartOpen, isMenuOpen, toggleMenuOpen } = useCartUiContext();
 
   useEffect(() => {
     const closeMenuOnScroll = () => {
-      if (isOpen) setIsOpen();
+      if (isMenuOpen) toggleMenuOpen();
     };
 
     window.addEventListener("scroll", closeMenuOnScroll);
     return () => window.removeEventListener("scroll", closeMenuOnScroll);
-  }, [isOpen]);
+  }, [isMenuOpen]);
 
   return (
     <nav className={classes.nav}>
@@ -65,9 +63,9 @@ export function Menu() {
         </div>
 
         <div className={classes.burgerMenu}>
-          <div className={classes.burgerIcon} onClick={setIsOpen}>
+          <div className={classes.burgerIcon} onClick={toggleMenuOpen}>
             <AnimatePresence mode="wait" initial={false}>
-              {isOpen ? (
+              {isMenuOpen ? (
                 <motion.svg
                   key="close"
                   initial={{ rotate: -30, opacity: 0 }}
@@ -104,7 +102,7 @@ export function Menu() {
           </div>
 
           <AnimatePresence>
-            {isOpen ? (
+            {isMenuOpen? (
               <motion.ul
                 key="login-modal"
                 initial={{ opacity: 0, y: -20 }}
