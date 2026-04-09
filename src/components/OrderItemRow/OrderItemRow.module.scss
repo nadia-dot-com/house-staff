@@ -43,7 +43,7 @@
     font-weight: 600;
 
     &.discountPrice {
-      color: v.$color-accent-red;
+      color: v.$color-red-600;
     }
   }
 
@@ -54,8 +54,8 @@
     transition: all 500ms ease;
 
     &:hover {
-      color: v.$color-accent-red;
-      transform: scale(1.25) translateY(-2px);
+      color: v.$color-red-600;
+      transform: scale(1.10) translateY(-2px);
     }
   }
 

@@ -14,7 +14,7 @@ export function HotspotItem({ item }: { item: Product }) {
       exit={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
     >
       <img src={item.imagesUrls[0]} alt={item.name} className={classes.img} />
       <div className={classes.text}>

@@ -28,10 +28,10 @@
     font-weight: 400;
     font-size: 25px;
     text-decoration: none;
-    transition: color 500ms ease;
+    transition: color 0.4s ease;
 
     &:hover {
-      color: v.$color-accent;
+      color: v.$color-accent-400;
     }
   }
 

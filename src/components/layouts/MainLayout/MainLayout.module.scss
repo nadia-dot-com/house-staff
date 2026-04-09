@@ -6,11 +6,11 @@
   flex-direction: column;
 }
 .toastContainer {
-  --toastify-color-progress-success: #{v.$color-accent};
+  --toastify-color-progress-success: #{v.$color-accent-400};
   top: 50px;
 
   svg {
-    fill: v.$color-accent;
+    fill: v.$color-accent-400;
   }
 
   @media (max-width: 992px) {

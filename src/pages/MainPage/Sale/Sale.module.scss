@@ -189,7 +189,7 @@
   display: block;
   font-size: 18px;
   font-weight: 500;
-  color: #d43c05;
+  color: v.$color-red-600;
 
   @media (max-width: 1200px) {
     left: -8px;
@@ -212,7 +212,7 @@
   z-index: 2;
 
   .title {
-    color: #d43905;
+    color: v.$color-accent-600;
     font-weight: 300;
     font-size: 100px;
     font-family: "Cormorant", serif;

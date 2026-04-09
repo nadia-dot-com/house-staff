@@ -56,7 +56,7 @@ export function Sale() {
           of furniture, decor, and more.
         </h2>
         <Button
-          bgColor="#D74F0E"
+          bgColor="#f54900"
           textColor="white"
           onClick={() => navigateToCategory(categoriesGroups.sale)}
           text={"• SHOP NOW"}

@@ -1,3 +1,5 @@
+@use "@/variables" as v;
+
 .shoppingCartIcon {
   position: relative;
   font-size: 19px;
@@ -6,7 +8,7 @@
 
   &.active,
   &:hover {
-    color: #dc3d3d;
+    color: v.$color-red-600;
   }
 
   @media (max-width: 992px) {

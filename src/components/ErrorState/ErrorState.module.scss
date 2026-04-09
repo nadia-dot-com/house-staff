@@ -1,9 +1,11 @@
+@use '@/variables' as v;
+
 .errorState {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #a52a2a;
+  color: v.$color-red-800;
   padding: 20px;
   font-size: 18px;
   font-weight: 600;

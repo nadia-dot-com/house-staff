@@ -103,13 +103,13 @@
   }
 
   &.success {
-    color: #35ca7b;
+    color: v.$color-emerald-500;
     &::before {
       content: "✔ ";
     }
   }
   &.error {
-    color: v.$color-accent-red;
+    color: v.$color-red-500;
     &::before {
       content: "✖ ";
     }
