@@ -27,7 +27,9 @@
     display: none;
     justify-content: center;
     align-items: center;
+    position: relative;
     gap: 20px;
+    z-index: 40;
   }
 
   .burgerMenu {
@@ -38,7 +40,7 @@
     transition: transform 0.3s linear;
     background-color: rgba(v.$white, 0.9);
     backdrop-filter: blur(5px);
-    z-index: 100;
+    pointer-events: auto;
 
   }
 
@@ -62,6 +64,7 @@
     font-size: 14px;
     background-color: rgba(v.$white, 0.9);
     backdrop-filter: blur(5px);
+    pointer-events: auto;
 
     li {
       border-bottom: 1px solid v.$color-gray-light;

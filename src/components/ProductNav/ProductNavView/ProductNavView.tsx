@@ -16,12 +16,11 @@ export function ProductNavView({
   categories?: Category[];
   collections?: Collection[];
 }) {
-  const {isMenuOpen} = useCartUiContext();
   const [isOpen, setIsOpen] = useState(false);
   const { navigateToCategory } = useShoppingNavigation();
   const hoverRef = useHover(
-    () => { if (!isMenuOpen) setIsOpen(true)},
-    () => { if (!isMenuOpen)setIsOpen(false)},
+    () => setIsOpen(true),
+    () => setIsOpen(false),
   );
 
   const categoriesNav = new Set([

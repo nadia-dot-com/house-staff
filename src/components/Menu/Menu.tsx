@@ -7,6 +7,7 @@ import { WishlistIcon } from "./WishlistIcon/WishlistIcon";
 import { useEffect } from "react";
 import { useCartUiContext } from "@/context/CartUIContext";
 import { AnimatePresence, motion } from "motion/react";
+import { useToggle } from "@/hooks/useToggle";
 
 type MenuLinksProps = {
   to: string;
@@ -20,7 +21,8 @@ const menuLinks: MenuLinksProps[] = [
 ];
 
 export function Menu() {
-  const { isCartOpen, isMenuOpen, toggleMenuOpen } = useCartUiContext();
+  const [isMenuOpen, toggleMenuOpen] = useToggle(false);
+  const { isCartOpen} = useCartUiContext();
 
   useEffect(() => {
     const closeMenuOnScroll = () => {

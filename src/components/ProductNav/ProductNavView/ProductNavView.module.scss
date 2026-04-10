@@ -54,10 +54,6 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 300ms ease;
-
-    &:hover {
-      color: v.$color-accent-400;
-    }
   }
 
   .mobileDropdownList {
