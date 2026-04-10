@@ -1,4 +1,3 @@
-import { useCartUiContext } from "@/context/CartUIContext";
 import classes from "./ProductNavView.module.scss";
 import { categoriesGroups } from "@/data/categories";
 import { useHover } from "@/hooks/useHover";
