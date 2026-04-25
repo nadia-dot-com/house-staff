@@ -14,7 +14,7 @@ type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
   args: {
-    text: "Button",
+    text: "BUTTON",
     disabled: false,
     bgColor: "black",
     textColor: "white",

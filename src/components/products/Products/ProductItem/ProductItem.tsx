@@ -13,7 +13,16 @@ import { WishlistButton } from "../../../wishlist/WishlistButton/WishlistButton"
 import { Price } from "../../../Price/Price";
 import { motion } from "motion/react";
 
-const ProductItemVisual = memo(
+type ProductItemVisualProps = {
+  product: Product,
+    addToCart: () => void,
+    liked: boolean,
+    toggleLike: () => void,
+    handleNavigate: () => void,
+    isLoading: boolean,
+}
+
+export const ProductItemVisual = memo(
   ({
     product,
     addToCart,
@@ -21,7 +30,7 @@ const ProductItemVisual = memo(
     toggleLike,
     handleNavigate,
     isLoading,
-  }: any) => {
+  }: ProductItemVisualProps) => {
     const {
       name,
       imagesUrls,
@@ -81,6 +90,7 @@ const ProductItemVisual = memo(
             onClick={addToCart}
             disabled={!isInStock}
             type="button"
+            aria-label={isInStock ? "Add to cart" : "Product out of stock"}
           >
             <svg
               width="8"
@@ -89,6 +99,7 @@ const ProductItemVisual = memo(
               style={{ display: "block" }}
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
             >
               <path
                 d="M7 1V13M1 7H13"
