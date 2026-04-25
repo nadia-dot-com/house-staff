@@ -5,9 +5,9 @@ import { Product } from "@/types/api/product";
 const meta: Meta<typeof ProductItemVisual> = {
   component: ProductItemVisual,
   argTypes: {
-    addToCart: () => console.log("add-to-cart"),
-    toggleLike: () => console.log("toggle-like"),
-    handleNavigate: () => console.log("handle-navigate"),
+    addToCart: () => {},
+    toggleLike: () => {},
+    handleNavigate: () => {},
   },
   decorators: [
     (Story) => (
