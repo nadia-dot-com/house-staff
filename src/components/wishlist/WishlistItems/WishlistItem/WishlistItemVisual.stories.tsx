@@ -10,11 +10,13 @@ const meta: Meta<typeof WishlistItemVisual> = {
     navigate: () => {},
     addToCart: () => {},
   },
-  decorators: (Story) => (
-    <WishlistProvider>
-      <Story />
-    </WishlistProvider>
-  ),
+  decorators: [
+    (Story) => (
+      <WishlistProvider>
+        <Story />
+      </WishlistProvider>
+    ),
+  ],
 };
 
 export default meta;

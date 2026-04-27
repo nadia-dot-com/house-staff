@@ -3,7 +3,7 @@ import { getDiscountSubtotal } from "./getSubtotals";
 import { getVAT } from "./getVAT";
 import { roundMoney } from "./roundMoney";
 
-type Args = {
+export type Args = {
   cartItems: OrderItem[];
   deliveryPrice: number;
   vatRate: number;

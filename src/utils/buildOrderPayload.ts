@@ -3,7 +3,7 @@ import { OrderPayload } from "@/types/api/order.payload";
 import { DataProps } from "@/types/checkoutTypes";
 import { OrderItem } from "@/types/orderTypes";
 
-type BuildOrderPayloadArgs = {
+export type BuildOrderPayloadArgs = {
   items: OrderItem[];
   shippingAddress: DataProps;
   delivery: DeliveryMethod;
