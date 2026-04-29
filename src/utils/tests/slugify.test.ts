@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { slugify } from "./slugify";
+import { slugify } from "../slugify";
 
 describe("slugify", () => {
   it("should convert to lowercase and replace spaces with dashes", () => {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildOrderPayload, BuildOrderPayloadArgs } from "./buildOrderPayload";
+import { buildOrderPayload, BuildOrderPayloadArgs } from "../buildOrderPayload";
 
 const createData = (overrides = {}): BuildOrderPayloadArgs => ({
   items: [

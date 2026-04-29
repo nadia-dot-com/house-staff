@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { cn } from "./cn";
+import { cn } from "../cn";
 
 describe("cn (classNames)", () => {
   it("should merge multiple class names into a single string", () => {

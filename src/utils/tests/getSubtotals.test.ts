@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getDiscountSubtotal, getSubtotal } from "./getSubtotals";
+import { getDiscountSubtotal, getSubtotal } from "../getSubtotals";
 import { OrderItem } from "@/types/orderTypes";
 
 const createData = (firstItemOverrides: Partial<OrderItem> = {}) => [

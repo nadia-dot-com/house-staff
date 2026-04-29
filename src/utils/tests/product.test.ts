@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getDiscountPrice, getSafeQuantity } from "./product";
+import { getDiscountPrice, getSafeQuantity } from "../product";
 
 describe("product utils", () => {
   const mockProduct = {

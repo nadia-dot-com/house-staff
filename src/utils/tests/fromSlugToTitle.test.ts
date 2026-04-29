@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { fromSlugToTitle } from "./fromSlugToTitle";
+import { fromSlugToTitle } from "../fromSlugToTitle";
 
 describe("fromSlugToTitle", () => {
   it("should convert a simple slug to a capitalized title", () => {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { checkProductDate } from "./checkProductDate";
+import { checkProductDate } from "../checkProductDate";
 import { NEW_PRODUCT_THRESHOLD_DAYS } from "@/config";
 
 describe("checkProductDate", () => {

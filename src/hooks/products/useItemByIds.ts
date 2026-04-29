@@ -8,8 +8,8 @@ export function useItemsByIds(ids: string[]) {
   const productsMap = useMemo(() => keyBy(products, "id"), [products]);
 
   const filteredProducts = useMemo(
-    () => ids.map((id) => productsMap[id]),
-    [ids, products],
+    () => ids.map((id) => productsMap[id]).filter(Boolean),
+    [ids, productsMap],
   );
 
   return { productsMap, filteredProducts, error, isLoading };

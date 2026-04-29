@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getVAT } from "./getVAT";
+import { getVAT } from "../getVAT";
 
 describe("getVAT", () => {
   it("should return correct VAT value for simple integers", () => {
