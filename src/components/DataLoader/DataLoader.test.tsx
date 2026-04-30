@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import { DataLoader } from "./DataLoader";
-import { ERROR_MESSAGES } from "@/constants/messages";
 import { AppError } from "@/errors";
 
 vi.mock("../LoadingSpinner/LoadingSpinner", () => ({
