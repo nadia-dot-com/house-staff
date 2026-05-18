@@ -55,22 +55,22 @@ export function Menu() {
         </li>
       </ul>
 
-      <div className={classes.mobileMenu}>
-        <ul className={classes.burgerMenu}>
-          <li key="account" className={classes.navIcon}>
-            <AccountIcon />
-          </li>
+      <ul className={classes.mobileMenu}>
+        <li key="account" className={classes.navIcon}>
+          <AccountIcon />
+        </li>
 
-          <li key="wishlist" className={classes.navIcon}>
-            <WishlistIcon />
-          </li>
+        <li key="wishlist" className={classes.navIcon}>
+          <WishlistIcon />
+        </li>
 
-          <li key="cart" className={classes.navIcon}>
-            <ShoppingCartIcon active={isCartOpen} />
-          </li>
+        <li key="cart" className={classes.navIcon}>
+          <ShoppingCartIcon active={isCartOpen} />
+        </li>
+
+        <li>
           <button
-            role="button"
-            aria-label="Toggle menu"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
             className={classes.burgerIcon}
             onClick={toggleMenuOpen}
@@ -78,6 +78,7 @@ export function Menu() {
             <AnimatePresence mode="wait" initial={false}>
               {isMenuOpen ? (
                 <motion.svg
+                  aria-hidden="true"
                   key="close"
                   initial={{ rotate: -30, opacity: 0 }}
                   animate={{ rotate: 0, opacity: 1 }}
@@ -94,6 +95,7 @@ export function Menu() {
                 </motion.svg>
               ) : (
                 <motion.svg
+                  aria-hidden="true"
                   key="burger"
                   initial={{ rotate: 30, opacity: 0 }}
                   animate={{ rotate: 0, opacity: 1 }}
@@ -111,27 +113,27 @@ export function Menu() {
               )}
             </AnimatePresence>
           </button>
+        </li>
 
-          <AnimatePresence>
-            {isMenuOpen ? (
-              <motion.ul
-                key="login-modal"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className={classes.burgerList}
-              >
-                {menuLinks.map((menu, i) => (
-                  <li key={i}>
-                    <StyledLink to={menu.to}>{menu.label}</StyledLink>
-                  </li>
-                ))}
-              </motion.ul>
-            ) : null}
-          </AnimatePresence>
-        </ul>
-      </div>
+        <AnimatePresence>
+          {isMenuOpen ? (
+            <motion.ul
+              key="login-modal"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className={classes.burgerList}
+            >
+              {menuLinks.map((menu, i) => (
+                <li key={i}>
+                  <StyledLink to={menu.to}>{menu.label}</StyledLink>
+                </li>
+              ))}
+            </motion.ul>
+          ) : null}
+        </AnimatePresence>
+      </ul>
     </nav>
   );
 }
