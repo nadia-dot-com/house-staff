@@ -4,7 +4,7 @@ import { OrderItemRow } from "../../../OrderItemRow/OrderItemRow";
 import { useCartContext } from "@/context/CartContext";
 import { useUserContext } from "@/context/UserContext";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "@/config/Routes";
+import { ROUTES } from "@/config/routes/Routes";
 import { Subtotal } from "../../../Subtotal/Subtotal";
 import { OrderItem } from "@/types/orderTypes";
 import { LoginButton } from "../../../LoginButton/LoginButton";
@@ -12,14 +12,13 @@ import { useItemsByIds } from "@/hooks/products/useItemByIds";
 import { useCartUiContext } from "@/context/CartUIContext";
 
 export function ShowOrder({ cartItems }: { cartItems: OrderItem[] }) {
-  const {toggleCartOpen} = useCartUiContext();
+  const { toggleCartOpen } = useCartUiContext();
   const { clearCart } = useCartContext();
   const { user } = useUserContext();
   const navigate = useNavigate();
-  const {
-    productsMap,
-    filteredProducts: cartProducts,
-  } = useItemsByIds(cartItems.map((i) => i.id));
+  const { productsMap, filteredProducts: cartProducts } = useItemsByIds(
+    cartItems.map((i) => i.id),
+  );
 
   const handleOrder = () => {
     const path = `${ROUTES.userAccount}/${ROUTES.shoppingCart}`;
@@ -37,21 +36,20 @@ export function ShowOrder({ cartItems }: { cartItems: OrderItem[] }) {
         </button>
       </div>
 
-        {cartProducts && (
-          <div className={classes.orderList}>
-            {cartItems.map((cartItem) => {
-              const stockQuantity =
-                productsMap[cartItem.id]?.stockQuantity ?? 0;
-              return (
-                <OrderItemRow
-                  key={cartItem.id}
-                  product={cartItem}
-                  stockQuantity={stockQuantity}
-                />
-              );
-            })}
-          </div>
-        )}
+      {cartProducts && (
+        <div className={classes.orderList}>
+          {cartItems.map((cartItem) => {
+            const stockQuantity = productsMap[cartItem.id]?.stockQuantity ?? 0;
+            return (
+              <OrderItemRow
+                key={cartItem.id}
+                product={cartItem}
+                stockQuantity={stockQuantity}
+              />
+            );
+          })}
+        </div>
+      )}
 
       <div className={classes.subtotal}>
         <Subtotal arr={cartItems} />

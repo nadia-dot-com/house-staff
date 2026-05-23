@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { AccountIcon } from "./AccountIcon";
 import { useUserContext } from "@/context/UserContext";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "@/config/Routes";
+import { ROUTES } from "@/config/routes/Routes";
 
 vi.mock("react-router-dom", () => ({
   useNavigate: vi.fn(),

@@ -40,7 +40,6 @@
     transition: transform 0.3s linear;
     background-color: rgba(v.$white, 0.9);
     backdrop-filter: blur(5px);
-    pointer-events: auto;
   }
 
   .burgerIcon {
@@ -66,7 +65,6 @@
     font-size: 14px;
     background-color: rgba(v.$white, 0.9);
     backdrop-filter: blur(5px);
-    pointer-events: auto;
 
     li {
       border-bottom: 1px solid v.$color-gray-light;

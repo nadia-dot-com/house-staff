@@ -1,4 +1,4 @@
-import { ROUTES } from "@/config/Routes";
+import { ROUTES } from "@/config/routes/Routes";
 import { useCategoryContext } from "@/context/CategoryContext";
 import { slugify } from "@/utils/slugify";
 import { compact } from "lodash";

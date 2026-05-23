@@ -1,6 +1,6 @@
-import classes from './NavAccount.module.scss';
+import classes from "./NavAccount.module.scss";
 import { StyledLink } from "@/components/StyledLink/StyledLink";
-import { ROUTES } from "@/config/Routes";
+import { ROUTES } from "@/config/routes/Routes";
 import { useUserContext } from "@/context/UserContext";
 import { Logout } from "./Logout/Logout";
 
@@ -10,11 +10,11 @@ export function NavAccount() {
   return (
     <aside>
       <ul className={classes.nav}>
-        <li >
+        <li>
           <StyledLink to={ROUTES.profile}>My Profile </StyledLink>
         </li>
         <li>
-          <StyledLink to={ROUTES.shoppingCart} >Shopping Cart</StyledLink>
+          <StyledLink to={ROUTES.shoppingCart}>Shopping Cart</StyledLink>
         </li>
         <li>
           <StyledLink to={ROUTES.myOrders}>My Orders</StyledLink>
@@ -27,5 +27,5 @@ export function NavAccount() {
         </li>
       </ul>
     </aside>
-  )
+  );
 }

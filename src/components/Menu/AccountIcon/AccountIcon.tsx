@@ -3,7 +3,7 @@ import { RiAccountCircleFill } from "react-icons/ri";
 import { useUserContext } from "@/context/UserContext";
 import { cn } from "@/utils/cn";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ROUTES } from "@/config/Routes";
+import { ROUTES } from "@/config/routes/Routes";
 
 export function AccountIcon() {
   const { user, isLoginModalOpen, toggleModalOpen } = useUserContext();

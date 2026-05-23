@@ -28,7 +28,16 @@
   }
 
   @media (max-width: 992px) {
-      font-size: 12px;
-      padding: 12px 15px;
+    font-size: 12px;
+    padding: 12px 15px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &:hover,
+    &:active {
+      transform: none;
+    }
   }
 }

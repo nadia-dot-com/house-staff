@@ -7,7 +7,7 @@ import { Button } from "../Button/Button";
 
 export function ErrorFallback({ resetErrorBoundary }: FallbackProps) {
   return (
-    <div className={classes.wrapper}>
+    <div className={classes.wrapper} role="alert">
       <div className={classes.errorFallback}>
         <Lottie animationData={warning} loop={false} />
 

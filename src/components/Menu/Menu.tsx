@@ -1,24 +1,13 @@
 import classes from "./Menu.module.scss";
 import { StyledLink } from "../StyledLink/StyledLink";
 import { ShoppingCartIcon } from "./ShoppingCartIcon/ShoppingCartIcon";
-import { ROUTES } from "@/config/Routes";
 import { AccountIcon } from "./AccountIcon/AccountIcon";
 import { WishlistIcon } from "./WishlistIcon/WishlistIcon";
 import { useEffect } from "react";
 import { useCartUiContext } from "@/context/CartUIContext";
 import { AnimatePresence, motion } from "motion/react";
 import { useToggle } from "@/hooks/useToggle";
-
-type MenuLinksProps = {
-  to: string;
-  label: string;
-};
-
-const menuLinks: MenuLinksProps[] = [
-  { to: ROUTES.home + ROUTES.mainLayout, label: "Home" },
-  { to: ROUTES.contact, label: "Contact" },
-  { to: ROUTES.products, label: "Products" },
-];
+import { menuLinks } from "@/config/navigation/menuLinks";
 
 export function Menu() {
   const [isMenuOpen, toggleMenuOpen] = useToggle(false);

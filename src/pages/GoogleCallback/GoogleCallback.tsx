@@ -1,7 +1,7 @@
 import classes from "./GoogleCallback.module.scss";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "@/config/Routes";
+import { ROUTES } from "@/config/routes/Routes";
 import { toast } from "react-toastify";
 import { GUEST_WISHLIST_KEY, TOKEN } from "@/data/locatStorageKey";
 import { useAddToWishlist } from "@/hooks/wishlist/useAddToWishlist";
@@ -30,9 +30,9 @@ export function GoogleCallback() {
 
     updateToken(token);
 
-     if (isCartOpen) {
-        toggleCartOpen();
-      }
+    if (isCartOpen) {
+      toggleCartOpen();
+    }
 
     const localWishlist = JSON.parse(
       localStorage.getItem(GUEST_WISHLIST_KEY) ?? "[]",
@@ -54,6 +54,13 @@ export function GoogleCallback() {
     } else {
       handleRedirect();
     }
-  }, [navigate, updateToken, cleanGuestWishlist, merge, isCartOpen, toggleCartOpen]);
+  }, [
+    navigate,
+    updateToken,
+    cleanGuestWishlist,
+    merge,
+    isCartOpen,
+    toggleCartOpen,
+  ]);
   return <div className={classes.signing}>Signing you in...</div>;
 }
