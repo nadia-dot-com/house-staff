@@ -22,15 +22,17 @@ export function RadioGroup<
 
         return (
           <div className={classes.option} key={id}>
-            <label htmlFor={id}>{option.name}</label>
-            <input
-              id={id}
-              className={classes.radio}
-              type="radio"
-              name={title}
-              checked={method?.id === option.id}
-              onChange={() => onClick(option)}
-            />
+            <div>
+              <label htmlFor={id}>{option.name}</label>
+              <input
+                id={id}
+                className={classes.radio}
+                type="radio"
+                name={title}
+                checked={method?.id === option.id}
+                onChange={() => onClick(option)}
+              />
+            </div>
             {option.price !== undefined && (
               <p className={classes.price}>
                 {option.price === 0 ? "$0.00" : `$${option.price.toFixed(2)}`}
