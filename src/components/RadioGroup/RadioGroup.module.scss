@@ -19,11 +19,17 @@
     padding: 4px 3px;
     font-size: 16px;
     font-weight: 400;
+    .label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
 
-    .radio {
-      margin-right: 6px;
-      width: 14px;
-      height: 14px;
+      .radio {
+        margin-right: 6px;
+        width: 14px;
+        height: 14px;
+      }
     }
   }
 

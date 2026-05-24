@@ -16,7 +16,7 @@ export const useUpdateUserProfile = () => {
     },
     onSuccess: (updatedUser) => {
       updateUser(updatedUser);
-      toast.success("Provile saved!");
+      toast.success("Profile saved!");
     },
     onError: () => {
       toast.error("Failed to save profile");

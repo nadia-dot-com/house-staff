@@ -22,7 +22,7 @@ export function RadioGroup<
 
         return (
           <div className={classes.option} key={id}>
-            <div>
+            <div className={classes.label}>
               <label htmlFor={id}>{option.name}</label>
               <input
                 id={id}
