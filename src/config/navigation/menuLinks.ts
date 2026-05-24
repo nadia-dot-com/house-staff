@@ -1,9 +1,5 @@
 import { ROUTES } from "../routes/Routes";
-
-type MenuLinksProps = {
-  to: string;
-  label: string;
-};
+import { MenuLinksProps } from "../types/type";
 
 export const menuLinks: MenuLinksProps[] = [
   { to: ROUTES.home + ROUTES.mainLayout, label: "Home" },

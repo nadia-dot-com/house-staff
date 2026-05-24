@@ -9,7 +9,7 @@ export function OrderList({
   orderItems: OrderItem[] | OrderItemResponse[];
 }) {
   return (
-    <section className={classes.orderListSection}>
+    <div className={classes.orderListSection}>
       <div className={classes.title}>
         <div>Product</div>
         <div>Total</div>
@@ -28,6 +28,6 @@ export function OrderList({
           );
         })}
       </ul>
-    </section>
+    </div>
   );
 }

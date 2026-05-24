@@ -1,31 +1,27 @@
 import classes from "./NavAccount.module.scss";
 import { StyledLink } from "@/components/StyledLink/StyledLink";
-import { ROUTES } from "@/config/routes/Routes";
 import { useUserContext } from "@/context/UserContext";
 import { Logout } from "./Logout/Logout";
+import { userLinks } from "@/config/navigation/userLinks";
 
 export function NavAccount() {
   const { logout } = useUserContext();
 
   return (
-    <aside>
+    <nav aria-label="User account navigation">
       <ul className={classes.nav}>
-        <li>
-          <StyledLink to={ROUTES.profile}>My Profile </StyledLink>
-        </li>
-        <li>
-          <StyledLink to={ROUTES.shoppingCart}>Shopping Cart</StyledLink>
-        </li>
-        <li>
-          <StyledLink to={ROUTES.myOrders}>My Orders</StyledLink>
-        </li>
-        <li>
-          <StyledLink to={ROUTES.myWishlist}>My Wishlist</StyledLink>
-        </li>
-        <li>
+        {
+          userLinks.map(link => (
+            <li key={link.to}>
+              <StyledLink to={link.to}>{link.label}</StyledLink>
+            </li>
+          ))
+        }
+
+        <li key="logout">        
           <Logout onClick={logout} />
         </li>
       </ul>
-    </aside>
+    </nav>
   );
 }

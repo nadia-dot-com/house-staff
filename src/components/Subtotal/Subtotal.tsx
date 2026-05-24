@@ -7,7 +7,7 @@ export function Subtotal({ arr }: { arr: OrderItem[] | OrderItemResponse[] }) {
   const discount = arr.find((el) => el.discount > 0);
 
   return (
-    <section className={classes.subtotalSection}>
+    <div className={classes.subtotalSection}>
       Subtotal:
       <div className={classes.price}>
         {discount ? (
@@ -21,6 +21,6 @@ export function Subtotal({ arr }: { arr: OrderItem[] | OrderItemResponse[] }) {
           <div>${getSubtotal(arr).toFixed(2)}</div>
         )}
       </div>
-    </section>
+    </div>
   );
 }

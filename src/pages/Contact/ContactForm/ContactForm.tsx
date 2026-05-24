@@ -32,21 +32,36 @@ export function ContactForm() {
           endeavour to respond within 24 hours.
         </p>
         <div className={classes.inputBox}>
+          <label className={classes.screenReadersOnly} htmlFor="email">
+            Email
+          </label>
           <input
+            autoComplete="email"
+            id="email"
             type="email"
             name="email"
             className={classes.field}
             placeholder="Email"
             required
           />
+          <label className={classes.screenReadersOnly} htmlFor="name">
+            Name
+          </label>
           <input
+            autoComplete="name"
+            id="name"
             type="text"
             name="name"
             className={classes.field}
             placeholder="Your name"
             required
           />
+          <label className={classes.screenReadersOnly} htmlFor="phone">
+            Phone
+          </label>
           <input
+            autoComplete="tel"
+            id="phone"
             type="tel"
             pattern="[0-9]{9,15}"
             name="phone"
@@ -54,15 +69,22 @@ export function ContactForm() {
             placeholder="Enter a valid phone number"
             required
           />
+          <label className={classes.screenReadersOnly} htmlFor="order">
+            Order number
+          </label>
           <input
+            id="order"
             type="text"
             name="order"
             className={classes.field}
             placeholder="Order number"
             required
           />
-          <p className={classes.messageTitle}>Your message</p>
+          <label htmlFor="message" className={classes.messageTitle}>
+            Your message
+          </label>
           <textarea
+            id="message"
             name="message"
             className={cn(classes.field, classes.textarea)}
             placeholder="Write your message here"

@@ -4,10 +4,10 @@ import classes from './TotalSection.module.scss';
 export function TotalPrice({ total, discount }: { total: number, discount: boolean }) {
     
     return (
-        <section className={classes.checkoutSection}>
+        <div className={classes.checkoutSection}>
             <div>Total</div>
             <div className={cn(discount && classes.total)}>${total.toFixed(2)}</div>
-        </section>
+        </div>
     )
 }
 

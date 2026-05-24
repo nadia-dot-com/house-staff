@@ -3,8 +3,8 @@ import classes from "./Logout.module.scss";
 
 export function Logout({ onClick }: { onClick: () => void }) {
   return (
-    <div className={classes.logout} onClick={onClick}>
-      Logout <IoIosLogOut className={classes.icon} />
-    </div>
+    <button className={classes.logout} onClick={onClick} type="button">
+      Logout <IoIosLogOut aria-hidden="true" className={classes.icon} />
+    </button>
   );
 }
