@@ -22,8 +22,7 @@ export function RadioGroup<
 
         return (
           <div className={classes.option} key={id}>
-            <div className={classes.label}>
-              <label htmlFor={id}>{option.name}</label>
+            <label htmlFor={id}>
               <input
                 id={id}
                 className={classes.radio}
@@ -32,7 +31,8 @@ export function RadioGroup<
                 checked={method?.id === option.id}
                 onChange={() => onClick(option)}
               />
-            </div>
+              {option.name}
+            </label>
             {option.price !== undefined && (
               <p className={classes.price}>
                 {option.price === 0 ? "$0.00" : `$${option.price.toFixed(2)}`}
