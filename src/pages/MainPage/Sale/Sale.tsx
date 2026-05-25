@@ -56,7 +56,7 @@ export function Sale() {
           of furniture, decor, and more.
         </h2>
         <Button
-          bgColor="#f54900"
+          bgColor="#ca3500"
           textColor="white"
           onClick={() => navigateToCategory(categoriesGroups.sale)}
           ariaLabel="go to the discount products category"

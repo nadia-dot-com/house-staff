@@ -106,26 +106,26 @@ export function Menu() {
               )}
             </AnimatePresence>
           </button>
-        </li>
 
-        <AnimatePresence>
-          {isMenuOpen ? (
-            <motion.ul
-              key="login-modal"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className={classes.burgerList}
-            >
-              {menuLinks.map((menu, i) => (
-                <li key={i}>
-                  <StyledLink to={menu.to}>{menu.label}</StyledLink>
-                </li>
-              ))}
-            </motion.ul>
-          ) : null}
-        </AnimatePresence>
+          <AnimatePresence>
+            {isMenuOpen ? (
+              <motion.ul
+                key="login-modal"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className={classes.burgerList}
+              >
+                {menuLinks.map((menu, i) => (
+                  <li key={i}>
+                    <StyledLink to={menu.to}>{menu.label}</StyledLink>
+                  </li>
+                ))}
+              </motion.ul>
+            ) : null}
+          </AnimatePresence>
+        </li>
       </ul>
     </nav>
   );

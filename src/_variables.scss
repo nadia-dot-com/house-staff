@@ -7,12 +7,12 @@ $color-gray-dark: #69727d;
 $color-black: #000;
 
 $color-accent-100: #ffedd4;
-$color-accent-400: #ff8903;
+$color-accent-400: #ca3500;
 $color-accent-600: #f54900;
 $color-accent-dark: #bb4d00;
 
 
-$color-red-600: #e7000b;
+$color-red-600: oklch(50.5% 0.213 27.518);
 $color-red-500: #fb2c36;
 $color-red-800: #9f0712;
 
@@ -28,5 +28,5 @@ $body-bg: $white;
 $body-text: $dark;
 
 $border-color: $color-gray-light;
-$old-price-color: $color-gray-light;
+$old-price-color: $color-gray-dark;
 $border-focus-color: $color-black;

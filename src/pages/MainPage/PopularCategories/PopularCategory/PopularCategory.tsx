@@ -11,6 +11,7 @@ export function PopularCategory({ category }: { category: Category }) {
       <ShopLink category={category.name}>
         <img
           src={category.imageUrl}
+          alt={category.name}
           className={classes.img}
           width="284"
           height="350"
