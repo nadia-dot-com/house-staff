@@ -20,12 +20,12 @@ export function MainLayout() {
 
   return (
     <div className={classes.layout}>
-      <Header />
+      <Header/>
 
       <AnimatePresence>{isCartOpen && <OrderModal />}</AnimatePresence>
       <AnimatePresence>{isLoginModalOpen && <LoginModal />}</AnimatePresence>
 
-      <main>
+      <main aria-hidden={isCartOpen || isLoginModalOpen}>
         <ErrorBoundary FallbackComponent={ErrorFallback}>
           <Suspense fallback={<LoadingSpinner />}>
             <Wrapper>

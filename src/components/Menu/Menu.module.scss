@@ -43,14 +43,19 @@
   }
 
   .burgerIcon {
-    width: 22px;
-    height: 22px;
-    fill: currentColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
   }
 
   .burgerList {
     position: absolute;
-    top: 47px;
+    top: 43px;
     right: 0;
     left: 0;
     width: 100%;
