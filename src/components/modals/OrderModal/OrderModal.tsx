@@ -6,13 +6,13 @@ import { useCartUiContext } from "@/context/CartUIContext";
 import { Modal } from "../Modal/Modal";
 
 export function OrderModal() {
-  const { toggleCartOpen } = useCartUiContext();
+  const { toggleCartOpen, isCartOpen } = useCartUiContext();
   const { cartItems } = useCartContext();
 
   const showContent = cartItems.length > 0;
 
   return (
-    <Modal key="cart-modal" ariaLabel="Shopping Cart modal" className={classes.orderModal} toggle={toggleCartOpen}>
+    <Modal key="cart-modal" ariaLabel="Shopping Cart modal" className={classes.orderModal} toggle={toggleCartOpen} isOpen={isCartOpen}>
          {showContent ? <ShowOrder cartItems={cartItems} /> : <EmptyCard />}
     </Modal>
   );

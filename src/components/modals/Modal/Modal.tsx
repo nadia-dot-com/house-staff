@@ -5,34 +5,49 @@ import { motion } from "motion/react";
 import { ReactNode, useEffect, useRef } from "react";
 
 type Modal = {
-  //   label: string;
   ariaLabel: string;
   children: ReactNode;
   toggle: () => void;
   className: string;
+  isOpen: boolean;
 };
 
-export function Modal({ ariaLabel, children, toggle, className }: Modal) {
+export function Modal({
+  ariaLabel,
+  children,
+  toggle,
+  className,
+  isOpen,
+}: Modal) {
   const refModal = useRef<HTMLDivElement | null>(null);
   const refCallback = useClickOutside(toggle);
 
   useEffect(() => {
     refModal.current?.focus();
-  }, []);
+
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.code !== "Escape" || !isOpen) return;
+        toggle();
+    };
+
+    window.addEventListener("keydown", handleEsc);
+
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [isOpen, toggle]);
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      tabIndex={-1}
-      ref={refModal}
-    >
+      ref={refCallback}
+      >
       <div
         role="dialog"
         aria-modal="true"
+        tabIndex={-1}
+        ref={refModal}
         aria-label={ariaLabel}
-        ref={refCallback}
         className={cn(classes.modal, className)}
       >
         {children}
