@@ -67,7 +67,7 @@ export const OrderItemRowVisual = memo(
               alt={name}
               className={classes.img}
               onClick={navigate}
-              width="126"
+              width="115"
               height="150"
             />
           </ShopLink>
