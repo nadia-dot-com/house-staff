@@ -66,20 +66,15 @@
     }
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 440px) {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: auto 1fr;
+    gap: 15px;
     align-items: center;
 
-    .addToCart {
-      display: block;
-      justify-content: center;
-      align-items: center;
-      margin: 30px;
-    }
-
     .button {
-      display: none;
+      grid-column: 1 / -1; 
+      width: 100%;
     }
   }
 }

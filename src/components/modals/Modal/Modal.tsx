@@ -26,8 +26,9 @@ export function Modal({
     refModal.current?.focus();
 
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.code !== "Escape" || !isOpen) return;
+      if (e.code === "Escape" && isOpen) {
         toggle();
+      }
     };
 
     window.addEventListener("keydown", handleEsc);
@@ -41,7 +42,7 @@ export function Modal({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       ref={refCallback}
-      >
+    >
       <div
         role="dialog"
         aria-modal="true"
