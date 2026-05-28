@@ -2,7 +2,7 @@
 
 .modal {
   position: fixed;
-  top: 52px;
+  top: 50px;
   right: 0;
   max-height: calc(100vh - 50px);
 
@@ -14,7 +14,7 @@
     padding: 15px;
 
   @media (max-width: 768px) {
-    top: 62px;
+    top: 60px;
   }
 
   @media (max-width: 576px) {
