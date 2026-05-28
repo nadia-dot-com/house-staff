@@ -5,7 +5,8 @@
   font-size: 19px;
   cursor: pointer;
   transition: color 500ms ease;
-
+  color: v.$color-black;
+  
   &.active,
   &:hover {
     color: v.$color-red-600;

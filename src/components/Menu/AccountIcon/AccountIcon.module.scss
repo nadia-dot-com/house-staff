@@ -1,13 +1,13 @@
 @use "@/variables" as v;
 
-.accountIcon {
-  font-size: 21px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 300ms ease;
-
-  &.active,
-  &:hover {
-    color: v.$color-accent-400;
+  .accountIcon {
+    font-size: 21px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 300ms ease;
+    color: v.$color-black;
+    &.active,
+    &:hover {
+      color: v.$color-accent-400;
+    }
   }
-}

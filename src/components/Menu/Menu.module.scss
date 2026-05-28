@@ -30,8 +30,6 @@
     position: relative;
     gap: 20px;
     z-index: 40;
-
-    
   }
 
   .burgerMenu {
@@ -81,6 +79,11 @@
       &:last-child {
         border-bottom: none;
       }
+    }
+
+    @media (max-width: 576px) {
+      top: 41px;
+      left: 5px;
     }
   }
 
