@@ -10,14 +10,6 @@ export function QuantityInput({
   quantity: number;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }) {
-  const handleBlur = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = Number(e.target.value);
-
-    if (isNaN(value) || value < 1) {
-      e.target.value = "1";
-    }
-    onChange(e);
-  };
   return (
     <input
       type="number"
@@ -26,7 +18,7 @@ export function QuantityInput({
       min="1"
       max={stock}
       className={classes.quantityInput}
-      onChange={handleBlur}
+      onChange={onChange}
       aria-label="Change quantity"
     />
   );

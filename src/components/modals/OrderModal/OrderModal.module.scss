@@ -5,6 +5,7 @@
   max-width: 580px;
   text-align: center;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 
   &::-webkit-scrollbar {
     width: 4px;
@@ -22,5 +23,11 @@
     &:hover {
       background: #555;
     }
+  }
+
+  @media (max-width: 576px) {
+    height: calc(100dvh - 60px);
+    display: flex;
+    align-items: stretch;
   }
 }

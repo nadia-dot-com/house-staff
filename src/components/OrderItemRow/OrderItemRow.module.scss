@@ -55,8 +55,11 @@
 
     &:hover {
       color: v.$color-red-600;
-      transform: scale(1.10) translateY(-2px);
+      transform: scale(1.1) translateY(-2px);
     }
+  }
+
+  @media (max-width: 576px) {
   }
 
   @media (max-width: 400px) {

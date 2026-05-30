@@ -25,6 +25,11 @@ export function Modal({
   useEffect(() => {
     refModal.current?.focus();
 
+    if(isOpen) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    }
+
     const handleEsc = (e: KeyboardEvent) => {
       if (e.code === "Escape" && isOpen) {
         toggle();
@@ -33,7 +38,11 @@ export function Modal({
 
     window.addEventListener("keydown", handleEsc);
 
-    return () => window.removeEventListener("keydown", handleEsc);
+    return () => {
+      window.removeEventListener("keydown", handleEsc)
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
   }, [isOpen, toggle]);
 
   return (
