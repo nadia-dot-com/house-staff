@@ -56,9 +56,9 @@
 
   .burgerList {
     position: absolute;
-    top: 43px;
+    top: 41px;
     right: 0;
-    left: 0;
+    left: 10;
     width: 100%;
     min-width: 200px;
     background: v.$white;
@@ -83,8 +83,7 @@
     }
 
     @media (max-width: 576px) {
-      top: 41px;
-      left: 7px;
+      left: 0;
     }
   }
 

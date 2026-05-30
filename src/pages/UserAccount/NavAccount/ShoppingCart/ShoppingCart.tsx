@@ -145,9 +145,7 @@ export default function ShoppingCart() {
         </PageTransition>
       ) : cartItems.length === 0 ? (
         <PageTransition key="empty">
-          <div className={classes.emptyCard}>
             <EmptyCard />
-          </div>
         </PageTransition>
       ) : (
         <div>
