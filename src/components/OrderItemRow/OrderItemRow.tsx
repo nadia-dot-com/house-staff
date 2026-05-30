@@ -79,21 +79,23 @@ export const OrderItemRowVisual = memo(
           onChange={handleQuantityChange}
         />
 
-        <div
-          className={cn(classes.price, discount > 0 && classes.discountPrice)}
-        >
-          Price:
-          <br />
-          <p>${formattedPrice}</p>
-        </div>
+        {/* <div className={classes.priceContainer}> */}
+          <div
+            className={cn(classes.price, discount > 0 && classes.discountPrice)}
+          >
+            Price:
+            <br />
+            <p>${formattedPrice}</p>
+          </div>
 
-        <div
-          className={cn(classes.price, discount > 0 && classes.discountPrice)}
-        >
-          Subtotal:
-          <br />
-          <p>${subtotal}</p>
-        </div>
+          <div
+            className={cn(classes.price, discount > 0 && classes.discountPrice)}
+          >
+            Subtotal:
+            <br />
+            <p>${subtotal}</p>
+          </div>
+        {/* </div> */}
 
         <button
           onClick={removeFromCart}
