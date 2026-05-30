@@ -26,7 +26,7 @@ export function QuantityInput({
       min="1"
       max={stock}
       className={classes.quantityInput}
-      onChange={onChange}
+      onChange={handleBlur}
       aria-label="Change quantity"
     />
   );
