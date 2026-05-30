@@ -37,7 +37,6 @@ export function Modal({
     };
 
     window.addEventListener("keydown", handleEsc);
-
     return () => {
       window.removeEventListener("keydown", handleEsc)
       document.body.style.overflow = "";
