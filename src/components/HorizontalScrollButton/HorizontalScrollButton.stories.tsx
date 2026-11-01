@@ -1,5 +1,5 @@
-import { HorizontalScrollButton } from "./HorizontalScrollButton";
-import { Meta, StoryObj } from "@storybook/react";
+import { HorizontalScrollButton } from "@/components/HorizontalScrollButton/HorizontalScrollButton";
+import { Meta, StoryObj } from "@storybook/react-vite";
 
 const meta: Meta<typeof HorizontalScrollButton> = {
   component: HorizontalScrollButton,

@@ -1,4 +1,4 @@
-import classes from "./MyProfile.module.scss";
+import classes from "@/pages/UserAccount/NavAccount/MyProfile/MyProfile.module.scss";
 import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from "react";
 import { useUserContext } from "@/context/UserContext";
 import { Button } from "@/components/Button/Button";
@@ -39,22 +39,9 @@ export default function MyProfile() {
     });
   }, [user]);
 
-  if (!user) return <ErrorState message={ERROR_MESSAGES.UNAUTHORIZED} />;
-
-  const { email } = user;
-
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
-  ) => {
-    const { name, value } = e.target;
-
-    setFormState((prev) => ({
-      ...prev,
-      [name]: value === "" ? null : value,
-    }));
-  };
-
   const hasChanges = useMemo(() => {
+    if (!user) return false;
+
     const cleanedForm = omitBy(formState, (v) => v === null);
     const cleanedUser = omitBy(
       {
@@ -70,6 +57,21 @@ export default function MyProfile() {
 
     return !isEqual(cleanedForm, cleanedUser);
   }, [formState, user]);
+
+  if (!user) return <ErrorState message={ERROR_MESSAGES.UNAUTHORIZED} />;
+
+  const { email } = user;
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
+    const { name, value } = e.target;
+
+    setFormState((prev) => ({
+      ...prev,
+      [name]: value === "" ? null : value,
+    }));
+  };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

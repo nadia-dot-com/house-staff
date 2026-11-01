@@ -1,4 +1,4 @@
-import classes from "./WishlistIcon.module.scss";
+import classes from "@/components/Menu/WishlistIcon/WishlistIcon.module.scss";
 import { IoIosHeart } from "react-icons/io";
 import { StyledLink } from "@/components/StyledLink/StyledLink";
 import { ROUTES } from "@/config/routes/Routes";

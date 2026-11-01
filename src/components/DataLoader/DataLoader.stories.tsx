@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { DataLoader } from "./DataLoader";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { DataLoader } from "@/components/DataLoader/DataLoader";
 
 const meta: Meta<typeof DataLoader> = {
   component: DataLoader,

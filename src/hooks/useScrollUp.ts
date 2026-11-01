@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useWindowEvent } from "./useWindowEvent";
+import { useWindowEvent } from "@/hooks/useWindowEvent";
 
 export function useScrollUp() {
   const [isScrollingUp, setIsScrollingUp] = useState(true);

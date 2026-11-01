@@ -27,6 +27,6 @@ export default defineConfig([
   },
   {
     files: ["**/*.stories.@(js|jsx|ts|tsx)"],
-    extends: [storybook.configs.recommended],
+    extends: [storybook.configs["flat/recommended"]],
   },
 ]);

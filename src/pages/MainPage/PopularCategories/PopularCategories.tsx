@@ -1,5 +1,5 @@
-import classes from "./PopularCategories.module.scss";
-import { PopularCategory } from "./PopularCategory/PopularCategory";
+import classes from "@/pages/MainPage/PopularCategories/PopularCategories.module.scss";
+import { PopularCategory } from "@/pages/MainPage/PopularCategories/PopularCategory/PopularCategory";
 import { useCategories } from "@/hooks/categories/useCategories";
 import { DataLoader } from "@/components/DataLoader/DataLoader";
 

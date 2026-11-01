@@ -1,4 +1,4 @@
-import classes from "./OrderQuantity.module.scss";
+import classes from "@/components/Menu/ShoppingCartIcon/OrderQuantity/OrderQuantity.module.scss";
 import { useCartContext } from "@/context/CartContext";
 import { sumBy } from "lodash";
 

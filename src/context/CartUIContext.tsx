@@ -4,6 +4,7 @@ import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { createContextHook } from "@/hooks/createContextHook";
 import { CartUiContextValue } from "@/types/cartUiTypes";
 
+// eslint-disable-next-line react-refresh/only-export-components -- context + provider + hook are colocated by design
 export const CartUIContext = createContext<CartUiContextValue | null>(null);
 
 export function CartUIProvider({ children }: { children: ReactNode }) {
@@ -32,6 +33,7 @@ export function CartUIProvider({ children }: { children: ReactNode }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components -- context + provider + hook are colocated by design
 export const useCartUiContext = createContextHook(
   CartUIContext,
   CartUIProvider

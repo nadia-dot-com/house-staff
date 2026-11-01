@@ -1,4 +1,4 @@
-import classes from "./ShoppingCartNav.module.scss";
+import classes from "@/pages/UserAccount/NavAccount/ShoppingCart/ShoppingCartNav/ShoppingCartNav.module.scss";
 import { CHECKOUT_STEP } from "@/constants/checkout";
 import { cn } from "@/utils/cn";
 

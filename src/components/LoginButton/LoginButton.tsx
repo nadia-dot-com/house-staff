@@ -1,6 +1,6 @@
-import classes from "./LoginButton.module.scss";
+import classes from "@/components/LoginButton/LoginButton.module.scss";
 import { FcGoogle } from "react-icons/fc";
-import { Button } from "../Button/Button";
+import { Button } from "@/components/Button/Button";
 import { API_URL } from "@/api/config";
 
 export function LoginButton({ text }: { text: string }) {

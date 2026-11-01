@@ -1,10 +1,10 @@
-import classes from "./CheckoutReview.module.scss";
-import { OrderList } from "./CheckoutSections/OrderList/OrderList";
-import { Payment } from "./CheckoutSections/Payment/Payment";
+import classes from "@/pages/UserAccount/NavAccount/ShoppingCart/CheckoutReview/CheckoutReview.module.scss";
+import { OrderList } from "@/pages/UserAccount/NavAccount/ShoppingCart/CheckoutReview/CheckoutSections/OrderList/OrderList";
+import { Payment } from "@/pages/UserAccount/NavAccount/ShoppingCart/CheckoutReview/CheckoutSections/Payment/Payment";
 import { Subtotal } from "@/components/Subtotal/Subtotal";
-import { Shipping } from "./CheckoutSections/Shipping/Shipping";
-import { Vat } from "./CheckoutSections/VatSection/VatSection";
-import { TotalPrice } from "./CheckoutSections/TotalSection/TotalSection";
+import { Shipping } from "@/pages/UserAccount/NavAccount/ShoppingCart/CheckoutReview/CheckoutSections/Shipping/Shipping";
+import { Vat } from "@/pages/UserAccount/NavAccount/ShoppingCart/CheckoutReview/CheckoutSections/VatSection/VatSection";
+import { TotalPrice } from "@/pages/UserAccount/NavAccount/ShoppingCart/CheckoutReview/CheckoutSections/TotalSection/TotalSection";
 import { OrderItem } from "@/types/orderTypes";
 import { DeliveryMethod, PaymentMethod } from "@/types/api/options";
 

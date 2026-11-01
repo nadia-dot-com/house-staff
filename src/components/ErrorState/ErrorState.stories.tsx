@@ -1,5 +1,5 @@
-import { ErrorState } from "./ErrorState";
-import { Meta, StoryObj } from "@storybook/react";
+import { ErrorState } from "@/components/ErrorState/ErrorState";
+import { Meta, StoryObj } from "@storybook/react-vite";
 
 const meta: Meta<typeof ErrorState> = {
   component: ErrorState,

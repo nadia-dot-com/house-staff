@@ -1,4 +1,4 @@
-import classes from "./OrderList.module.scss";
+import classes from "@/pages/UserAccount/NavAccount/ShoppingCart/CheckoutReview/CheckoutSections/OrderList/OrderList.module.scss";
 import { Price } from "@/components/Price/Price";
 import { OrderItemResponse } from "@/types/api/order.response";
 import { OrderItem } from "@/types/orderTypes";

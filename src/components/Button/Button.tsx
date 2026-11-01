@@ -1,12 +1,12 @@
-import classes from "./Button.module.scss";
-import { CSSProperties, ReactNode } from "react";
+import classes from "@/components/Button/Button.module.scss";
+import { CSSProperties, MouseEventHandler, ReactNode } from "react";
 
 type Button = {
   bgColor: string;
   textColor: string;
   text: string;
   type?: "button" | "submit" | "reset" | undefined;
-  onClick?: (...args: any[]) => void;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
   children?: ReactNode;
   disabled?: boolean;
   ariaLabel?: string;

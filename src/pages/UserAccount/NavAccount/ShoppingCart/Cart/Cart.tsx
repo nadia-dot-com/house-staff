@@ -1,4 +1,4 @@
-import classes from "./Cart.module.scss";
+import classes from "@/pages/UserAccount/NavAccount/ShoppingCart/Cart/Cart.module.scss";
 import { DataLoader } from "@/components/DataLoader/DataLoader";
 import { OrderItemRow } from "@/components/OrderItemRow/OrderItemRow";
 import { useItemsByIds } from "@/hooks/products/useItemByIds";

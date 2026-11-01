@@ -1,4 +1,4 @@
-import classes from "./OrderError.module.scss";
+import classes from "@/pages/UserAccount/NavAccount/ShoppingCart/OrderError/OrderError.module.scss";
 import Lottie from "lottie-react";
 import warning from "@/animations/warning.json";
 

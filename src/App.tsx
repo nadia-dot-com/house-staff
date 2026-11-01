@@ -16,28 +16,28 @@ import { ErrorFallback } from "@/components/ErrorFallback/ErrorFallback";
 import { lazy, Suspense } from "react";
 import { LoadingSpinner } from "@/components/LoadingSpinner/LoadingSpinner";
 
-const Contact = lazy(() => import("./pages/Contact/Contact"));
-const ProductsPage = lazy(() => import("./pages/ProductsPage/ProductsPage"));
+const Contact = lazy(() => import("@/pages/Contact/Contact"));
+const ProductsPage = lazy(() => import("@/pages/ProductsPage/ProductsPage"));
 const ProductPage = lazy(
-  () => import("./pages/ProductsPage/ProductPage/ProductPage"),
+  () => import("@/pages/ProductsPage/ProductPage/ProductPage"),
 );
-const Wishlist = lazy(() => import("./pages/Wishlist/Wishlist"));
+const Wishlist = lazy(() => import("@/pages/Wishlist/Wishlist"));
 
-const UserAccount = lazy(() => import("./pages/UserAccount/UserAccount"));
+const UserAccount = lazy(() => import("@/pages/UserAccount/UserAccount"));
 const MyProfile = lazy(
-  () => import("./pages/UserAccount/NavAccount/MyProfile/MyProfile"),
+  () => import("@/pages/UserAccount/NavAccount/MyProfile/MyProfile"),
 );
 const ShoppingCart = lazy(
-  () => import("./pages/UserAccount/NavAccount/ShoppingCart/ShoppingCart"),
+  () => import("@/pages/UserAccount/NavAccount/ShoppingCart/ShoppingCart"),
 );
 const MyOrders = lazy(
-  () => import("./pages/UserAccount/NavAccount/MyOrders/MyOrders"),
+  () => import("@/pages/UserAccount/NavAccount/MyOrders/MyOrders"),
 );
 const MyWishlist = lazy(
-  () => import("./pages/UserAccount/NavAccount/MyWishlist/MyWishlist"),
+  () => import("@/pages/UserAccount/NavAccount/MyWishlist/MyWishlist"),
 );
 const OrderPage = lazy(
-  () => import("./pages/UserAccount/NavAccount/MyOrders/OrderPage/OrderPage"),
+  () => import("@/pages/UserAccount/NavAccount/MyOrders/OrderPage/OrderPage"),
 );
 function App() {
   return (

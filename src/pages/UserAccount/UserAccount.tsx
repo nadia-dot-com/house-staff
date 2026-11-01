@@ -1,8 +1,8 @@
-import classes from "./UserAccount.module.scss";
+import classes from "@/pages/UserAccount/UserAccount.module.scss";
 import { Outlet, useLocation } from "react-router-dom";
-import { NavAccount } from "./NavAccount/NavAccount";
+import { NavAccount } from "@/pages/UserAccount/NavAccount/NavAccount";
 import { useUserContext } from "@/context/UserContext";
-import { MakeLogin } from "./MakeLogin/MakeLogin";
+import { MakeLogin } from "@/pages/UserAccount/MakeLogin/MakeLogin";
 import { DataLoader } from "@/components/DataLoader/DataLoader";
 import { ErrorBoundary } from "react-error-boundary";
 import { ErrorFallback } from "@/components/ErrorFallback/ErrorFallback";

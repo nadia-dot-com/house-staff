@@ -1,4 +1,4 @@
-import classes from "./ProductPage.module.scss";
+import classes from "@/pages/ProductsPage/ProductPage/ProductPage.module.scss";
 import { useParams } from "react-router-dom";
 import { ProductDetails } from "@/components/ProductDetails/ProductDetails.tsx";
 import { slugify } from "@/utils/slugify.ts";

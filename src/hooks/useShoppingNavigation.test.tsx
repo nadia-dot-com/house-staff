@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react";
-import { useShoppingNavigation } from "./useShoppingNavigation";
+import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
 import { MemoryRouter } from "react-router-dom";
 import { CategoryProvider } from "@/context/CategoryContext";
 import { ReactNode } from "react";

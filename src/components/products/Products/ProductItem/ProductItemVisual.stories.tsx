@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { ProductItemVisual } from "./ProductItem";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { ProductItemVisual } from "@/components/products/Products/ProductItem/ProductItem";
 import { Product } from "@/types/api/product";
 
 const meta: Meta<typeof ProductItemVisual> = {

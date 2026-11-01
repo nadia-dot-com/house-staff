@@ -1,6 +1,6 @@
-import classes from "./Header.module.scss";
-import { Menu } from "../Menu/Menu";
-import { StyledLink } from "../StyledLink/StyledLink";
+import classes from "@/components/Header/Header.module.scss";
+import { Menu } from "@/components/Menu/Menu";
+import { StyledLink } from "@/components/StyledLink/StyledLink";
 import { ROUTES } from "@/config/routes/Routes";
 import { useScrollUp } from "@/hooks/useScrollUp";
 import { cn } from "@/utils/cn";

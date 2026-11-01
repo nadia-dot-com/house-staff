@@ -1,17 +1,17 @@
-import classes from "./MainLayout.module.scss";
+import classes from "@/components/layouts/MainLayout/MainLayout.module.scss";
 import { Outlet } from "react-router-dom";
-import Footer from "../../Footer/Footer";
-import Header from "../../Header/Header";
-import { Wrapper } from "../../Wrapper/Wrapper";
+import Footer from "@/components/Footer/Footer";
+import Header from "@/components/Header/Header";
+import { Wrapper } from "@/components/Wrapper/Wrapper";
 import { ToastContainer } from "react-toastify";
 import { useUserContext } from "@/context/UserContext";
-import { LoginModal } from "../../modals/LoginModal/LoginModal";
-import { OrderModal } from "../../modals/OrderModal/OrderModal";
+import { LoginModal } from "@/components/modals/LoginModal/LoginModal";
+import { OrderModal } from "@/components/modals/OrderModal/OrderModal";
 import { Suspense } from "react";
-import { LoadingSpinner } from "../../LoadingSpinner/LoadingSpinner";
+import { LoadingSpinner } from "@/components/LoadingSpinner/LoadingSpinner";
 import { useCartUiContext } from "@/context/CartUIContext";
 import { ErrorBoundary } from "react-error-boundary";
-import { ErrorFallback } from "../../ErrorFallback/ErrorFallback";
+import { ErrorFallback } from "@/components/ErrorFallback/ErrorFallback";
 import { AnimatePresence } from "motion/react";
 
 export function MainLayout() {

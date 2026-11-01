@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react";
-import { useLocalStorage } from "./useLocalStorage";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { act } from "react";
 
 const TEST_KEY = "test";

@@ -1,5 +1,5 @@
 import { ChangeEvent } from "react";
-import classes from "./QuantityInput.module.scss";
+import classes from "@/components/QuantityInput/QuantityInput.module.scss";
 
 export function QuantityInput({
   stock,

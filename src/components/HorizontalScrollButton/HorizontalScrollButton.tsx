@@ -1,4 +1,4 @@
-import classes from "./HorizontalScrollButton.module.scss";
+import classes from "@/components/HorizontalScrollButton/HorizontalScrollButton.module.scss";
 import { cn } from "@/utils/cn";
 
 type HorizontalScrollButton = {

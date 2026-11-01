@@ -1,8 +1,8 @@
-import classes from "./WishlistItems.module.scss";
+import classes from "@/components/wishlist/WishlistItems/WishlistItems.module.scss";
 import { Product } from "@/types/api/product";
-import { DataLoader } from "../../DataLoader/DataLoader";
-import { EmptyWishList } from "../EmptyWishList/EmptyWishList";
-import { WishlistItem } from "./WishlistItem/WishlistItem";
+import { DataLoader } from "@/components/DataLoader/DataLoader";
+import { EmptyWishList } from "@/components/wishlist/EmptyWishList/EmptyWishList";
+import { WishlistItem } from "@/components/wishlist/WishlistItems/WishlistItem/WishlistItem";
 
 export function WishlistItems({
   list,

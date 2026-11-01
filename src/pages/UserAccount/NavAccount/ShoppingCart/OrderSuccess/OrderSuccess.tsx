@@ -1,4 +1,4 @@
-import classes from "./OrderSuccess.module.scss";
+import classes from "@/pages/UserAccount/NavAccount/ShoppingCart/OrderSuccess/OrderSuccess.module.scss";
 import Lottie from "lottie-react";
 import success from "@/animations/completed.json";
 

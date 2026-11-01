@@ -13,6 +13,7 @@ import {
   updatePaymentAction,
 } from "@/store/actions/checkout";
 
+// eslint-disable-next-line react-refresh/only-export-components -- context + provider + hook are colocated by design
 export const CheckoutContext = createContext<CheckoutContextType | null>(null);
 
 export function CheckoutProvider({ children }: { children: ReactNode }) {
@@ -48,6 +49,7 @@ export function CheckoutProvider({ children }: { children: ReactNode }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components -- context + provider + hook are colocated by design
 export const useCheckoutContext = createContextHook(
   CheckoutContext,
   CheckoutProvider,

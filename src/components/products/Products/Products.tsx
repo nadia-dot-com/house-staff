@@ -1,5 +1,5 @@
-import classes from "./Products.module.scss";
-import { ProductItem } from "./ProductItem/ProductItem";
+import classes from "@/components/products/Products/Products.module.scss";
+import { ProductItem } from "@/components/products/Products/ProductItem/ProductItem";
 import { Product } from "@/types/api/product";
 import { AnimatePresence } from "motion/react";
 

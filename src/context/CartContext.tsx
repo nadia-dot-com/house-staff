@@ -21,6 +21,7 @@ import {
   updateQuantityAction,
 } from "@/store/actions/cart";
 
+// eslint-disable-next-line react-refresh/only-export-components -- context + provider + hook are colocated by design
 export const CartContext = createContext<CartContextValue | null>(null);
 
 export function CartProvider({ children }: { children: ReactNode }) {
@@ -67,4 +68,5 @@ export function CartProvider({ children }: { children: ReactNode }) {
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components -- context + provider + hook are colocated by design
 export const useCartContext = createContextHook(CartContext, CartProvider);

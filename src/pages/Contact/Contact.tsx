@@ -1,6 +1,6 @@
-import classes from "./Contact.module.scss";
-import { ContactDescription } from "./ContactDescription/ContactDescription";
-import { ContactForm } from "./ContactForm/ContactForm";
+import classes from "@/pages/Contact/Contact.module.scss";
+import { ContactDescription } from "@/pages/Contact/ContactDescription/ContactDescription";
+import { ContactForm } from "@/pages/Contact/ContactForm/ContactForm";
 import { PageTransition } from "@/components/PageTransition/PageTransition";
 
 export default function Contact() {

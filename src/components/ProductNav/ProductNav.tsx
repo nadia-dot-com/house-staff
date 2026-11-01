@@ -1,6 +1,6 @@
 import { useCategories } from "@/hooks/categories/useCategories";
 import { useCollections } from "@/hooks/collection/useCollections";
-import { ProductNavView } from "./ProductNavView/ProductNavView";
+import { ProductNavView } from "@/components/ProductNav/ProductNavView/ProductNavView";
 
 export function ProductNav() {
   const { data: categories } = useCategories();

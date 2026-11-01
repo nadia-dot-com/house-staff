@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useOptions } from "@/hooks/options/useOptions";
 import { PaymentMethod } from "@/types/api/options";
 import { RadioGroup } from "@/components/RadioGroup/RadioGroup";
@@ -12,7 +12,10 @@ export function Payment({
 }) {
   const { data } = useOptions();
 
-  const paymentOptions = data?.paymentMethods ?? [];
+  const paymentOptions = useMemo(
+    () => data?.paymentMethods ?? [],
+    [data?.paymentMethods],
+  );
 
   useEffect(() => {
     if (!payment && paymentOptions.length > 0) {

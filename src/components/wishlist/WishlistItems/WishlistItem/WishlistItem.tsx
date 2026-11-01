@@ -1,4 +1,4 @@
-import classes from "./WishlistItem.module.scss";
+import classes from "@/components/wishlist/WishlistItems/WishlistItem/WishlistItem.module.scss";
 import { useWishlist } from "@/hooks/wishlist/useWishlist";
 import { Button } from "@/components/Button/Button";
 import { useCartContext } from "@/context/CartContext";
@@ -6,7 +6,7 @@ import { Product } from "@/types/api/product";
 import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
 import likeLoading from "@/animations/insider-loading.json";
 import Lottie from "lottie-react";
-import { Price } from "../../../Price/Price";
+import { Price } from "@/components/Price/Price";
 import { memo, useCallback } from "react";
 import { ShopLink } from "@/components/ShopLink/ShopLink";
 

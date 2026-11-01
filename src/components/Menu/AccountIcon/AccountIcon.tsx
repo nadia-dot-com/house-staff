@@ -1,4 +1,4 @@
-import classes from "./AccountIcon.module.scss";
+import classes from "@/components/Menu/AccountIcon/AccountIcon.module.scss";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { useUserContext } from "@/context/UserContext";
 import { cn } from "@/utils/cn";

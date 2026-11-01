@@ -1,7 +1,7 @@
 import { useUserContext } from "@/context/UserContext";
 import { useWishlistContext } from "@/context/WishlistContext";
-import { useItemsByIds } from "../products/useItemByIds";
-import { useWishlistQuery } from "./useWishlistQuery";
+import { useItemsByIds } from "@/hooks/products/useItemByIds";
+import { useWishlistQuery } from "@/hooks/wishlist/useWishlistQuery";
 
 export const useResolvedWishlist = () => {
   const { guestWishlist } = useWishlistContext();

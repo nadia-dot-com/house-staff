@@ -1,6 +1,6 @@
 import { categoriesGroups } from "@/data/categories";
 import { fromSlugToTitle } from "@/utils/fromSlugToTitle";
-import { useProducts } from "./useProducts";
+import { useProducts } from "@/hooks/products/useProducts";
 import { useMemo } from "react";
 
 export const useFilteredProducts = (

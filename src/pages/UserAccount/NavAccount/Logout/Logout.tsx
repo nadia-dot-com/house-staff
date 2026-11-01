@@ -1,5 +1,5 @@
 import { IoIosLogOut } from "react-icons/io";
-import classes from "./Logout.module.scss";
+import classes from "@/pages/UserAccount/NavAccount/Logout/Logout.module.scss";
 
 export function Logout({ onClick }: { onClick: () => void }) {
   return (

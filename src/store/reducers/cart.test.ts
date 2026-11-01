@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { ADD_TO_CART, REMOVE_FROM_CART, UPDATE_QUANTITY } from "../types/cart";
+import { ADD_TO_CART, REMOVE_FROM_CART, UPDATE_QUANTITY } from "@/store/types/cart";
 import {
   AddToCartAction,
   RemoveFromCartAction,
   UpdateQuantityAction,
-} from "../actions/cart";
+} from "@/store/actions/cart";
 import { CartState } from "@/types/cartTypes";
-import { cartReducer } from "./cart";
+import { cartReducer } from "@/store/reducers/cart";
 
 describe("cartReducer", () => {
   it("should add new product to cart", () => {

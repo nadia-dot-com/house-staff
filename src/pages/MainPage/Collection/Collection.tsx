@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { HorizontalScrollButton } from "@/components/HorizontalScrollButton/HorizontalScrollButton";
-import { CollectionItem } from "./CollectionItem/CollectionItem";
+import { CollectionItem } from "@/pages/MainPage/Collection/CollectionItem/CollectionItem";
 import { useCollections } from "@/hooks/collection/useCollections";
 import { DataLoader } from "@/components/DataLoader/DataLoader";
 import { useResize } from "@/hooks/useResize";
-import classes from "./Collection.module.scss";
+import classes from "@/pages/MainPage/Collection/Collection.module.scss";
 
 export function Collection() {
   const scrollRef = useRef<HTMLUListElement | null>(null);

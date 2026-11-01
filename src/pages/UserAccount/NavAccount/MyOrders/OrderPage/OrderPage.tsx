@@ -1,12 +1,12 @@
-import classes from "./OrderPage.module.scss";
+import classes from "@/pages/UserAccount/NavAccount/MyOrders/OrderPage/OrderPage.module.scss";
 import { useParams } from "react-router-dom";
-import { Vat } from "../../ShoppingCart/CheckoutReview/CheckoutSections/VatSection/VatSection";
-import { TotalPrice } from "../../ShoppingCart/CheckoutReview/CheckoutSections/TotalSection/TotalSection";
+import { Vat } from "@/pages/UserAccount/NavAccount/ShoppingCart/CheckoutReview/CheckoutSections/VatSection/VatSection";
+import { TotalPrice } from "@/pages/UserAccount/NavAccount/ShoppingCart/CheckoutReview/CheckoutSections/TotalSection/TotalSection";
 import { useOrderFromOrders } from "@/hooks/orders/useOrderFromOrders";
 import { DataLoader } from "@/components/DataLoader/DataLoader";
 import { useMemo } from "react";
 import { Subtotal } from "@/components/Subtotal/Subtotal";
-import { OrderList } from "../../ShoppingCart/CheckoutReview/CheckoutSections/OrderList/OrderList";
+import { OrderList } from "@/pages/UserAccount/NavAccount/ShoppingCart/CheckoutReview/CheckoutSections/OrderList/OrderList";
 
 export default function OrderPage() {
   const { orderId } = useParams();

@@ -1,7 +1,7 @@
 import { OrderItem } from "@/types/orderTypes";
-import { getDiscountSubtotal } from "./getSubtotals";
-import { getVAT } from "./getVAT";
-import { roundMoney } from "./roundMoney";
+import { getDiscountSubtotal } from "@/utils/getSubtotals";
+import { getVAT } from "@/utils/getVAT";
+import { roundMoney } from "@/utils/roundMoney";
 
 export type Args = {
   cartItems: OrderItem[];

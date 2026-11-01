@@ -1,5 +1,5 @@
-import { QuantityInput } from "./QuantityInput";
-import { Meta, StoryObj } from "@storybook/react";
+import { QuantityInput } from "@/components/QuantityInput/QuantityInput";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
 const meta: Meta<typeof QuantityInput> = {

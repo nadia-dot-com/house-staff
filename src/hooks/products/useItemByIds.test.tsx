@@ -1,11 +1,13 @@
 import { renderHook } from "@testing-library/react";
-import { useItemsByIds } from "./useItemByIds";
-import * as useProductsModule from "./useProducts";
+import { useItemsByIds } from "@/hooks/products/useItemByIds";
+import * as useProductsModule from "@/hooks/products/useProducts";
 import { vi } from "vitest";
+import { UseQueryResult } from "@tanstack/react-query";
+import { Product } from "@/types/api/product";
 
-vi.mock("./useProducts", () => ({
-    useProducts: vi.fn(),
-}))
+vi.mock("@/hooks/products/useProducts", () => ({
+  useProducts: vi.fn(),
+}));
 
 const ids = ["1", "2", "3"];
 
@@ -22,7 +24,7 @@ describe("useItemsByIds", () => {
       ],
       isLoading: false,
       error: null,
-    } as any);
+    } as UseQueryResult<Product[], Error>);
 
     const { result } = renderHook(() => useItemsByIds(["1"]));
 
@@ -36,7 +38,7 @@ describe("useItemsByIds", () => {
       data: undefined,
       isLoading: true,
       error: null,
-    } as any);
+    } as UseQueryResult<Product[], Error>);
 
     const { result } = renderHook(() => useItemsByIds(ids));
 
@@ -49,7 +51,7 @@ describe("useItemsByIds", () => {
       data: undefined,
       isLoading: false,
       error: new Error("Błąd serwera"),
-    } as any);
+    } as UseQueryResult<Product[], Error>);
 
     const { result } = renderHook(() => useItemsByIds(ids));
 

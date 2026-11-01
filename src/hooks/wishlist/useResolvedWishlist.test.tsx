@@ -1,11 +1,11 @@
 import { renderHook } from "@testing-library/react";
 import { describe, test, expect, beforeEach, vi } from "vitest";
 import { WishlistProvider } from "@/context/WishlistContext";
-import { useResolvedWishlist } from "./useResolvedWishlist";
+import { useResolvedWishlist } from "@/hooks/wishlist/useResolvedWishlist";
 import { getWrapper } from "@/tests/getWrapper";
 
-import * as wishlistQueryModule from "./useWishlistQuery";
-import * as itemsByIdsModule from "../products/useItemByIds";
+import * as wishlistQueryModule from "@/hooks/wishlist/useWishlistQuery";
+import * as itemsByIdsModule from "@/hooks/products/useItemByIds";
 import * as userContextModule from "@/context/UserContext";
 
 describe("useResolvedWishlist", () => {
@@ -18,23 +18,23 @@ describe("useResolvedWishlist", () => {
 
   test("should return user wishlist from API when user is logged in", () => {
     vi.spyOn(userContextModule, "useUserContext").mockReturnValue({
-      user: { id: "user_1" },
+      user: { id: "user_1", email: "user@example.com" },
       token: "fake-token",
       logout: vi.fn(),
       toggleModalOpen: vi.fn(),
       isLoginModalOpen: false,
-    } as any);
+    } as unknown as ReturnType<typeof userContextModule.useUserContext>);
 
     const mockUserItems = [{ id: "prod_api", name: "API Product" }];
-    vi.spyOn(wishlistQueryModule, "useWishlistQuery").mockReturnValue({ 
-      data: mockUserItems, 
-      isLoading: false, 
-      error: null 
-    } as any);
-    
-    vi.spyOn(itemsByIdsModule, "useItemsByIds").mockReturnValue({ 
-      filteredProducts: [] 
-    } as any);
+    vi.spyOn(wishlistQueryModule, "useWishlistQuery").mockReturnValue({
+      data: mockUserItems,
+      isLoading: false,
+      error: null,
+    } as unknown as ReturnType<typeof wishlistQueryModule.useWishlistQuery>);
+
+    vi.spyOn(itemsByIdsModule, "useItemsByIds").mockReturnValue({
+      filteredProducts: [],
+    } as unknown as ReturnType<typeof itemsByIdsModule.useItemsByIds>);
 
     const { result } = renderHook(() => useResolvedWishlist(), {
       wrapper: ({ children }) => (
@@ -53,16 +53,16 @@ describe("useResolvedWishlist", () => {
     vi.spyOn(userContextModule, "useUserContext").mockReturnValue({
       user: null,
       token: null,
-    } as any);
+    } as unknown as ReturnType<typeof userContextModule.useUserContext>);
 
-    vi.spyOn(wishlistQueryModule, "useWishlistQuery").mockReturnValue({ 
-      data: [], 
-      isLoading: false 
-    } as any);
-    
-    vi.spyOn(itemsByIdsModule, "useItemsByIds").mockReturnValue({ 
-      filteredProducts: mockGuestItems 
-    } as any);
+    vi.spyOn(wishlistQueryModule, "useWishlistQuery").mockReturnValue({
+      data: [],
+      isLoading: false,
+    } as unknown as ReturnType<typeof wishlistQueryModule.useWishlistQuery>);
+
+    vi.spyOn(itemsByIdsModule, "useItemsByIds").mockReturnValue({
+      filteredProducts: mockGuestItems,
+    } as unknown as ReturnType<typeof itemsByIdsModule.useItemsByIds>);
 
     const { result } = renderHook(() => useResolvedWishlist(), {
       wrapper: ({ children }) => (

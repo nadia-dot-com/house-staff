@@ -3,7 +3,7 @@ import { useUserContext } from "@/context/UserContext";
 import { useCheckoutContext } from "@/context/CheckoutContext";
 import { DataProps } from "@/types/checkoutTypes";
 import { useOptions } from "@/hooks/options/useOptions";
-import classes from "./AddressForm.module.scss";
+import classes from "@/pages/UserAccount/NavAccount/ShoppingCart/AddressForm/AddressForm.module.scss";
 
 export function AddressForm({
   formRef,

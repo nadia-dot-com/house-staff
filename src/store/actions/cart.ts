@@ -1,10 +1,10 @@
-import { Product } from "../../types/api/product";
+import { Product } from "@/types/api/product";
 import {
   ADD_TO_CART,
   CLEAR_CART,
   REMOVE_FROM_CART,
   UPDATE_QUANTITY,
-} from "../types/cart";
+} from "@/store/types/cart";
 
 export type AddToCartAction = {
   type: typeof ADD_TO_CART;

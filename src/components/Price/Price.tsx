@@ -1,4 +1,4 @@
-import classes from "./Price.module.scss";
+import classes from "@/components/Price/Price.module.scss";
 import { memo } from "react";
 import { getDiscountPrice } from "@/utils/product";
 

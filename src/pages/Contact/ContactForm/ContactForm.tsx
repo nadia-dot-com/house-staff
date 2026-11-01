@@ -1,4 +1,4 @@
-import classes from "./ContactForm.module.scss";
+import classes from "@/pages/Contact/ContactForm/ContactForm.module.scss";
 import { Button } from "@/components/Button/Button";
 import { CONTACT_FORM_STATE } from "@/constants/contactForm";
 import { useContactForm } from "@/hooks/useContactForm";

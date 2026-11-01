@@ -1,19 +1,19 @@
-import classes from "./ProductDetails.module.scss";
+import classes from "@/components/ProductDetails/ProductDetails.module.scss";
 import { useCartContext } from "@/context/CartContext";
 import { useEffect, useRef, useState } from "react";
-import { Button } from "../Button/Button";
-import { QuantityInput } from "../QuantityInput/QuantityInput";
+import { Button } from "@/components/Button/Button";
+import { QuantityInput } from "@/components/QuantityInput/QuantityInput";
 import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
-import { SaleLabel } from "../SaleLabel/SaleLabel";
+import { SaleLabel } from "@/components/SaleLabel/SaleLabel";
 import { cn } from "@/utils/cn";
 import { checkProductDate } from "@/utils/checkProductDate";
-import { NewProductLabel } from "../NewProductLabel/NewProductLabel";
+import { NewProductLabel } from "@/components/NewProductLabel/NewProductLabel";
 import { useWishlist } from "@/hooks/wishlist/useWishlist";
 import { Product } from "@/types/api/product";
 import { isProductInStock, isProductOnSale } from "@/utils/product";
-import { WishlistButton } from "../wishlist/WishlistButton/WishlistButton";
-import { Price } from "../Price/Price";
-import { PageTransition } from "../PageTransition/PageTransition";
+import { WishlistButton } from "@/components/wishlist/WishlistButton/WishlistButton";
+import { Price } from "@/components/Price/Price";
+import { PageTransition } from "@/components/PageTransition/PageTransition";
 
 export function ProductDetails({ product }: { product: Product }) {
   const {

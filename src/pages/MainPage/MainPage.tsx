@@ -1,9 +1,9 @@
-import classes from "./MainPage.module.scss";
-import { Collection } from "./Collection/Collection";
-import { PopularCategories } from "./PopularCategories/PopularCategories";
-import { Presentation } from "./Presentation/Presentation";
-import { Sale } from "./Sale/Sale";
-import { OurShowroom } from "./OurShowroom/OurShowroom";
+import classes from "@/pages/MainPage/MainPage.module.scss";
+import { Collection } from "@/pages/MainPage/Collection/Collection";
+import { PopularCategories } from "@/pages/MainPage/PopularCategories/PopularCategories";
+import { Presentation } from "@/pages/MainPage/Presentation/Presentation";
+import { Sale } from "@/pages/MainPage/Sale/Sale";
+import { OurShowroom } from "@/pages/MainPage/OurShowroom/OurShowroom";
 import { PageTransition } from "@/components/PageTransition/PageTransition";
 
 export function MainPage() {

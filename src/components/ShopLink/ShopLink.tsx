@@ -30,7 +30,8 @@ export function ShopLink({
       to={toUrl}
       className={className}
       onClick={() => {
-        (setSelectedCategory(category), onClick?.());
+        setSelectedCategory(category);
+        onClick?.();
       }}
     >
       {children}

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import { LoadingSpinner } from "../LoadingSpinner/LoadingSpinner";
-import { ErrorState } from "../ErrorState/ErrorState";
+import { LoadingSpinner } from "@/components/LoadingSpinner/LoadingSpinner";
+import { ErrorState } from "@/components/ErrorState/ErrorState";
 import { MODE } from "@/api/config";
 import { ERROR_MESSAGES } from "@/constants/messages";
 import { AppError } from "@/errors";

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useOrders } from "./useOrders";
+import { useOrders } from "@/hooks/orders/useOrders";
 import { keyBy } from "lodash";
 
 export const useOrderFromOrders = (orderId?: string) => {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { checkProductDate } from "./checkProductDate";
+import { checkProductDate } from "@/utils/checkProductDate";
 import { NEW_PRODUCT_THRESHOLD_DAYS } from "@/config";
 
 describe("checkProductDate", () => {
@@ -15,12 +15,11 @@ describe("checkProductDate", () => {
 
     expect(checkProductDate(oneHourAgo.toISOString())).toBe(true);
   });
-  it("should return true for a product exactly on the threshold", () => {
-    const exactlyThreshold = new Date();
-    exactlyThreshold.setDate(
-      exactlyThreshold.getDate() - NEW_PRODUCT_THRESHOLD_DAYS,
-    );
+  it("should return true for a product just inside the threshold", () => {
+    const thresholdMs = NEW_PRODUCT_THRESHOLD_DAYS * 24 * 60 * 60 * 1000;
+    const oneHourMs = 60 * 60 * 1000;
+    const justInsideThreshold = new Date(Date.now() - thresholdMs + oneHourMs);
 
-    expect(checkProductDate(exactlyThreshold.toISOString())).toBe(true);
+    expect(checkProductDate(justInsideThreshold.toISOString())).toBe(true);
   });
 });

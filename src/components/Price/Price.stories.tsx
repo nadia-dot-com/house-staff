@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { Price } from "./Price";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { Price } from "@/components/Price/Price";
 
 const meta: Meta<typeof Price> = {
   component: Price,

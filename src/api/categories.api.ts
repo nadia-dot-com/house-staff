@@ -1,5 +1,5 @@
 import { Category } from "@/types/api/category";
-import { API_URL } from "./config";
+import { API_URL } from "@/api/config";
 
 export const fetchCategories = async (): Promise<Category[]> => {
   const res = await fetch(`${API_URL}/categories`);

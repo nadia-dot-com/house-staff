@@ -1,4 +1,4 @@
-import classes from "./EmptyCard.module.scss";
+import classes from "@/components/EmptyCard/EmptyCard.module.scss";
 import { FaCartShopping } from "react-icons/fa6";
 
 export function EmptyCard() {

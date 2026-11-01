@@ -1,7 +1,7 @@
-import classes from "./CollectionItem.module.scss";
+import classes from "@/pages/MainPage/Collection/CollectionItem/CollectionItem.module.scss";
 import { useProducts } from "@/hooks/products/useProducts";
 import { Collection, HotSpotProps } from "@/types/api/collection";
-import { Hotspot } from "../Hotspot/Hotspot";
+import { Hotspot } from "@/pages/MainPage/Collection/Hotspot/Hotspot";
 
 export function CollectionItem({
   collectionItem,

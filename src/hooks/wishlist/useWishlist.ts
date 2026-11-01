@@ -1,9 +1,9 @@
 import { useCallback, useMemo } from "react";
 import { useUserContext } from "@/context/UserContext";
 import { useWishlistContext } from "@/context/WishlistContext";
-import { useAddToWishlist } from "./useAddToWishlist";
-import { useRemoveFromWishlist } from "./useRemoveFromWishlist";
-import { useWishlistQuery } from "./useWishlistQuery";
+import { useAddToWishlist } from "@/hooks/wishlist/useAddToWishlist";
+import { useRemoveFromWishlist } from "@/hooks/wishlist/useRemoveFromWishlist";
+import { useWishlistQuery } from "@/hooks/wishlist/useWishlistQuery";
 
 export function useWishlist(productId: string) {
   const { guestWishlist, toggleGuestWishlist } = useWishlistContext();
@@ -28,10 +28,14 @@ export function useWishlist(productId: string) {
       return;
     }
 
-    if(isMutating) return;
+    if (isMutating) return;
 
-    liked ? remove.mutate(productId) : add.mutate([productId]);
-  }, [liked, productId]);
+    if (liked) {
+      remove.mutate(productId);
+    } else {
+      add.mutate([productId]);
+    }
+  }, [liked, productId, user, isMutating, remove, add, toggleGuestWishlist]);
 
   return useMemo(
     () => ({

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { roundMoney } from "./roundMoney";
+import { roundMoney } from "@/utils/roundMoney";
 
 describe("roundMoney", () => {
   it("should round ingine value correctly", () => {

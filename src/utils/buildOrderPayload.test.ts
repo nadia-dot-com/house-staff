@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildOrderPayload, BuildOrderPayloadArgs } from "./buildOrderPayload";
+import { buildOrderPayload, BuildOrderPayloadArgs } from "@/utils/buildOrderPayload";
 
 const createData = (overrides = {}): BuildOrderPayloadArgs => ({
   items: [
@@ -68,7 +68,7 @@ describe("buildOrderPayload", () => {
   it("should throw an error if shipping data is incomplete", () => {
     const incompleteData = {
       shippingAddress: { country: "Poland" },
-    } as any;
+    } as unknown as BuildOrderPayloadArgs;
 
     expect(() => buildOrderPayload(incompleteData)).toThrow(
       "Cannot build order payload: shipping data is incomplete",
@@ -92,7 +92,7 @@ describe("buildOrderPayload", () => {
       shippingAddress: {
         ...createData().shippingAddress,
         notes: undefined,
-      } as any,
+      },
     });
 
     const result = buildOrderPayload(data);

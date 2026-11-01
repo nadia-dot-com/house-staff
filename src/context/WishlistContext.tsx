@@ -4,6 +4,7 @@ import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { GUEST_WISHLIST_KEY } from "@/data/locatStorageKey";
 import { WishlistValue } from "@/types/wishlistTypes";
 
+// eslint-disable-next-line react-refresh/only-export-components -- context + provider + hook are colocated by design
 export const WishlistContext = createContext<WishlistValue | null>(null);
 
 export function WishlistProvider({ children }: { children: ReactNode }) {
@@ -12,15 +13,21 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
     [],
   );
 
-  const toggleGuestWishlist = useCallback((productId: string) => {
-    setGuestWishlist((prev) =>
-      prev.includes(productId)
-        ? prev.filter((id) => id !== productId)
-        : [...prev, productId],
-    );
-  }, []);
+  const toggleGuestWishlist = useCallback(
+    (productId: string) => {
+      setGuestWishlist((prev) =>
+        prev.includes(productId)
+          ? prev.filter((id) => id !== productId)
+          : [...prev, productId],
+      );
+    },
+    [setGuestWishlist],
+  );
 
-  const cleanGuestWishlist = useCallback(() => setGuestWishlist([]), []);
+  const cleanGuestWishlist = useCallback(
+    () => setGuestWishlist([]),
+    [setGuestWishlist],
+  );
 
   const value = useMemo(
     () => ({
@@ -38,6 +45,7 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components -- context + provider + hook are colocated by design
 export const useWishlistContext = createContextHook(
   WishlistContext,
   WishlistProvider,

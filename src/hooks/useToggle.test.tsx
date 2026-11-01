@@ -1,5 +1,5 @@
 import { renderHook, waitFor } from "@testing-library/react";
-import { useToggle } from "./useToggle";
+import { useToggle } from "@/hooks/useToggle";
 import { act } from "react";
 
 describe("useToggle", () => {

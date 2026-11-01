@@ -1,4 +1,4 @@
-import classes from "./OrderRow.module.scss";
+import classes from "@/pages/UserAccount/NavAccount/MyOrders/OrderRow/OrderRow.module.scss";
 import { OrderResponse } from "@/types/api/order.response";
 import { Button } from "@/components/Button/Button";
 import { useNavigate } from "react-router-dom";

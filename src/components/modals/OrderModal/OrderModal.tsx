@@ -1,9 +1,9 @@
-import classes from "./OrderModal.module.scss";
-import { EmptyCard } from "../../EmptyCard/EmptyCard";
+import classes from "@/components/modals/OrderModal/OrderModal.module.scss";
+import { EmptyCard } from "@/components/EmptyCard/EmptyCard";
 import { useCartContext } from "@/context/CartContext";
-import { ShowOrder } from "./ShowOrder/ShowOrder";
+import { ShowOrder } from "@/components/modals/OrderModal/ShowOrder/ShowOrder";
 import { useCartUiContext } from "@/context/CartUIContext";
-import { Modal } from "../Modal/Modal";
+import { Modal } from "@/components/modals/Modal/Modal";
 
 export function OrderModal() {
   const { toggleCartOpen, isCartOpen } = useCartUiContext();

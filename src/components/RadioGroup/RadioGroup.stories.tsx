@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { RadioGroup } from "./RadioGroup";
-import { Meta, StoryObj } from "@storybook/react";
+import { RadioGroup } from "@/components/RadioGroup/RadioGroup";
+import { Meta, StoryObj } from "@storybook/react-vite";
 
 const meta: Meta<typeof RadioGroup> = {
   component: RadioGroup,
   argTypes: {
-    onClick: { action: (option: any) => option },
+    onClick: { action: (option: { id: number; name: string }) => option },
   },
 };
 

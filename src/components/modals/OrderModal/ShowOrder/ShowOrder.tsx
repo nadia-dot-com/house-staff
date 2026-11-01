@@ -1,13 +1,13 @@
-import classes from "./ShowOrder.module.scss";
-import { Button } from "../../../Button/Button";
-import { OrderItemRow } from "../../../OrderItemRow/OrderItemRow";
+import classes from "@/components/modals/OrderModal/ShowOrder/ShowOrder.module.scss";
+import { Button } from "@/components/Button/Button";
+import { OrderItemRow } from "@/components/OrderItemRow/OrderItemRow";
 import { useCartContext } from "@/context/CartContext";
 import { useUserContext } from "@/context/UserContext";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/config/routes/Routes";
-import { Subtotal } from "../../../Subtotal/Subtotal";
+import { Subtotal } from "@/components/Subtotal/Subtotal";
 import { OrderItem } from "@/types/orderTypes";
-import { LoginButton } from "../../../LoginButton/LoginButton";
+import { LoginButton } from "@/components/LoginButton/LoginButton";
 import { useItemsByIds } from "@/hooks/products/useItemByIds";
 import { useCartUiContext } from "@/context/CartUIContext";
 

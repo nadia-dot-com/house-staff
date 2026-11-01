@@ -1,5 +1,5 @@
-import { Product } from "./api/product";
-import { OrderItem } from "./orderTypes";
+import { Product } from "@/types/api/product";
+import { OrderItem } from "@/types/orderTypes";
 
 export type CartContextValue = {
   cartItems: OrderItem[];

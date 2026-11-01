@@ -12,6 +12,7 @@ import { TOKEN, USER } from "@/data/locatStorageKey";
 import { useCurrentUser } from "@/hooks/user/useCurrentUser";
 import { useToggle } from "@/hooks/useToggle";
 
+// eslint-disable-next-line react-refresh/only-export-components -- context + provider + hook are colocated by design
 export const UserContext = createContext<UserContextProps | null>(null);
 
 export function UserProvider({ children }: { children: ReactNode }) {
@@ -63,4 +64,5 @@ export function UserProvider({ children }: { children: ReactNode }) {
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components -- context + provider + hook are colocated by design
 export const useUserContext = createContextHook(UserContext, UserProvider);

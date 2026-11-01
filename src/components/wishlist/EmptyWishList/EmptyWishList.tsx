@@ -1,4 +1,4 @@
-import classes from "./EmptyWishList.module.scss";
+import classes from "@/components/wishlist/EmptyWishList/EmptyWishList.module.scss";
 import { Button } from "@/components/Button/Button";
 import { TbShoppingBagHeart } from "react-icons/tb";
 import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";

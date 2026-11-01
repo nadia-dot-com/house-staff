@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useProducts } from "./useProducts";
+import { useProducts } from "@/hooks/products/useProducts";
 import { keyBy } from "lodash";
 
 export function useItemsByIds(ids: string[]) {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { Args, calculateCheckoutPrice } from "./calculateCheckoutPrice";
+import { Args, calculateCheckoutPrice } from "@/utils/calculateCheckoutPrice";
 
 const createData = (overrides: Partial<Args> = {}): Args => ({
   cartItems: [

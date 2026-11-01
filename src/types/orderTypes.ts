@@ -1,5 +1,5 @@
-import { DeliveryMethod, PaymentMethod } from "./api/options";
-import { DataProps } from "./checkoutTypes";
+import { DeliveryMethod, PaymentMethod } from "@/types/api/options";
+import { DataProps } from "@/types/checkoutTypes";
 
 export type OrderItem = {
   id: string;

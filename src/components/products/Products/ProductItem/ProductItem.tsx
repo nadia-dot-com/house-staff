@@ -1,15 +1,15 @@
-import classes from "./ProductItem.module.scss";
+import classes from "@/components/products/Products/ProductItem/ProductItem.module.scss";
 import { cn } from "@/utils/cn";
 import { useCartContext } from "@/context/CartContext";
-import { SaleLabel } from "../../../SaleLabel/SaleLabel";
+import { SaleLabel } from "@/components/SaleLabel/SaleLabel";
 import { useWishlist } from "@/hooks/wishlist/useWishlist";
 import { checkProductDate } from "@/utils/checkProductDate";
-import { NewProductLabel } from "../../../NewProductLabel/NewProductLabel";
+import { NewProductLabel } from "@/components/NewProductLabel/NewProductLabel";
 import { Product } from "@/types/api/product";
 import { isProductInStock, isProductOnSale } from "@/utils/product";
 import { memo, useCallback } from "react";
-import { WishlistButton } from "../../../wishlist/WishlistButton/WishlistButton";
-import { Price } from "../../../Price/Price";
+import { WishlistButton } from "@/components/wishlist/WishlistButton/WishlistButton";
+import { Price } from "@/components/Price/Price";
 import { motion } from "motion/react";
 import { ShopLink } from "@/components/ShopLink/ShopLink";
 

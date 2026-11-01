@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { HorizontalScrollButton } from "./HorizontalScrollButton";
+import { HorizontalScrollButton } from "@/components/HorizontalScrollButton/HorizontalScrollButton";
 
 describe("HorizontalScrollButton", () => {
   test("should render left arrow and correct label", () => {

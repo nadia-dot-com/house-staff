@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { WishlistButton } from "./WishlistButton";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { WishlistButton } from "@/components/wishlist/WishlistButton/WishlistButton";
 
 const meta: Meta<typeof WishlistButton> = {
   component: WishlistButton,

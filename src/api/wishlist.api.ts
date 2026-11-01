@@ -1,5 +1,5 @@
 import { WishlistProductDTO } from "@/types/api/wishlist";
-import { API_URL } from "./config";
+import { API_URL } from "@/api/config";
 
 export const fetchWishlist = async (
   token: string,

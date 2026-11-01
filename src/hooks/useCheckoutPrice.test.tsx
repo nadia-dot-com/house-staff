@@ -1,9 +1,11 @@
 import { renderHook, waitFor } from "@testing-library/react";
-import { useCheckoutPrice } from "./useCheckoutPrice";
+import { useCheckoutPrice } from "@/hooks/useCheckoutPrice";
 import { getWrapper } from "@/tests/getWrapper";
-import { useOptions } from "./options/useOptions";
+import { useOptions } from "@/hooks/options/useOptions";
+import { UseQueryResult } from "@tanstack/react-query";
+import { OptionsResponse } from "@/types/api/options";
 
-vi.mock("./options/useOptions", () => ({
+vi.mock("@/hooks/options/useOptions", () => ({
   useOptions: vi.fn(),
 }));
 
@@ -17,7 +19,7 @@ describe("useCheckoutPrice", () => {
       data: {
         countries: [{ name: "Poland", code: "cote", vatRate: 23 }],
       },
-    } as any);
+    } as UseQueryResult<OptionsResponse>);
 
     const data = {
       cartItems: [

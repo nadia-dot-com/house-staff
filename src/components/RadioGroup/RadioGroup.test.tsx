@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { RadioGroup } from "./RadioGroup";
+import { RadioGroup } from "@/components/RadioGroup/RadioGroup";
 
 const options = [
   { id: "1", name: "first", price: 10 },

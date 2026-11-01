@@ -1,4 +1,4 @@
-import classes from "./StyledLink.module.scss";
+import classes from "@/components/StyledLink/StyledLink.module.scss";
 import type { ReactNode } from "react";
 import { NavLink } from "react-router-dom";
 import type { NavLinkProps } from "react-router";

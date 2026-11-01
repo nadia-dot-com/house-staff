@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { useClickOutside } from "./useClickOutside";
+import { useClickOutside } from "@/hooks/useClickOutside";
 
 function TestComponent({ onClickOutside }: { onClickOutside: () => void }) {
   const refCallback = useClickOutside(onClickOutside);

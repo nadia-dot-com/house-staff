@@ -1,5 +1,5 @@
-import { ErrorFallback } from "./ErrorFallback";
-import { Meta, StoryObj } from "@storybook/react";
+import { ErrorFallback } from "@/components/ErrorFallback/ErrorFallback";
+import { Meta, StoryObj } from "@storybook/react-vite";
 
 const meta: Meta<typeof ErrorFallback> = {
   component: ErrorFallback,

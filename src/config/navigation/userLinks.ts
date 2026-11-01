@@ -1,5 +1,5 @@
-import { ROUTES } from "../routes/Routes";
-import { MenuLinksProps } from "../types/type";
+import { ROUTES } from "@/config/routes/Routes";
+import { MenuLinksProps } from "@/config/types/type";
 
 export const userLinks: MenuLinksProps[] = [
   { to: ROUTES.profile, label: "My Profile" },

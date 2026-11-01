@@ -1,4 +1,4 @@
-import classes from "./RadioGroup.module.scss";
+import classes from "@/components/RadioGroup/RadioGroup.module.scss";
 
 export function RadioGroup<
   T extends { id: string | number; name: string; price?: number },

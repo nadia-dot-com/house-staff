@@ -1,4 +1,4 @@
-import classes from "./WishlistButton.module.scss";
+import classes from "@/components/wishlist/WishlistButton/WishlistButton.module.scss";
 import Lottie from "lottie-react";
 import likeLoading from "@/animations/insider-loading.json";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";

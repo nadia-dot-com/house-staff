@@ -1,8 +1,10 @@
 import { renderHook, waitFor } from "@testing-library/react";
-import { UserProvider, useUserContext } from "./UserContext";
+import { UserProvider, useUserContext } from "@/context/UserContext";
 import { act } from "react";
 import { useCurrentUser } from "@/hooks/user/useCurrentUser";
 import { TOKEN } from "@/data/locatStorageKey";
+import { UseQueryResult } from "@tanstack/react-query";
+import { UserData } from "@/types/userTypes";
 
 vi.mock("@/hooks/user/useCurrentUser", () => ({
   useCurrentUser: vi.fn(),
@@ -15,11 +17,11 @@ describe("UserContext", () => {
   });
 
   test("should update user data when API returns success", async () => {
-    (useCurrentUser as any).mockReturnValue({
+    vi.mocked(useCurrentUser).mockReturnValue({
       data: { name: "John Doe" },
       isLoading: false,
       error: null,
-    });
+    } as unknown as UseQueryResult<UserData>);
 
     const { result } = renderHook(() => useUserContext(), {
       wrapper: UserProvider,
@@ -31,11 +33,11 @@ describe("UserContext", () => {
   });
 
   test("should logout", () => {
-    (useCurrentUser as any).mockReturnValue({
+    vi.mocked(useCurrentUser).mockReturnValue({
       data: { name: "John Doe" },
       isLoading: false,
       error: null,
-    });
+    } as unknown as UseQueryResult<UserData>);
 
     window.localStorage.setItem("USER", JSON.stringify({ name: "John Doe" }));
     window.localStorage.setItem(TOKEN, "123-test");

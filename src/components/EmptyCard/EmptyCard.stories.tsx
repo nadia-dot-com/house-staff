@@ -1,5 +1,5 @@
-import { EmptyCard } from "./EmptyCard";
-import { Meta, StoryObj } from "@storybook/react";
+import { EmptyCard } from "@/components/EmptyCard/EmptyCard";
+import { Meta, StoryObj } from "@storybook/react-vite";
 
 const meta: Meta<typeof EmptyCard> = {
   component: EmptyCard,

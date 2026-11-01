@@ -1,5 +1,5 @@
 import { ShopLink } from "@/components/ShopLink/ShopLink";
-import classes from "./ProductNavView.module.scss";
+import classes from "@/components/ProductNav/ProductNavView/ProductNavView.module.scss";
 import { categoriesGroups } from "@/data/categories";
 import { useHover } from "@/hooks/useHover";
 import { Category } from "@/types/api/category";

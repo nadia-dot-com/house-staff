@@ -1,11 +1,11 @@
-import classes from "./Footer.module.scss";
+import classes from "@/components/Footer/Footer.module.scss";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { IoIosTime } from "react-icons/io";
 import { MdPlace } from "react-icons/md";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { FaSquareFacebook, FaSquareInstagram } from "react-icons/fa6";
-import { StyledLink } from "../StyledLink/StyledLink";
+import { StyledLink } from "@/components/StyledLink/StyledLink";
 import { ROUTES } from "@/config/routes/Routes";
 import {
   SHOP_ADDRESS,
@@ -15,7 +15,7 @@ import {
   SHOP_PHONE_TEL,
   SHOP_SOCIALS,
   SHOP_WORKING_HOURS,
-} from "../../config";
+} from "@/config";
 
 export default function Footer() {
   return (

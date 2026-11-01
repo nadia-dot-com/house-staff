@@ -6,15 +6,15 @@ import {
   UpdateDeliveryAction,
   UpdateItemsAction,
   UpdatePaymentAction,
-} from "../actions/checkout";
+} from "@/store/actions/checkout";
 import {
   RESET_CHECKOUT,
   UPDATE_DATA,
   UPDATE_DELIVERY,
   UPDATE_ITEMS,
   UPDATE_PAYMENT,
-} from "../types/checkout";
-import { checkoutReducer } from "./checkout";
+} from "@/store/types/checkout";
+import { checkoutReducer } from "@/store/reducers/checkout";
 import { CHECKOUT_INITIAL } from "@/data/checkout";
 
 const createState = (overrides = {}): CheckoutState => ({

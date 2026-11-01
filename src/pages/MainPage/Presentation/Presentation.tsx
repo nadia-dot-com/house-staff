@@ -1,7 +1,7 @@
-import classes from "./Presentation.module.scss";
+import classes from "@/pages/MainPage/Presentation/Presentation.module.scss";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { PRESENTATION } from "@/data/presentation";
-import { PresentationItem } from "./PresentationItem/PresentationItem";
+import { PresentationItem } from "@/pages/MainPage/Presentation/PresentationItem/PresentationItem";
 import { useHover } from "@/hooks/useHover";
 import { AnimatePresence } from "motion/react";
 
@@ -17,7 +17,7 @@ export function Presentation() {
     intervalRef.current = window.setInterval(() => {
       setctiveSlideIndex((prev) => (prev + 1) % PRESENTATION.length);
     }, DELAY);
-  }, [PRESENTATION.length]);
+  }, []);
 
   const stop = useCallback(() => {
     if (intervalRef.current !== null) {

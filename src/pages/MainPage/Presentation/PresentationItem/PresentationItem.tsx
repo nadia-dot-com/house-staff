@@ -1,4 +1,4 @@
-import classes from "./PresentationItem.module.scss";
+import classes from "@/pages/MainPage/Presentation/PresentationItem/PresentationItem.module.scss";
 import { PresentationProps } from "@/types/presentation";
 import { cn } from "@/utils/cn";
 import { Button } from "@/components/Button/Button";

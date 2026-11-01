@@ -1,5 +1,5 @@
 import { OrderResponse } from "@/types/api/order.response";
-import { API_URL } from "./config";
+import { API_URL } from "@/api/config";
 
 export const fetchOrders = async (token: string): Promise<OrderResponse[]> => {
   const res = await fetch(`${API_URL}/orders`, {

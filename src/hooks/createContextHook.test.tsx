@@ -1,5 +1,5 @@
 import { createContext, ReactNode } from "react";
-import { createContextHook } from "./createContextHook";
+import { createContextHook } from "@/hooks/createContextHook";
 import { render, screen } from "@testing-library/react";
 
 type TestValue = {

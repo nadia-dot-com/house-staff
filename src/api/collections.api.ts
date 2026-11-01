@@ -1,5 +1,5 @@
 import { Collection } from "@/types/api/collection";
-import { API_URL } from "./config";
+import { API_URL } from "@/api/config";
 
 export const fetchCollections = async (): Promise<Collection[]> => {
   const res = await fetch(`${API_URL}/collections`);

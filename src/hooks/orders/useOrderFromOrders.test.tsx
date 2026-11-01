@@ -1,18 +1,20 @@
 import { getWrapper } from "@/tests/getWrapper";
 import { renderHook } from "@testing-library/react";
-import { useOrderFromOrders } from "./useOrderFromOrders";
-import { useOrders } from "./useOrders";
+import { useOrderFromOrders } from "@/hooks/orders/useOrderFromOrders";
+import { useOrders } from "@/hooks/orders/useOrders";
+import { UseQueryResult } from "@tanstack/react-query";
+import { OrderResponse } from "@/types/api/order.response";
 
-vi.mock("./useOrders", () => ({
+vi.mock("@/hooks/orders/useOrders", () => ({
   useOrders: vi.fn(),
 }));
 
-describe("useWishlist", () => {
+describe("useOrderFromOrders", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
-  test("shold return order by id", () => {
+  test("should return order by id", () => {
     const mockOrders = [
       { id: "order_1", total: 100 },
       { id: "order_2", total: 200 },
@@ -21,7 +23,7 @@ describe("useWishlist", () => {
     vi.mocked(useOrders).mockReturnValue({
       data: mockOrders,
       isLoading: false,
-    } as any);
+    } as unknown as UseQueryResult<OrderResponse[], Error>);
 
     const { result } = renderHook(() => useOrderFromOrders("order_2"), {
       wrapper: getWrapper(),

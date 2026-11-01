@@ -5,19 +5,20 @@ import {
   CartAction,
   RemoveFromCartAction,
   UpdateQuantityAction,
-} from "../actions/cart";
-import { createReducer } from "../helpers/createReducer";
+} from "@/store/actions/cart";
+import { createReducer } from "@/store/helpers/createReducer";
 import {
   ADD_TO_CART,
   CLEAR_CART,
   REMOVE_FROM_CART,
   UPDATE_QUANTITY,
-} from "../types/cart";
+} from "@/store/types/cart";
 
 const addToCart = (state: CartState, action: AddToCartAction) => {
   const { product, quantity } = action.payload;
 
-  let { [product.id]: itemInCart, ...restState } = keyBy(state, "id");
+  const { [product.id]: existingItem, ...restState } = keyBy(state, "id");
+  let itemInCart = existingItem;
 
   if (!itemInCart) {
     itemInCart = {

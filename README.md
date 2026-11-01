@@ -144,3 +144,23 @@ The application will be available at:
 ```
 http://localhost:5175
 ```
+
+## Commit Convention
+
+This project uses [commitlint](https://commitlint.js.org/) with the [conventional commits](https://www.conventionalcommits.org/) standard an d a [husky](https://typicode.github.io/husky/)pre-commit hook to enforce consistent commit messages.
+
+All commit messages must follow the conventional commits format:
+
+```
+<type>[scope]: <description>
+```
+
+**Types:**
+
+- `feat` - a new feature
+- `fix` - a bug fix
+- `docs` - documentation only changes
+- `style` - code style changes (formatting, semicolons, etc)
+- `refactor` - a code change that neither fixes a bug nor adds a feature
+- `test` - adding or updating tests
+- `chore` - other changes like build process or tooling changes

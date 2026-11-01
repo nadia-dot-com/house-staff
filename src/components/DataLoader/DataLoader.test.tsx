@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { DataLoader } from "./DataLoader";
+import { DataLoader } from "@/components/DataLoader/DataLoader";
 import { AppError } from "@/errors";
 
-vi.mock("../LoadingSpinner/LoadingSpinner", () => ({
+vi.mock("@/components/LoadingSpinner/LoadingSpinner", () => ({
   LoadingSpinner: () => (<div aria-label="loading">MOcked Spinner</div>),
 }));
 

@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { test, describe } from "vitest";
-import { QuantityInput } from "./QuantityInput";
+import { QuantityInput } from "@/components/QuantityInput/QuantityInput";
 
 describe("QuantityInput", () => {
   test("should render with correct initial value, min and max attributes", () => {

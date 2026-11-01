@@ -1,5 +1,5 @@
-import { StyledLink } from "./StyledLink";
-import { Meta, StoryObj } from "@storybook/react";
+import { StyledLink } from "@/components/StyledLink/StyledLink";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { MemoryRouter } from "react-router-dom";
 
 const meta: Meta<typeof StyledLink> = {

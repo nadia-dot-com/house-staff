@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { getDiscountPrice, getSafeQuantity } from "./product";
+import { getDiscountPrice, getSafeQuantity } from "@/utils/product";
+import { Product } from "@/types/api/product";
 
 describe("product utils", () => {
   const mockProduct = {
@@ -7,7 +8,7 @@ describe("product utils", () => {
     price: 100,
     discount: 10,
     stockQuantity: 5,
-  } as any;
+  } as unknown as Product;
 
   describe("getDiscountPrice", () => {
     it("should calculate price with 10% discount", () => {

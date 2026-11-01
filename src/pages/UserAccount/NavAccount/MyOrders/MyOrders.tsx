@@ -1,7 +1,7 @@
-import classes from "./MyOrders.module.scss";
+import classes from "@/pages/UserAccount/NavAccount/MyOrders/MyOrders.module.scss";
 import { useOrders } from "@/hooks/orders/useOrders";
 import { DataLoader } from "@/components/DataLoader/DataLoader";
-import { OrderRow } from "./OrderRow/OrderRow";
+import { OrderRow } from "@/pages/UserAccount/NavAccount/MyOrders/OrderRow/OrderRow";
 
 export default function MyOrders() {
   const { data: orders, isLoading, error } = useOrders();

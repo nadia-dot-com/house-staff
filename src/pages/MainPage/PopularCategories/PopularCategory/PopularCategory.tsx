@@ -1,5 +1,5 @@
 import { ShopLink } from "@/components/ShopLink/ShopLink";
-import classes from "./PopularCategory.module.scss";
+import classes from "@/pages/MainPage/PopularCategories/PopularCategory/PopularCategory.module.scss";
 import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
 import { Category } from "@/types/api/category";
 

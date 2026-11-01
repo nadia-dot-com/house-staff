@@ -1,7 +1,7 @@
 import { OrderItemResponse } from "@/types/api/order.response";
 import { OrderItem } from "@/types/orderTypes";
-import { getDiscountPrice } from "./product";
-import { roundMoney } from "./roundMoney";
+import { getDiscountPrice } from "@/utils/product";
+import { roundMoney } from "@/utils/roundMoney";
 
 export const getSubtotal = (arr: OrderItem[] | OrderItemResponse[]) => {
   return arr.reduce((sum, item) => sum + Number(item.price) * item.quantity, 0);

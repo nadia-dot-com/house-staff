@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useOptions } from "@/hooks/options/useOptions";
 import { DeliveryMethod } from "@/types/api/options";
 import { RadioGroup } from "@/components/RadioGroup/RadioGroup";
@@ -12,7 +12,10 @@ export function Shipping({
 }) {
   const { data } = useOptions();
 
-  const deliveryOptions = data?.deliveryMethods ?? [];
+  const deliveryOptions = useMemo(
+    () => data?.deliveryMethods ?? [],
+    [data?.deliveryMethods],
+  );
 
   useEffect(() => {
     if (!delivery && deliveryOptions.length > 0) {

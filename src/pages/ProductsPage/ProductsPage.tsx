@@ -1,4 +1,4 @@
-import classes from "./ProductsPage.module.scss";
+import classes from "@/pages/ProductsPage/ProductsPage.module.scss";
 import { useLocation, useOutlet, useParams } from "react-router-dom";
 import { Products } from "@/components/products/Products/Products";
 import { ProductNav } from "@/components/ProductNav/ProductNav";

@@ -1,4 +1,4 @@
-import classes from "./GoogleCallback.module.scss";
+import classes from "@/pages/GoogleCallback/GoogleCallback.module.scss";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/config/routes/Routes";

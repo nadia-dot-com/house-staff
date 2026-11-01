@@ -1,5 +1,5 @@
-import { NewProductLabel } from "./NewProductLabel";
-import { Meta, StoryObj } from "@storybook/react";
+import { NewProductLabel } from "@/components/NewProductLabel/NewProductLabel";
+import { Meta, StoryObj } from "@storybook/react-vite";
 
 const meta: Meta<typeof NewProductLabel> = {
   component: NewProductLabel,

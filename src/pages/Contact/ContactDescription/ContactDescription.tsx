@@ -1,4 +1,4 @@
-import classes from "./ContactDescription.module.scss";
+import classes from "@/pages/Contact/ContactDescription/ContactDescription.module.scss";
 import { getImagePath } from "@/utils/getImagePath";
 
 export function ContactDescription() {

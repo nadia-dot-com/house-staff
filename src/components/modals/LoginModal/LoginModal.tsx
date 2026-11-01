@@ -1,7 +1,7 @@
-import classes from "./LoginModal.module.scss";
+import classes from "@/components/modals/LoginModal/LoginModal.module.scss";
 import { useUserContext } from "@/context/UserContext";
-import { LoginButton } from "../../LoginButton/LoginButton";
-import { Modal } from "../Modal/Modal";
+import { LoginButton } from "@/components/LoginButton/LoginButton";
+import { Modal } from "@/components/modals/Modal/Modal";
 
 export function LoginModal() {
   const { toggleModalOpen, isLoginModalOpen } = useUserContext();

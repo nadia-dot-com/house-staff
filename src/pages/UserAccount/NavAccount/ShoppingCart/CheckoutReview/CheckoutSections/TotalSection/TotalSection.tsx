@@ -1,5 +1,5 @@
 import { cn } from '@/utils/cn';
-import classes from './TotalSection.module.scss';
+import classes from '@/pages/UserAccount/NavAccount/ShoppingCart/CheckoutReview/CheckoutSections/TotalSection/TotalSection.module.scss';
 
 export function TotalPrice({ total, discount }: { total: number, discount: boolean }) {
     

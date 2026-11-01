@@ -1,4 +1,4 @@
-import classes from "./LoadingSpinner.module.scss";
+import classes from "@/components/LoadingSpinner/LoadingSpinner.module.scss";
 import Lottie from "lottie-react";
 import loading from "@/animations/loading.json";
 

@@ -1,6 +1,6 @@
 import { OrderItem } from "@/types/orderTypes";
-import { Subtotal } from "./Subtotal";
-import { Meta, StoryObj } from "@storybook/react";
+import { Subtotal } from "@/components/Subtotal/Subtotal";
+import { Meta, StoryObj } from "@storybook/react-vite";
 
 const meta: Meta<typeof Subtotal> = {
   component: Subtotal,

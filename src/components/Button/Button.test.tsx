@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { Button } from "./Button";
+import { Button } from "@/components/Button/Button";
 
 describe("Button", () => {
   test("click handler should be called on click", () => {
@@ -13,7 +13,7 @@ describe("Button", () => {
       />,
     );
 
-    const button = screen.getByLabelText("button");
+    const button = screen.getByLabelText("Click me");
 
     fireEvent.click(button);
 
@@ -32,7 +32,7 @@ describe("Button", () => {
       />,
     );
 
-    const button = screen.getByLabelText("button");
+    const button = screen.getByLabelText("Click me");
 
     expect(button).toBeDisabled();
   });

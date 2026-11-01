@@ -1,8 +1,8 @@
-import classes from "./Menu.module.scss";
-import { StyledLink } from "../StyledLink/StyledLink";
-import { ShoppingCartIcon } from "./ShoppingCartIcon/ShoppingCartIcon";
-import { AccountIcon } from "./AccountIcon/AccountIcon";
-import { WishlistIcon } from "./WishlistIcon/WishlistIcon";
+import classes from "@/components/Menu/Menu.module.scss";
+import { StyledLink } from "@/components/StyledLink/StyledLink";
+import { ShoppingCartIcon } from "@/components/Menu/ShoppingCartIcon/ShoppingCartIcon";
+import { AccountIcon } from "@/components/Menu/AccountIcon/AccountIcon";
+import { WishlistIcon } from "@/components/Menu/WishlistIcon/WishlistIcon";
 import { useEffect } from "react";
 import { useCartUiContext } from "@/context/CartUIContext";
 import { AnimatePresence, motion } from "motion/react";
@@ -20,7 +20,7 @@ export function Menu() {
 
     window.addEventListener("scroll", closeMenuOnScroll);
     return () => window.removeEventListener("scroll", closeMenuOnScroll);
-  }, [isMenuOpen]);
+  }, [isMenuOpen, toggleMenuOpen]);
 
   return (
     <nav className={classes.nav}>

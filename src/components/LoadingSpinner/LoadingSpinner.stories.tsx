@@ -1,5 +1,5 @@
-import { LoadingSpinner } from "./LoadingSpinner";
-import { Meta, StoryObj } from "@storybook/react";
+import { LoadingSpinner } from "@/components/LoadingSpinner/LoadingSpinner";
+import { Meta, StoryObj } from "@storybook/react-vite";
 
 const meta: Meta<typeof LoadingSpinner> = {
   component: LoadingSpinner,

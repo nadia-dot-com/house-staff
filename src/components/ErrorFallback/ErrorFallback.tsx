@@ -1,8 +1,8 @@
-import classes from "./ErrorFallback.module.scss";
+import classes from "@/components/ErrorFallback/ErrorFallback.module.scss";
 import Lottie from "lottie-react";
 import warning from "@/animations/warning.json";
 import { FallbackProps } from "react-error-boundary";
-import { Button } from "../Button/Button";
+import { Button } from "@/components/Button/Button";
 
 
 export function ErrorFallback({ resetErrorBoundary }: FallbackProps) {

@@ -1,4 +1,4 @@
-import classes from "./Modal.module.scss";
+import classes from "@/components/modals/Modal/Modal.module.scss";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { cn } from "@/utils/cn";
 import { motion } from "motion/react";

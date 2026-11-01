@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { WishlistItemVisual } from "./WishlistItem";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { WishlistItemVisual } from "@/components/wishlist/WishlistItems/WishlistItem/WishlistItem";
 import { Product } from "@/types/api/product";
 import { WishlistProvider } from "@/context/WishlistContext";
 

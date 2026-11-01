@@ -6,15 +6,15 @@ import {
   UpdateDeliveryAction,
   UpdateItemsAction,
   UpdatePaymentAction,
-} from "../actions/checkout";
-import { createReducer } from "../helpers/createReducer";
+} from "@/store/actions/checkout";
+import { createReducer } from "@/store/helpers/createReducer";
 import {
   RESET_CHECKOUT,
   UPDATE_DATA,
   UPDATE_DELIVERY,
   UPDATE_ITEMS,
   UPDATE_PAYMENT,
-} from "../types/checkout";
+} from "@/store/types/checkout";
 
 const updateItems = (state: CheckoutState, action: UpdateItemsAction) => ({
   ...state,

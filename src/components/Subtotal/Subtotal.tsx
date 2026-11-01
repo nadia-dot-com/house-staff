@@ -1,4 +1,4 @@
-import classes from "./Subtotal.module.scss";
+import classes from "@/components/Subtotal/Subtotal.module.scss";
 import { OrderItemResponse } from "@/types/api/order.response";
 import { OrderItem } from "@/types/orderTypes";
 import { getDiscountSubtotal, getSubtotal } from "@/utils/getSubtotals";

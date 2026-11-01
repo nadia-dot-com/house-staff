@@ -1,4 +1,4 @@
-import classes from './CheckoutButtons.module.scss';
+import classes from '@/pages/UserAccount/NavAccount/ShoppingCart/CheckoutButtons/CheckoutButtons.module.scss';
 import { Button } from '@/components/Button/Button';
 import { CHECKOUT_STEP } from '@/constants/checkout';
 

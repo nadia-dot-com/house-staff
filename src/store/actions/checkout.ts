@@ -7,7 +7,7 @@ import {
   UPDATE_DELIVERY,
   UPDATE_ITEMS,
   UPDATE_PAYMENT,
-} from "../types/checkout";
+} from "@/store/types/checkout";
 
 export type UpdateItemsAction = {
   type: typeof UPDATE_ITEMS;

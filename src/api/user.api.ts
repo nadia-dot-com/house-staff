@@ -1,5 +1,5 @@
 import { UserData } from "@/types/userTypes";
-import { API_URL } from "./config";
+import { API_URL } from "@/api/config";
 
 export const fetchUser = async (token: string): Promise<UserData> => {
   const res = await fetch(`${API_URL}/user`, {

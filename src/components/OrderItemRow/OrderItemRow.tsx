@@ -1,13 +1,13 @@
-import classes from "./OrderItemRow.module.scss";
+import classes from "@/components/OrderItemRow/OrderItemRow.module.scss";
 import { useCartContext } from "@/context/CartContext";
 import { FaTrash } from "react-icons/fa6";
-import { QuantityInput } from "../QuantityInput/QuantityInput";
+import { QuantityInput } from "@/components/QuantityInput/QuantityInput";
 import { OrderItem } from "@/types/orderTypes";
 import { getDiscountPrice } from "@/utils/product";
 import { cn } from "@/utils/cn";
 import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
 import { memo, useCallback, useMemo } from "react";
-import { ShopLink } from "../ShopLink/ShopLink";
+import { ShopLink } from "@/components/ShopLink/ShopLink";
 
 export const OrderItemRowVisual = memo(
   ({

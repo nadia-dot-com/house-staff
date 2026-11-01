@@ -1,5 +1,5 @@
-import { DeliveryMethod, PaymentMethod } from "./api/options";
-import { OrderItem } from "./orderTypes";
+import { DeliveryMethod, PaymentMethod } from "@/types/api/options";
+import { OrderItem } from "@/types/orderTypes";
 
 export type DataProps = {
   fullName: string | null;
