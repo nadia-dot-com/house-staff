@@ -4,13 +4,19 @@ import { cn } from "@/utils/cn";
 import { useCartContext } from "@/context/CartContext";
 import { OrderQuantity } from "@/components/Menu/ShoppingCartIcon/OrderQuantity/OrderQuantity";
 import { useCartUiContext } from "@/context/CartUIContext";
+import { useUserContext } from "@/context/UserContext";
 
 export function ShoppingCartIcon({ active }: { active: boolean }) {
   const { toggleCartOpen } = useCartUiContext();
   const { cartItems } = useCartContext();
+  const { isLoginModalOpen, toggleModalOpen } = useUserContext();
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
+
+    if (isLoginModalOpen) {
+      toggleModalOpen();
+    }
     toggleCartOpen();
   };
 

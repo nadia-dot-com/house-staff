@@ -54,13 +54,8 @@ export function GoogleCallback() {
     } else {
       handleRedirect();
     }
-  }, [
-    navigate,
-    updateToken,
-    cleanGuestWishlist,
-    merge,
-    isCartOpen,
-    toggleCartOpen,
-  ]);
+    //isCartOpen, toggleCartOpen must be checked once
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [navigate, updateToken, cleanGuestWishlist, merge]);
   return <div className={classes.signing}>Signing you in...</div>;
 }

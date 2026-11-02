@@ -13,14 +13,16 @@ import { useCartUiContext } from "@/context/CartUIContext";
 import { ErrorBoundary } from "react-error-boundary";
 import { ErrorFallback } from "@/components/ErrorFallback/ErrorFallback";
 import { AnimatePresence } from "motion/react";
+import { useScroll } from "@/hooks/useScroll";
 
 export function MainLayout() {
   const { isCartOpen } = useCartUiContext();
   const { isLoginModalOpen } = useUserContext();
+  useScroll(isCartOpen, isLoginModalOpen);
 
   return (
     <div className={classes.layout}>
-      <Header/>
+      <Header />
 
       <AnimatePresence>{isCartOpen && <OrderModal />}</AnimatePresence>
       <AnimatePresence>{isLoginModalOpen && <LoginModal />}</AnimatePresence>

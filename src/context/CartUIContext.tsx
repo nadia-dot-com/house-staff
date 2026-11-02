@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useMemo, createContext, useEffect } from "react";
+import { ReactNode, useCallback, useMemo, createContext } from "react";
 import { IS_ORDER_OPEN_KEY } from "@/data/locatStorageKey";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { createContextHook } from "@/hooks/createContextHook";
@@ -12,10 +12,6 @@ export function CartUIProvider({ children }: { children: ReactNode }) {
     IS_ORDER_OPEN_KEY,
     false,
   );
-
-  useEffect(() => {
-      document.body.style.overflow = isCartOpen ? "hidden" : "";
-    }, [isCartOpen]);
 
   const toggleCartOpen = useCallback(() => {
     setIsCartOpen((prev) => !prev);

@@ -4,14 +4,20 @@ import { useUserContext } from "@/context/UserContext";
 import { cn } from "@/utils/cn";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ROUTES } from "@/config/routes/Routes";
+import { useCartUiContext } from "@/context/CartUIContext";
 
 export function AccountIcon() {
   const { user, isLoginModalOpen, toggleModalOpen } = useUserContext();
+  const { isCartOpen, toggleCartOpen } = useCartUiContext();
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
+
+    if (isCartOpen) {
+      toggleCartOpen();
+    }
 
     if (!user) {
       toggleModalOpen();

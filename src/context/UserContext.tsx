@@ -28,10 +28,6 @@ export function UserProvider({ children }: { children: ReactNode }) {
     setUser(data ?? null);
   }, [data, isLoading, setUser]);
 
-  useEffect(() => {
-    document.body.style.overflow = isLoginModalOpen ? "hidden" : "";
-  }, [isLoginModalOpen]);
-
   const logout = useCallback(() => {
     setUser(null);
     setToken(null);

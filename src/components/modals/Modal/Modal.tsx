@@ -22,13 +22,13 @@ export function Modal({
   const refModal = useRef<HTMLDivElement | null>(null);
   const refCallback = useClickOutside(toggle);
 
+  const setRefs = (el: HTMLDivElement | null) => {
+    refModal.current = el;
+    refCallback(el);
+  };
+
   useEffect(() => {
     refModal.current?.focus();
-
-    if(isOpen) {
-      document.body.style.overflow = "hidden";
-      document.documentElement.style.overflow = "hidden";
-    }
 
     const handleEsc = (e: KeyboardEvent) => {
       if (e.code === "Escape" && isOpen) {
@@ -38,9 +38,7 @@ export function Modal({
 
     window.addEventListener("keydown", handleEsc);
     return () => {
-      window.removeEventListener("keydown", handleEsc)
-      document.body.style.overflow = "";
-      document.documentElement.style.overflow = "";
+      window.removeEventListener("keydown", handleEsc);
     };
   }, [isOpen, toggle]);
 
@@ -49,18 +47,16 @@ export function Modal({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      ref={refCallback}
+      transition={{ duration: 0.25, ease: "easeOut" }}
+      ref={setRefs}
+      role="dialog"
+      aria-modal="true"
+      tabIndex={-1}
+      aria-label={ariaLabel}
+      className={cn(classes.modal, className)}
     >
-      <div
-        role="dialog"
-        aria-modal="true"
-        tabIndex={-1}
-        ref={refModal}
-        aria-label={ariaLabel}
-        className={cn(classes.modal, className)}
-      >
-        {children}
-      </div>
+
+      {children}
     </motion.div>
   );
 }

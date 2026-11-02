@@ -64,6 +64,5 @@ describe("UserContext", () => {
     });
 
     expect(result.current.isLoginModalOpen).toBe(true);
-    expect(document.body.style.overflow).toBe("hidden");
   });
 });
