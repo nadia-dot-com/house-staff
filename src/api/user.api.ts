@@ -1,5 +1,6 @@
 import { UserData } from "@/types/userTypes";
 import { API_URL } from "@/api/config";
+import { handleResponse } from "@/api/handleResponse";
 
 export const fetchUser = async (token: string): Promise<UserData> => {
   const res = await fetch(`${API_URL}/user`, {
@@ -8,16 +9,10 @@ export const fetchUser = async (token: string): Promise<UserData> => {
     },
   });
 
-  const data = await res.json();
-
-  if (!res.ok) {
-    throw new Error(
-      data?.message ??
-        "Failed to fetch user. An unexpected Error was received from the server.",
-    );
-  }
-
-  return data;
+  return handleResponse<UserData>(
+    res,
+    "Failed to fetch user. An unexpected Error was received from the server.",
+  );
 };
 
 export async function updateUserProfile(
@@ -33,14 +28,8 @@ export async function updateUserProfile(
     body: JSON.stringify(payload),
   });
 
-  const data = await res.json();
-
-  if (!res.ok) {
-    throw new Error(
-      data?.message ??
-        "Failed to update user. An unexpected Error was received from the server.",
-    );
-  }
-
-  return data;
+  return handleResponse<UserData>(
+    res,
+    "Failed to update user. An unexpected Error was received from the server.",
+  );
 }

@@ -1,5 +1,6 @@
 import { WishlistProductDTO } from "@/types/api/wishlist";
 import { API_URL } from "@/api/config";
+import { handleResponse } from "@/api/handleResponse";
 
 export const fetchWishlist = async (
   token: string,
@@ -11,23 +12,17 @@ export const fetchWishlist = async (
     },
   });
 
-  const data = await res.json();
-
-  if (!res.ok) {
-    throw new Error(
-      data?.message ??
-        "Failed to fetch wishlist. An unexpected Error was received from the server.",
-    );
-  }
-
-  return data;
+  return handleResponse<WishlistProductDTO[]>(
+    res,
+    "Failed to fetch wishlist. An unexpected Error was received from the server.",
+  );
 };
 
 export const fetchDeleteFromWiszlist = async (
   productId: string,
   token: string,
-) => {
-  return await fetch(`${API_URL}/user/wishlist/remove-product`, {
+): Promise<void> => {
+  const res = await fetch(`${API_URL}/user/wishlist/remove-product`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -35,13 +30,18 @@ export const fetchDeleteFromWiszlist = async (
     },
     body: JSON.stringify({ productId }),
   });
+
+  return handleResponse<void>(
+    res,
+    "Failed to remove product from wishlist. An unexpected Error was received from the server.",
+  );
 };
 
 export const addToWishlist = async (
   productsIds: string[],
   token: string,
-) => {
-  return await fetch(`${API_URL}/user/wishlist/add-products`, {
+): Promise<void> => {
+  const res = await fetch(`${API_URL}/user/wishlist/add-products`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -49,4 +49,9 @@ export const addToWishlist = async (
     },
     body: JSON.stringify({ productsIds }),
   });
+
+  return handleResponse<void>(
+    res,
+    "Failed to add product to wishlist. An unexpected Error was received from the server.",
+  );
 };
