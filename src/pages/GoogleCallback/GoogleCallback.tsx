@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/config/routes/Routes";
 import { toast } from "react-toastify";
-import { GUEST_WISHLIST_KEY, TOKEN } from "@/data/locatStorageKey";
+import { GUEST_WISHLIST_KEY, TOKEN } from "@/data/localStorageKey";
 import { useAddToWishlist } from "@/hooks/wishlist/useAddToWishlist";
 import { useUserContext } from "@/context/UserContext";
 import { useWishlistContext } from "@/context/WishlistContext";

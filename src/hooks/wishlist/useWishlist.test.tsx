@@ -6,7 +6,7 @@ import { useWishlist } from "@/hooks/wishlist/useWishlist";
 import { act, ReactNode } from "react";
 import { UserProvider } from "@/context/UserContext";
 import { WishlistProvider } from "@/context/WishlistContext";
-import { TOKEN, USER } from "@/data/locatStorageKey";
+import { TOKEN, USER } from "@/data/localStorageKey";
 import { getWrapper } from "@/tests/getWrapper";
 
 vi.mock("@/hooks/wishlist/useWishlistQuery", () => ({ useWishlistQuery: vi.fn() }));

@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useCallback, useMemo } from "react";
 import { createContextHook } from "@/hooks/createContextHook";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
-import { GUEST_WISHLIST_KEY } from "@/data/locatStorageKey";
+import { GUEST_WISHLIST_KEY } from "@/data/localStorageKey";
 import { WishlistValue } from "@/types/wishlistTypes";
 
 // eslint-disable-next-line react-refresh/only-export-components -- context + provider + hook are colocated by design

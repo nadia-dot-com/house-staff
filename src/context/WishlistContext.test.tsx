@@ -1,7 +1,7 @@
 import { fireEvent, render, renderHook, screen } from "@testing-library/react";
 import { useWishlistContext, WishlistProvider } from "@/context/WishlistContext";
 import { act } from "react";
-import { GUEST_WISHLIST_KEY } from "@/data/locatStorageKey";
+import { GUEST_WISHLIST_KEY } from "@/data/localStorageKey";
 
 function TestComponent() {
   const { guestWishlist, toggleGuestWishlist } = useWishlistContext();

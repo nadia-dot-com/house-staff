@@ -2,7 +2,7 @@ import { renderHook, waitFor } from "@testing-library/react";
 import { UserProvider, useUserContext } from "@/context/UserContext";
 import { act } from "react";
 import { useCurrentUser } from "@/hooks/user/useCurrentUser";
-import { TOKEN } from "@/data/locatStorageKey";
+import { TOKEN } from "@/data/localStorageKey";
 import { UseQueryResult } from "@tanstack/react-query";
 import { UserData } from "@/types/userTypes";
 

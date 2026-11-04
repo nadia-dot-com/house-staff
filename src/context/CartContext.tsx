@@ -8,7 +8,7 @@ import {
 } from "react";
 import { createContextHook } from "@/hooks/createContextHook";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
-import { ORDER_KEY } from "@/data/locatStorageKey";
+import { ORDER_KEY } from "@/data/localStorageKey";
 import { toast } from "react-toastify";
 import { Product } from "@/types/api/product";
 import { OrderItem } from "@/types/orderTypes";

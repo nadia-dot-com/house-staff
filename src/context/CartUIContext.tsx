@@ -1,5 +1,5 @@
 import { ReactNode, useCallback, useMemo, createContext } from "react";
-import { IS_ORDER_OPEN_KEY } from "@/data/locatStorageKey";
+import { IS_ORDER_OPEN_KEY } from "@/data/localStorageKey";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { createContextHook } from "@/hooks/createContextHook";
 import { CartUiContextValue } from "@/types/cartUiTypes";
