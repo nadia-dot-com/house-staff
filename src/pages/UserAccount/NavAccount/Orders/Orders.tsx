@@ -1,9 +1,9 @@
-import classes from "@/pages/UserAccount/NavAccount/MyOrders/MyOrders.module.scss";
+import classes from "@/pages/UserAccount/NavAccount/Orders/Orders.module.scss";
 import { useOrders } from "@/hooks/orders/useOrders";
 import { DataLoader } from "@/components/DataLoader/DataLoader";
-import { OrderRow } from "@/pages/UserAccount/NavAccount/MyOrders/OrderRow/OrderRow";
+import { OrderRow } from "@/pages/UserAccount/NavAccount/Orders/OrderRow/OrderRow";
 
-export default function MyOrders() {
+export default function Orders() {
   const { data: orders, isLoading, error } = useOrders();
 
   const ordersUi = orders ? [...orders].reverse() : [];

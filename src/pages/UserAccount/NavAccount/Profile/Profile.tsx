@@ -1,4 +1,4 @@
-import classes from "@/pages/UserAccount/NavAccount/MyProfile/MyProfile.module.scss";
+import classes from "@/pages/UserAccount/NavAccount/Profile/Profile.module.scss";
 import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from "react";
 import { useUserContext } from "@/context/UserContext";
 import { Button } from "@/components/Button/Button";
@@ -9,7 +9,7 @@ import omitBy from "lodash/omitBy";
 import { ERROR_MESSAGES } from "@/constants/messages";
 import { ErrorState } from "@/components/ErrorState/ErrorState";
 
-export default function MyProfile() {
+export default function Profile() {
   const { user } = useUserContext();
   const updateProfileMutation = useUpdateUserProfile();
 

@@ -1,10 +1,10 @@
-import classes from "@/components/wishlist/EmptyWishList/EmptyWishList.module.scss";
+import classes from "@/components/wishlist/EmptyWishlist/EmptyWishlist.module.scss";
 import { Button } from "@/components/Button/Button";
 import { TbShoppingBagHeart } from "react-icons/tb";
 import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
 import { categoriesGroups } from "@/data/categories";
 
-export function EmptyWishList() {
+export function EmptyWishlist() {
   const { navigateToCategory } = useShoppingNavigation();
 
   return (

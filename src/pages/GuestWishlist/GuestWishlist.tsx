@@ -1,9 +1,9 @@
-import classes from "@/pages/Wishlist/Wishlist.module.scss";
+import classes from "@/pages/GuestWishlist/GuestWishlist.module.scss";
 import { WishlistItems } from "@/components/wishlist/WishlistItems/WishlistItems";
 import { useResolvedWishlist } from "@/hooks/wishlist/useResolvedWishlist";
 import { PageTransition } from "@/components/PageTransition/PageTransition";
 
-export default function Wishlist() {
+export default function GuestWishlist() {
   const { wishlist, error, isLoading } = useResolvedWishlist();
 
   return (

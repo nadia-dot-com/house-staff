@@ -6,8 +6,12 @@ import { WishlistIcon } from "@/components/Menu/WishlistIcon/WishlistIcon";
 import { useEffect } from "react";
 import { useCartUiContext } from "@/context/CartUIContext";
 import { AnimatePresence, motion } from "motion/react";
+import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import { useToggle } from "@/hooks/useToggle";
 import { menuLinks } from "@/config/navigation/menuLinks";
+
+const MotionHamburgerIcon = motion.create(RxHamburgerMenu);
+const MotionCloseIcon = motion.create(RxCross2);
 
 export function Menu() {
   const [isMenuOpen, toggleMenuOpen] = useToggle(false);
@@ -66,7 +70,7 @@ export function Menu() {
           >
             <AnimatePresence mode="wait" initial={false}>
               {isMenuOpen ? (
-                <motion.svg
+                <MotionCloseIcon
                   aria-hidden="true"
                   key="close"
                   initial={{ rotate: -30, opacity: 0 }}
@@ -74,18 +78,9 @@ export function Menu() {
                   exit={{ rotate: 30, opacity: 0 }}
                   transition={{ duration: 0.2, ease: "easeInOut" }}
                   className={classes.icon}
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M6 6L18 18M18 6L6 18"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                </motion.svg>
+                />
               ) : (
-                <motion.svg
+                <MotionHamburgerIcon
                   aria-hidden="true"
                   key="burger"
                   initial={{ rotate: 30, opacity: 0 }}
@@ -93,16 +88,7 @@ export function Menu() {
                   exit={{ rotate: -30, opacity: 0 }}
                   transition={{ duration: 0.2, ease: "easeInOut" }}
                   className={classes.icon}
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                  />
-                </motion.svg>
+                />
               )}
             </AnimatePresence>
           </button>

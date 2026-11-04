@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 18px;
   margin-bottom: 10px;
   border-bottom: 1px solid v.$border-color;
@@ -20,6 +20,7 @@
       font-size: 14px;
       color: v.$old-price-color;
       text-decoration: line-through;
+      font-weight: 400;
     }
 
     .discountPrice {

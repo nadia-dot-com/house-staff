@@ -1,7 +1,7 @@
 import classes from "@/components/wishlist/WishlistItems/WishlistItems.module.scss";
 import { Product } from "@/types/api/product";
 import { DataLoader } from "@/components/DataLoader/DataLoader";
-import { EmptyWishList } from "@/components/wishlist/EmptyWishList/EmptyWishList";
+import { EmptyWishlist } from "@/components/wishlist/EmptyWishlist/EmptyWishlist";
 import { WishlistItem } from "@/components/wishlist/WishlistItems/WishlistItem/WishlistItem";
 
 export function WishlistItems({
@@ -19,7 +19,7 @@ export function WishlistItems({
   return (
     <div>
       {isEmpty ? (
-        <EmptyWishList />
+        <EmptyWishlist />
       ) : (
         <DataLoader error={error} loading={isLoading} loaded={!!list}>
           <ul className={classes.wishlist}>

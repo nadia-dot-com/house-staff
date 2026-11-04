@@ -3,25 +3,24 @@
 
 .wrapper {
   min-height: 100dvh;
+  width: 40dvw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+
+  > * {
+     width: 100%;
+     align-self: center;
+  }
 
   .errorFallback {
     @include m.flex-center(column);
     background-color: v.$white;
     text-align: center;
     width: 280px;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 18px;
-
-    @media (max-width: 768px) {
-      width: 250px;
-    }
-
-    @media (max-width: 576px) {
-      width: 200px;
-      font-size: 16px;
-    }
   }
 }

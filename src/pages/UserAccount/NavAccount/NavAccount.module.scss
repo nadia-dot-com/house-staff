@@ -1,4 +1,5 @@
 @use "@/variables" as v;
+@use "@/mixins" as m;
 
 .nav {
   display: flex;
@@ -8,7 +9,7 @@
   padding: 14px 20px;
   list-style: none;
 
-  @media (max-width: 576px) {
+  @include m.respond-to(v.$breakpoint-sm) {
     flex-direction: column;
     gap: 20px;
   }

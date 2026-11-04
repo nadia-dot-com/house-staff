@@ -15,7 +15,7 @@
     margin: 0px;
   }
 
-  .container {
+  .infoColumn {
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -64,7 +64,7 @@
     }
   }
 
-  @media (max-width: 992px) {
+  @include m.respond-to(v.$breakpoint-lg) {
     gap: 25px;
 
     .title {
@@ -72,7 +72,7 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @include m.respond-to(v.$breakpoint-md) {
     display: block;
 
     .title {
@@ -84,7 +84,7 @@
     }
   }
 
-  @media(max-width: 576px) {
+  @include m.respond-to(v.$breakpoint-sm) {
     .quantityContainer {
       width: 100%;
 
@@ -94,7 +94,7 @@
     }
   }
 
-  @media(max-width: 400px) {
+  @include m.respond-to(v.$breakpoint-xs) {
     .quantityContainer {
       flex-direction: column;
 

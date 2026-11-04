@@ -1,4 +1,5 @@
 @use "@/mixins" as m;
+@use "@/variables" as v;
 
 .shoppingCart {
   width: 100%;
@@ -9,7 +10,7 @@
     @include m.flex-center;
     padding: 20px;
 
-    @media (max-width: 576px) {
+    @include m.respond-to(v.$breakpoint-sm) {
       padding: 0;
     }
   }

@@ -4,7 +4,7 @@ import { cn } from "@/utils/cn";
 import { motion } from "motion/react";
 import { ReactNode, useEffect, useRef } from "react";
 
-type Modal = {
+type ModalProps = {
   ariaLabel: string;
   children: ReactNode;
   toggle: () => void;
@@ -18,7 +18,7 @@ export function Modal({
   toggle,
   className,
   isOpen,
-}: Modal) {
+}: ModalProps) {
   const refModal = useRef<HTMLDivElement | null>(null);
   const refCallback = useClickOutside(toggle);
 

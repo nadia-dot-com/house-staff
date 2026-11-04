@@ -1,11 +1,11 @@
 import { MemoryRouter } from "react-router-dom";
 import { WishlistProvider } from "@/context/WishlistContext";
-import { EmptyWishList } from "@/components/wishlist/EmptyWishList/EmptyWishList";
+import { EmptyWishlist } from "@/components/wishlist/EmptyWishlist/EmptyWishlist";
 import { Meta, StoryObj } from "@storybook/react-vite";
 import { CategoryProvider } from "@/context/CategoryContext";
 
-const meta: Meta<typeof EmptyWishList> = {
-  component: EmptyWishList,
+const meta: Meta<typeof EmptyWishlist> = {
+  component: EmptyWishlist,
   decorators: [
     (Story) => (
       <MemoryRouter>
@@ -21,6 +21,6 @@ const meta: Meta<typeof EmptyWishList> = {
 
 export default meta;
 
-type Story = StoryObj<typeof EmptyWishList>;
+type Story = StoryObj<typeof EmptyWishlist>;
 
 export const Default: Story = {};

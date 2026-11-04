@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react";
-import { useItemsByIds } from "@/hooks/products/useItemByIds";
+import { useItemsByIds } from "@/hooks/products/useItemsByIds";
 import * as useProductsModule from "@/hooks/products/useProducts";
 import { vi } from "vitest";
 import { UseQueryResult } from "@tanstack/react-query";

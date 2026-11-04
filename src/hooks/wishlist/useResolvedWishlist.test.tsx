@@ -5,7 +5,7 @@ import { useResolvedWishlist } from "@/hooks/wishlist/useResolvedWishlist";
 import { getWrapper } from "@/tests/getWrapper";
 
 import * as wishlistQueryModule from "@/hooks/wishlist/useWishlistQuery";
-import * as itemsByIdsModule from "@/hooks/products/useItemByIds";
+import * as itemsByIdsModule from "@/hooks/products/useItemsByIds";
 import * as userContextModule from "@/context/UserContext";
 
 describe("useResolvedWishlist", () => {

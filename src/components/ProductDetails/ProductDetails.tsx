@@ -63,7 +63,7 @@ export function ProductDetails({ product }: { product: Product }) {
           isOnSale={isOnSale}
           isNew={isNew}
         />
-        <div className={classes.container}>
+        <div className={classes.infoColumn}>
           <h1 className={classes.title}>
             {name}
             <WishlistButton

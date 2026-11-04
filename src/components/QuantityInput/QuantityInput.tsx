@@ -23,6 +23,12 @@ export function QuantityInput({
   const isDecrement = quantity <= 1;
   const isIncrement = quantity >= stock;
 
+  const handleBlur = () => {
+    if (!quantity || quantity < 1) {
+      setQuantity(1);
+    }
+  };
+
   return (
     <div
       className={cn(classes.quantityInput, size === "small" && classes.small)}
@@ -44,6 +50,7 @@ export function QuantityInput({
         max={stock}
          className={classes.input}
         onChange={onChange}
+        onBlur={handleBlur}
         aria-label="Change quantity"
       />
       <button

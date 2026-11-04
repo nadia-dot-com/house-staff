@@ -10,7 +10,7 @@
   padding: 80px 20px;
   width: 100%;
 
-  @media (max-width: 576px) {
+  @include m.respond-to(v.$breakpoint-sm) {
     padding: 40px 12px;
   }
 }
@@ -21,7 +21,7 @@
   width: 100%;
   text-align: center;
 
-  @media (max-width: 992px) {
+  @include m.respond-to(v.$breakpoint-lg) {
     max-width: 800px;
   }
 }
@@ -32,11 +32,11 @@
   color: #525151;
   margin-bottom: 10px;
 
-  @media (max-width: 992px) {
+  @include m.respond-to(v.$breakpoint-lg) {
     font-size: 21px;
   }
 
-  @media (max-width: 576px) {
+  @include m.respond-to(v.$breakpoint-sm) {
     font-size: 19px;
   }
 }
@@ -68,7 +68,7 @@
     white-space: nowrap;
   }
 
-  @media (max-width: 576px) {
+  @include m.respond-to(v.$breakpoint-sm) {
     display: flex;
     flex-direction: column;
   }
@@ -79,7 +79,7 @@
   font-weight: 500;
   color: v.$color-black;
 
-  @media (max-width: 576px) {
+  @include m.respond-to(v.$breakpoint-sm) {
     font-size: 14px;
   }
 }
@@ -109,7 +109,7 @@
     font-size: 17px;
     align-items: center;
 
-    @media (max-width: 576px) {
+    @include m.respond-to(v.$breakpoint-sm) {
       font-size: 14px;
     }
   }

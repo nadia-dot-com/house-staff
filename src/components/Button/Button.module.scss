@@ -1,3 +1,6 @@
+@use "@/variables" as v;
+@use "@/mixins" as m;
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -28,7 +31,7 @@
     pointer-events: none;
   }
 
-  @media (max-width: 992px) {
+  @include m.respond-to(v.$breakpoint-lg) {
     font-size: 14px;
     padding: 15px 26px;
   }

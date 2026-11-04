@@ -1,11 +1,12 @@
 @use "@/mixins" as m;
+@use "@/variables" as v;
 
 .orderSuccess {
   @include m.status-container;
 
   .title {
     text-align: center;
-    @media (max-width: 576px) {
+    @include m.respond-to(v.$breakpoint-sm) {
       font-size: 17px;
     }
   }

@@ -20,7 +20,7 @@
     }
   }
 
-  @media (max-width: 576px) {
+  @include m.respond-to(v.$breakpoint-sm) {
     gap: 8px;
 
     .stepSpan {

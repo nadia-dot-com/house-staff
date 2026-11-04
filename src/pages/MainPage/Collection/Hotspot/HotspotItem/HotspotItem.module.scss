@@ -1,4 +1,5 @@
 @use "@/variables" as v;
+@use "@/mixins" as m;
 
 .hotspotItem,
 .productNotFound {
@@ -41,7 +42,7 @@
     padding: 10px;
   }
 
-  @media (max-width: 576px) {
+  @include m.respond-to(v.$breakpoint-sm) {
     left: 25px;
     width: 200px;
 

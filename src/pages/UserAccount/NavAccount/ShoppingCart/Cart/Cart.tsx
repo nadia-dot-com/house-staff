@@ -1,7 +1,7 @@
 import classes from "@/pages/UserAccount/NavAccount/ShoppingCart/Cart/Cart.module.scss";
 import { DataLoader } from "@/components/DataLoader/DataLoader";
 import { OrderItemRow } from "@/components/OrderItemRow/OrderItemRow";
-import { useItemsByIds } from "@/hooks/products/useItemByIds";
+import { useItemsByIds } from "@/hooks/products/useItemsByIds";
 import { OrderItem } from "@/types/orderTypes";
 
 export function Cart({ cartItems }: { cartItems: OrderItem[] }) {

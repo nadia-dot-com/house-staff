@@ -8,7 +8,6 @@ import { Button } from "@/components/Button/Button";
 export function ErrorFallback({ resetErrorBoundary }: FallbackProps) {
   return (
     <div className={classes.wrapper} role="alert">
-      <div className={classes.errorFallback}>
         <Lottie animationData={warning} loop={false} />
 
         <div>Something went wrong...</div>
@@ -21,7 +20,6 @@ export function ErrorFallback({ resetErrorBoundary }: FallbackProps) {
           onClick={resetErrorBoundary}
           ariaLabel="Click to try again"
         />
-      </div>
     </div>
   );
 }

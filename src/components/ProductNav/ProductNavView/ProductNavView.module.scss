@@ -1,4 +1,5 @@
 @use "@/variables" as v;
+@use "@/mixins" as m;
 
 .desktopCategories {
   display: flex;
@@ -10,7 +11,7 @@
   width: 100%;
   border-bottom: 1px solid v.$color-gray-light;
 
-  @media (max-width: 1200px) {
+  @include m.respond-to(v.$breakpoint-xl) {
     display: none;
   }
 }
@@ -40,7 +41,7 @@
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   z-index: 30;
 
-  @media (max-width: 1200px) {
+  @include m.respond-to(v.$breakpoint-xl) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -96,7 +97,7 @@
   height: 20px;
   fill: currentColor;
   flex-shrink: 0;
-  @media (max-width: 768px) {
+  @include m.respond-to(v.$breakpoint-md) {
     top: 7px;
     width: 18px;
     height: 18px;

@@ -1,3 +1,6 @@
+@use "@/variables" as v;
+@use "@/mixins" as m;
+
 .userWrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -19,7 +22,7 @@
     padding: 20px 0;
   }
 
-  @media (max-width: 576px) {
+  @include m.respond-to(v.$breakpoint-sm) {
     padding: 0;
   }
 }

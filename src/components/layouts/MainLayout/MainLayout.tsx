@@ -2,7 +2,7 @@ import classes from "@/components/layouts/MainLayout/MainLayout.module.scss";
 import { Outlet } from "react-router-dom";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
-import { Wrapper } from "@/components/Wrapper/Wrapper";
+import { PageContainer } from "@/components/PageContainer/PageContainer";
 import { ToastContainer } from "react-toastify";
 import { useUserContext } from "@/context/UserContext";
 import { LoginModal } from "@/components/modals/LoginModal/LoginModal";
@@ -13,12 +13,12 @@ import { useCartUiContext } from "@/context/CartUIContext";
 import { ErrorBoundary } from "react-error-boundary";
 import { ErrorFallback } from "@/components/ErrorFallback/ErrorFallback";
 import { AnimatePresence } from "motion/react";
-import { useScroll } from "@/hooks/useScroll";
+import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 
 export function MainLayout() {
   const { isCartOpen } = useCartUiContext();
   const { isLoginModalOpen } = useUserContext();
-  useScroll(isCartOpen, isLoginModalOpen);
+  useBodyScrollLock(isCartOpen, isLoginModalOpen);
 
   return (
     <div className={classes.layout}>
@@ -30,9 +30,9 @@ export function MainLayout() {
       <main aria-hidden={isCartOpen || isLoginModalOpen}>
         <ErrorBoundary FallbackComponent={ErrorFallback}>
           <Suspense fallback={<LoadingSpinner />}>
-            <Wrapper>
+            <PageContainer>
               <Outlet />
-            </Wrapper>
+            </PageContainer>
           </Suspense>
         </ErrorBoundary>
       </main>

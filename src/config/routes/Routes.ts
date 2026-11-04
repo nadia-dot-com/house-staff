@@ -10,10 +10,10 @@ export const ROUTES = {
   googleCallback: "auth/google-callback",
   userAccount: "user-account",
   profile: "profile",
-  myOrders: "my-orders",
-  orderPage: (id: string) => `my-orders/${id}`,
+  orders: "orders",
+  orderPage: (id: string) => `orders/${id}`,
   shoppingCart: "shopping-cart",
-  myWishlist: "my-wishlist",
+  wishlist: "wishlist",
 
   guestWishlist: "wishlist",
 } as const;

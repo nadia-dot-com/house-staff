@@ -8,7 +8,7 @@ import { ROUTES } from "@/config/routes/Routes";
 import { Subtotal } from "@/components/Subtotal/Subtotal";
 import { OrderItem } from "@/types/orderTypes";
 import { LoginButton } from "@/components/LoginButton/LoginButton";
-import { useItemsByIds } from "@/hooks/products/useItemByIds";
+import { useItemsByIds } from "@/hooks/products/useItemsByIds";
 import { useCartUiContext } from "@/context/CartUIContext";
 
 export function CartModalView({ cartItems }: { cartItems: OrderItem[] }) {
@@ -28,7 +28,7 @@ export function CartModalView({ cartItems }: { cartItems: OrderItem[] }) {
 
   return (
     <div className={classes.showOrderWrapper}>
-      <div className={classes.container}>
+      <div className={classes.header}>
         <h2>Cart ({cartItems.length})</h2>
 
         <button className={classes.clearButton} onClick={clearCart}>

@@ -1,4 +1,4 @@
-import classes from "@/pages/UserAccount/NavAccount/MyOrders/OrderPage/OrderPage.module.scss";
+import classes from "@/pages/UserAccount/NavAccount/Orders/OrderPage/OrderPage.module.scss";
 import { useParams } from "react-router-dom";
 import { Vat } from "@/pages/UserAccount/NavAccount/ShoppingCart/CheckoutReview/CheckoutSections/VatSection/VatSection";
 import { TotalPrice } from "@/pages/UserAccount/NavAccount/ShoppingCart/CheckoutReview/CheckoutSections/TotalSection/TotalSection";
@@ -15,7 +15,7 @@ export default function OrderPage() {
 
   return (
     <DataLoader loading={isLoading} loaded={!!order} error={error}>
-      <div className={classes.wrap}>
+      <div className={classes.summaryPanel}>
       {order && (
         <>
           <OrderList orderItems={order?.items ?? []} />

@@ -21,23 +21,25 @@ const ProductsPage = lazy(() => import("@/pages/ProductsPage/ProductsPage"));
 const ProductPage = lazy(
   () => import("@/pages/ProductsPage/ProductPage/ProductPage"),
 );
-const Wishlist = lazy(() => import("@/pages/Wishlist/Wishlist"));
+const GuestWishlist = lazy(
+  () => import("@/pages/GuestWishlist/GuestWishlist"),
+);
 
 const UserAccount = lazy(() => import("@/pages/UserAccount/UserAccount"));
-const MyProfile = lazy(
-  () => import("@/pages/UserAccount/NavAccount/MyProfile/MyProfile"),
+const Profile = lazy(
+  () => import("@/pages/UserAccount/NavAccount/Profile/Profile"),
 );
 const ShoppingCart = lazy(
   () => import("@/pages/UserAccount/NavAccount/ShoppingCart/ShoppingCart"),
 );
-const MyOrders = lazy(
-  () => import("@/pages/UserAccount/NavAccount/MyOrders/MyOrders"),
+const Orders = lazy(
+  () => import("@/pages/UserAccount/NavAccount/Orders/Orders"),
 );
-const MyWishlist = lazy(
-  () => import("@/pages/UserAccount/NavAccount/MyWishlist/MyWishlist"),
+const Wishlist = lazy(
+  () => import("@/pages/UserAccount/NavAccount/Wishlist/Wishlist"),
 );
 const OrderPage = lazy(
-  () => import("@/pages/UserAccount/NavAccount/MyOrders/OrderPage/OrderPage"),
+  () => import("@/pages/UserAccount/NavAccount/Orders/OrderPage/OrderPage"),
 );
 function App() {
   return (
@@ -59,7 +61,7 @@ function App() {
                 </Route>
               </Route>
 
-              <Route path={ROUTES.guestWishlist} element={<Wishlist />} />
+              <Route path={ROUTES.guestWishlist} element={<GuestWishlist />} />
 
               <Route path={ROUTES.userAccount} element={<UserAccount />}>
                 <Route
@@ -67,14 +69,14 @@ function App() {
                   element={<Navigate to={ROUTES.profile} replace />}
                 />
 
-                <Route path={ROUTES.profile} element={<MyProfile />} />
+                <Route path={ROUTES.profile} element={<Profile />} />
                 <Route path={ROUTES.shoppingCart} element={<ShoppingCart />} />
-                <Route path={ROUTES.myOrders} element={<MyOrders />} />
+                <Route path={ROUTES.orders} element={<Orders />} />
                 <Route
                   path={ROUTES.orderPage(":orderId")}
                   element={<OrderPage />}
                 />
-                <Route path={ROUTES.myWishlist} element={<MyWishlist />} />
+                <Route path={ROUTES.wishlist} element={<Wishlist />} />
               </Route>
 
               <Route path="*" element={<NotFounded />} />

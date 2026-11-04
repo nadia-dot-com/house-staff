@@ -1,3 +1,6 @@
+@use "@/variables" as v;
+@use "@/mixins" as m;
+
 .wrapper {
   margin-bottom: 20px;
   border: none;
@@ -30,7 +33,7 @@
   font-weight: 600;
 }
 
-@media (max-width: 768px) {
+@include m.respond-to(v.$breakpoint-md) {
   .wrapper {
     margin-bottom: 10px;
   }

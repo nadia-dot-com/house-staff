@@ -1,4 +1,5 @@
 @use "@/variables" as v;
+@use "@/mixins" as m;
 
 .hotspotButton {
   position: absolute;
@@ -13,7 +14,7 @@
   transition: transform 0.2s;
   z-index: 1;
 
-  @media (max-width: 576px) {
+  @include m.respond-to(v.$breakpoint-sm) {
     height: 15px;
     width: 15px;
   }

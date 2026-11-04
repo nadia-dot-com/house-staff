@@ -8,8 +8,9 @@
   padding: 30px 0;
   border-bottom: 1px solid v.$border-color;
   gap: 20px;
+  overflow-x: hidden;
 
-  .wrapOne {
+  .media {
     display: flex;
     gap: 40px;
     align-items: center;
@@ -19,19 +20,19 @@
       width: 35px;
       height: 35px;
       cursor: pointer;
-      
+
       .closeBtn {
         text-align: center;
-        font-size: 16px;
-        font-weight: 300;
+        font-size: 20px;
+        font-weight: 200;
         cursor: pointer;
         opacity: 0.8;
-  
+
         &:hover {
           opacity: 1;
         }
       }
-      
+
     }
   }
 
@@ -44,19 +45,28 @@
 
   .itemInfo {
     @include m.flex-center(column);
+    align-items: stretch;
+    text-align: center;
     gap: 10px;
+    flex: 1;
+    min-width: 0;
 
-    .text {
+    .title {
+      width: 100%;
       cursor: pointer;
       transition: color 0.4s ease;
-      font-size: 15px;
+      font-weight: 400;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      text-wrap: nowrap;
 
       &:hover {
         color: v.$color-accent-dark;
       }
     }
   }
-  @media (max-width: 576px) {
+
+  @include m.respond-to(v.$breakpoint-sm) {
     .img {
       max-width: 100px;
       max-height: 100px;
@@ -65,22 +75,27 @@
     .price {
       font-size: 12px;
     }
+
+    .media {
+      gap: 10px;
+    }
   }
 
-  @media (max-width: 440px) {
+  @include m.respond-to(v.$breakpoint-sm) {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
+    padding: 20px 0;
+    gap: 10px;
 
     .button {
       grid-column: 1 / -1;
-      width: 100%;
+      align-self: center;
+      display: flex;
+      justify-content: center;
 
-      button {
+      >* {
         width: 100%;
-        margin:0;
-        display: flex;
-        justify-content: center;
       }
     }
   }

@@ -1,4 +1,5 @@
 @use "@/variables" as v;
+@use "@/mixins" as m;
 
 .mobileContainer {
   display: none;
@@ -52,11 +53,11 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @include m.respond-to(v.$breakpoint-md) {
     display: block;
   }
 
-  @media (max-width: 576px) {
+  @include m.respond-to(v.$breakpoint-sm) {
     .mobileImg {
       height: auto;
     }

@@ -1,4 +1,5 @@
 @use "@/variables" as v;
+@use "@/mixins" as m;
 
 .showOrderWrapper {
   margin-bottom: 20px;
@@ -31,12 +32,12 @@
     }
   }
 
-  @media (max-width: 400px) {
+  @include m.respond-to(v.$breakpoint-xs) {
     margin: 0px 5px;
   }
 }
 
-.container {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;

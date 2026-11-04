@@ -1,5 +1,11 @@
 @use "@/variables" as v;
 
+@mixin respond-to($bp) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}
+
 @mixin flex-center($direction: row) {
   display: flex;
   align-items: center;
@@ -14,11 +20,11 @@
   padding: 20px;
   text-align: center;
 
-  @media (max-width: 768px) {
+  @include respond-to(v.$breakpoint-md) {
     width: 250px;
   }
 
-  @media (max-width: 576px) {
+  @include respond-to(v.$breakpoint-sm) {
     width: 200px;
   }
 }
@@ -33,7 +39,7 @@
   border-bottom: 1px solid v.$border-color;
   padding: 5px;
 
-  @media (max-width: 768px) {
+  @include respond-to(v.$breakpoint-md) {
     font-size: 16px;
   }
 }
@@ -73,7 +79,7 @@
     padding: 10px 4px;
   }
 
-  @media (max-width: 576px) {
+  @include respond-to(v.$breakpoint-sm) {
     margin-bottom: 15px;
   }
 }

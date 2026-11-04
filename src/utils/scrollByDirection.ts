@@ -1,6 +1,6 @@
 import { RefObject } from "react";
 
-export function scrollFunc(
+export function scrollByDirection(
   direction: "left" | "right",
   containerRef: RefObject<HTMLUListElement | null>,
 ) {

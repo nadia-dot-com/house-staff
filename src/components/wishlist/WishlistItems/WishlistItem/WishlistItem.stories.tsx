@@ -1,26 +1,35 @@
+import { MemoryRouter } from "react-router-dom";
+import { QueryClientProvider } from "@tanstack/react-query";
 import { Meta, StoryObj } from "@storybook/react-vite";
-import { WishlistItemVisual } from "@/components/wishlist/WishlistItems/WishlistItem/WishlistItem";
+import { WishlistItem } from "@/components/wishlist/WishlistItems/WishlistItem/WishlistItem";
 import { Product } from "@/types/api/product";
 import { WishlistProvider } from "@/context/WishlistContext";
+import { UserProvider } from "@/context/UserContext";
+import { CartProvider } from "@/context/CartContext";
+import { queryClient } from "@/query/queryClient";
 
-const meta: Meta<typeof WishlistItemVisual> = {
-  component: WishlistItemVisual,
-  argTypes: {
-    toggleLike: () => {},
-    addToCart: () => {},
-  },
+const meta: Meta<typeof WishlistItem> = {
+  component: WishlistItem,
   decorators: [
     (Story) => (
-      <WishlistProvider>
-        <Story />
-      </WishlistProvider>
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <UserProvider>
+            <CartProvider>
+              <WishlistProvider>
+                <Story />
+              </WishlistProvider>
+            </CartProvider>
+          </UserProvider>
+        </MemoryRouter>
+      </QueryClientProvider>
     ),
   ],
 };
 
 export default meta;
 
-type Story = StoryObj<typeof WishlistItemVisual>;
+type Story = StoryObj<typeof WishlistItem>;
 
 const mockProduct: Product = {
   id: "1",
@@ -41,7 +50,6 @@ const mockProduct: Product = {
 export const Default: Story = {
   args: {
     item: mockProduct,
-    isLoading: false,
   },
 };
 
@@ -51,6 +59,5 @@ export const Disabled: Story = {
       ...mockProduct,
       stockQuantity: 0,
     },
-    isLoading: false,
   },
 };

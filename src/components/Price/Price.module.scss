@@ -4,18 +4,36 @@
   color: v.$color-black;
   font-weight: 500;
   font-size: 20px;
+  gap: 4px;
 
   .discountContainer {
     display: flex;
-    gap: 5px;
+    gap: 4px;
 
-    .oldPrice {
-      color: v.$old-price-color;
-      text-decoration: line-through;
-    }
+  }
 
-    .discountPrice {
-      color: v.$color-red-600;
-    }
+  .oldPrice {
+    color: v.$old-price-color;
+    text-decoration: line-through;
+    font-weight: 400;
+  }
+
+  .discountPrice {
+    color: v.$color-red-600;
+  }
+
+  .discountContainerSmall {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &.small {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+
   }
 }

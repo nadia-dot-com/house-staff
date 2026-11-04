@@ -7,24 +7,19 @@ import likeLoading from "@/animations/insider-loading.json";
 import Lottie from "lottie-react";
 import { Price } from "@/components/Price/Price";
 import { ShopLink } from "@/components/ShopLink/ShopLink";
+import { RxCross2 } from "react-icons/rx";
 
-export function WishlistItemVisual({
-  item,
-  isLoading,
-  toggleLike,
-  addToCart,
-}: {
-  item: Product;
-  isLoading: boolean;
-  toggleLike: () => void;
-  addToCart: () => void;
-}) {
-  const { name, categoryName, imagesUrls, price, stockQuantity, discount } =
+export function WishlistItem({ item }: { item: Product }) {
+  const { name, categoryName, imagesUrls, price, stockQuantity, discount, id } =
     item;
+  const { toggleLike, isLoading } = useWishlist(id);
+  const { addToCart } = useCartContext();
+
+  const handleAddToCart = () => addToCart(item);
 
   return (
     <div className={classes.wishlistItem}>
-      <div className={classes.wrapOne}>
+      <div className={classes.media}>
         <div className={classes.closeContainer}>
           {isLoading ? (
             <Lottie
@@ -43,7 +38,7 @@ export function WishlistItemVisual({
               onClick={toggleLike}
               aria-label={`Remove ${name} from wishlist`}
             >
-              ✕
+             <RxCross2 />
             </button>
           )}
         </div>
@@ -60,41 +55,22 @@ export function WishlistItemVisual({
       </div>
       <div className={classes.itemInfo}>
         <ShopLink name={name} category={categoryName}>
-          <h4 className={classes.text}>{name}</h4>
+          <div className={classes.title}>{name}</div>
         </ShopLink>
 
-        <Price discount={discount} price={price} />
+        <Price discount={discount} price={price} size="small"/>
       </div>
 
       <div className={classes.button}>
         <Button
           bgColor="#ddd"
           textColor="black"
-          text="ADD TO CART"
-          onClick={addToCart}
+          text="Add to cart"
+          onClick={handleAddToCart}
           disabled={stockQuantity === 0}
           ariaLabel={`add to cart ${name}`}
         />
       </div>
     </div>
-  );
-}
-
-export function WishlistItem({ item }: { item: Product }) {
-  const { id } = item;
-  const { toggleLike, isLoading } = useWishlist(id);
-  const { addToCart } = useCartContext();
-
-  const handleAddToCart = () => addToCart(item);
-
-  const handleToggleLike = () => toggleLike();
-
-  return (
-    <WishlistItemVisual
-      item={item}
-      isLoading={isLoading}
-      toggleLike={handleToggleLike}
-      addToCart={handleAddToCart}
-    />
   );
 }

@@ -1,0 +1,13 @@
+@use "@/variables" as v;
+@use "@/mixins" as m;
+
+.pageContainer {
+  max-width: 1800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @include m.respond-to(v.$breakpoint-sm) {
+    padding: 0 12px;
+  }
+}

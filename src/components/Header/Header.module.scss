@@ -1,4 +1,5 @@
 @use "@/variables" as v;
+@use "@/mixins" as m;
 
 .header {
   display: flex;
@@ -35,13 +36,13 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @include m.respond-to(v.$breakpoint-md) {
     padding: 5px 20px;
   }
 
-  @media(max-width: 320px){
+  @include m.respond-to(v.$breakpoint-xs) {
     .logo {
-      font-size: 15px;
+      font-size: 18px;
     }
   }
 }

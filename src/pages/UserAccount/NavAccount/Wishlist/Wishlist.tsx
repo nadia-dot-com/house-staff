@@ -1,7 +1,7 @@
 import { WishlistItems } from "@/components/wishlist/WishlistItems/WishlistItems";
 import { useWishlistQuery } from "@/hooks/wishlist/useWishlistQuery";
 
-export default function MyWishlist() {
+export default function Wishlist() {
   const { data: wishlist = [], error, isLoading } = useWishlistQuery();
 
   return (
