@@ -1,11 +1,11 @@
-import classes from "@/components/modals/OrderModal/OrderModal.module.scss";
+import classes from "@/components/modals/CartModal/CartModal.module.scss";
 import { EmptyCard } from "@/components/EmptyCard/EmptyCard";
 import { useCartContext } from "@/context/CartContext";
-import { ShowOrder } from "@/components/modals/OrderModal/ShowOrder/ShowOrder";
 import { useCartUiContext } from "@/context/CartUIContext";
 import { Modal } from "@/components/modals/Modal/Modal";
+import { CartModalView } from "@/components/modals/CartModal/CartModalView/CartModalView";
 
-export function OrderModal() {
+export function CartModal() {
   const { toggleCartOpen, isCartOpen } = useCartUiContext();
   const { cartItems } = useCartContext();
 
@@ -13,7 +13,7 @@ export function OrderModal() {
 
   return (
     <Modal key="cart-modal" ariaLabel="Shopping Cart modal" className={classes.orderModal} toggle={toggleCartOpen} isOpen={isCartOpen}>
-         {showContent ? <ShowOrder cartItems={cartItems} /> : <EmptyCard />}
+         {showContent ? <CartModalView cartItems={cartItems} /> : <EmptyCard />}
     </Modal>
   );
 }

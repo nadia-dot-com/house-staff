@@ -17,6 +17,7 @@ export const fetchInfiniteProducts = async ({
 }: QueryFunctionContext): Promise<ProductsInfiniteResponse> => {
   const res = await fetch(`${API_URL}/products?page=${pageParam}`);
 
+
   return handleResponse<ProductsInfiniteResponse>(
     res,
     "Failed to fetch products. An unexpected Error was received from the server.",

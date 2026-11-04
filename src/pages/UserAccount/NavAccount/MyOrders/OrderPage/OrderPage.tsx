@@ -4,7 +4,6 @@ import { Vat } from "@/pages/UserAccount/NavAccount/ShoppingCart/CheckoutReview/
 import { TotalPrice } from "@/pages/UserAccount/NavAccount/ShoppingCart/CheckoutReview/CheckoutSections/TotalSection/TotalSection";
 import { useOrderFromOrders } from "@/hooks/orders/useOrderFromOrders";
 import { DataLoader } from "@/components/DataLoader/DataLoader";
-import { useMemo } from "react";
 import { Subtotal } from "@/components/Subtotal/Subtotal";
 import { OrderList } from "@/pages/UserAccount/NavAccount/ShoppingCart/CheckoutReview/CheckoutSections/OrderList/OrderList";
 
@@ -12,10 +11,7 @@ export default function OrderPage() {
   const { orderId } = useParams();
   const { order, isLoading, error } = useOrderFromOrders(orderId);
 
-  const hasDiscount = useMemo(
-    () => order?.items.some((el) => el.discount > 0) ?? false,
-    [order],
-  );
+  const hasDiscount = order?.items.some((el) => el.discount > 0) ?? false;
 
   return (
     <DataLoader loading={isLoading} loaded={!!order} error={error}>

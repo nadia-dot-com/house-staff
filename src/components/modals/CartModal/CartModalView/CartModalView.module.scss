@@ -4,6 +4,7 @@
   margin-bottom: 20px;
   height: auto;
   overflow-y: auto;
+  text-align: center;
 }
 
 .orderList {
@@ -57,6 +58,7 @@
   }
 }
 
-.subtotal {
-  padding: 10px;
+.total {
+  align-items: center;
+  padding: 10px 0px;
 }

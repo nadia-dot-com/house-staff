@@ -16,11 +16,16 @@ export const useWishlistQuery = () => {
       if (!token) throw new Error("No token");
 
       const wishlist = await fetchWishlist(token);
-      const products = queryClient.getQueryData(QUERY_KEYS.products) ?? await fetchProducts();
+      const products = await queryClient.ensureQueryData({
+        queryKey: QUERY_KEYS.products,
+        queryFn: fetchProducts,
+      });
 
       const productsMap = keyBy(products, "id");
 
-      return wishlist.map((wishlistItem) => productsMap[wishlistItem.id]);
+      return wishlist
+        .map((wishlistItem) => productsMap[wishlistItem.id])
+        .filter(Boolean);
     },
     enabled: !!token,
   });

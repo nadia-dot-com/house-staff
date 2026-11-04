@@ -67,7 +67,7 @@ function App() {
                   element={<Navigate to={ROUTES.profile} replace />}
                 />
 
-                <Route index path={ROUTES.profile} element={<MyProfile />} />
+                <Route path={ROUTES.profile} element={<MyProfile />} />
                 <Route path={ROUTES.shoppingCart} element={<ShoppingCart />} />
                 <Route path={ROUTES.myOrders} element={<MyOrders />} />
                 <Route

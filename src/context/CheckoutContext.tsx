@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useReducer } from "react";
+import { createContext, ReactNode, useCallback, useMemo, useReducer } from "react";
 import { CheckoutContextType, DataProps } from "@/types/checkoutTypes";
 import { createContextHook } from "@/hooks/createContextHook";
 import { CHECKOUT_INITIAL } from "@/data/checkout";
@@ -19,31 +19,45 @@ export const CheckoutContext = createContext<CheckoutContextType | null>(null);
 export function CheckoutProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(checkoutReducer, CHECKOUT_INITIAL);
 
-  const updateItems = (items: OrderItem[]) =>
-    dispatch(updateItemsAction(items));
+  const updateItems = useCallback(
+    (items: OrderItem[]) => dispatch(updateItemsAction(items)),
+    [dispatch],
+  );
 
-  const updateData = (data: DataProps) => dispatch(updateDataAction(data));
+  const updateData = useCallback(
+    (data: DataProps) => dispatch(updateDataAction(data)),
+    [dispatch],
+  );
 
-  const updateDelivery = (data: DeliveryMethod) =>
-    dispatch(updateDeliveryAction(data));
+  const updateDelivery = useCallback(
+    (data: DeliveryMethod) => dispatch(updateDeliveryAction(data)),
+    [dispatch],
+  );
 
-  const updatePayment = (data: PaymentMethod) =>
-    dispatch(updatePaymentAction(data));
+  const updatePayment = useCallback(
+    (data: PaymentMethod) => dispatch(updatePaymentAction(data)),
+    [dispatch],
+  );
 
-  const resetCheckout = () => dispatch(resetCheckoutAction());
+  const resetCheckout = useCallback(
+    () => dispatch(resetCheckoutAction()),
+    [dispatch],
+  );
+
+  const value = useMemo(
+    () => ({
+      ...state,
+      updateItems,
+      updateData,
+      updateDelivery,
+      updatePayment,
+      resetCheckout,
+    }),
+    [state, updateItems, updateData, updateDelivery, updatePayment, resetCheckout],
+  );
 
   return (
-    <CheckoutContext.Provider
-      value={{
-        ...state,
-
-        updateItems,
-        updateData,
-        updateDelivery,
-        updatePayment,
-        resetCheckout,
-      }}
-    >
+    <CheckoutContext.Provider value={value}>
       {children}
     </CheckoutContext.Provider>
   );

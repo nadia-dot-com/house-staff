@@ -9,20 +9,28 @@ import { AppError } from "@/errors/index.ts";
 export default function ProductPage() {
   const { itemId } = useParams();
   const { data: products, isLoading, error } = useProducts();
+  console.log(products)
 
   const name = itemId?.toLowerCase() ?? "";
 
   const product = products?.find((i) => slugify(i.name) === name);
 
   return (
-    <DataLoader
-      loading={isLoading}
-      loaded={!!product}
-      error={product ? error : new AppError(`Product '${name}' does not exist`)}
-    >
-      <div className={classes.productPage}>
-        {product && <ProductDetails product={product} />}
-      </div>
-    </DataLoader>
+    <>
+      <title>{product ? `${product.name} | House Staff` : "House Staff"}</title>
+      {product?.shortDescription && (
+        <meta name="description" content={product.shortDescription} />
+      )}
+
+      <DataLoader
+        loading={isLoading}
+        loaded={!!product}
+        error={product ? error : new AppError(`Product '${name}' does not exist`)}
+      >
+        <div className={classes.productPage}>
+          {product && <ProductDetails product={product} />}
+        </div>
+      </DataLoader>
+    </>
   );
 }

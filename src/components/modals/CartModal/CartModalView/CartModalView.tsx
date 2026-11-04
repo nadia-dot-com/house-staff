@@ -1,4 +1,4 @@
-import classes from "@/components/modals/OrderModal/ShowOrder/ShowOrder.module.scss";
+import classes from "@/components/modals/CartModal/CartModalView/CartModalView.module.scss";
 import { Button } from "@/components/Button/Button";
 import { OrderItemRow } from "@/components/OrderItemRow/OrderItemRow";
 import { useCartContext } from "@/context/CartContext";
@@ -11,7 +11,7 @@ import { LoginButton } from "@/components/LoginButton/LoginButton";
 import { useItemsByIds } from "@/hooks/products/useItemByIds";
 import { useCartUiContext } from "@/context/CartUIContext";
 
-export function ShowOrder({ cartItems }: { cartItems: OrderItem[] }) {
+export function CartModalView({ cartItems }: { cartItems: OrderItem[] }) {
   const { toggleCartOpen } = useCartUiContext();
   const { clearCart } = useCartContext();
   const { user } = useUserContext();
@@ -51,7 +51,7 @@ export function ShowOrder({ cartItems }: { cartItems: OrderItem[] }) {
         </div>
       )}
 
-      <div className={classes.subtotal}>
+      <div className={classes.total}>
         <Subtotal arr={cartItems} />
       </div>
 
@@ -64,7 +64,7 @@ export function ShowOrder({ cartItems }: { cartItems: OrderItem[] }) {
           ariaLabel="complete order"
         />
       ) : (
-        <LoginButton text="Login with GOOGLE & complete a order" />
+        <LoginButton text="Login with Google" />
       )}
     </div>
   );

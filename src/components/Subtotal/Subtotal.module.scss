@@ -1,6 +1,6 @@
 @use "@/variables" as v;
 
-.subtotalSection {
+.totalSection {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,14 +25,6 @@
     .discountPrice {
       font-size: 14px;
       color: v.$color-red-600;
-    }
-  }
-
-  @media (max-width: 768px) {
-    font-size: 16px;
-
-    .price {
-      font-size: 14px;
     }
   }
 }

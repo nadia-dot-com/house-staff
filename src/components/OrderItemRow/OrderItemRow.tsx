@@ -1,60 +1,45 @@
 import classes from "@/components/OrderItemRow/OrderItemRow.module.scss";
 import { useCartContext } from "@/context/CartContext";
-import { FaTrash } from "react-icons/fa6";
+import { RiDeleteBinLine } from "react-icons/ri";
 import { QuantityInput } from "@/components/QuantityInput/QuantityInput";
 import { OrderItem } from "@/types/orderTypes";
 import { getDiscountPrice } from "@/utils/product";
 import { cn } from "@/utils/cn";
-import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
-import { memo, useCallback, useMemo } from "react";
 import { ShopLink } from "@/components/ShopLink/ShopLink";
 
-export const OrderItemRowVisual = memo(
-  ({
-    product,
-    stockQuantity,
-    navigate,
-    removeFromCart,
-    updateQuantity,
-  }: {
-    product: OrderItem;
-    stockQuantity: number;
-    navigate: () => void;
-    removeFromCart: () => void;
-    updateQuantity: (id: string, quantity: number, stock: number) => void;
-  }) => {
-    const { id, name, categoryName, img, price, quantity, discount } = product;
+export function OrderItemRowVisual({
+  product,
+  stockQuantity,
+  removeFromCart,
+  updateQuantity,
+}: {
+  product: OrderItem;
+  stockQuantity: number;
+  removeFromCart: () => void;
+  updateQuantity: (id: string, quantity: number, stock: number) => void;
+}) {
+  const { id, name, categoryName, img, price, quantity, discount } = product;
 
-    const handleQuantityChange = useCallback(
-      (e: React.ChangeEvent<HTMLInputElement>) => {
-        const newQuantity = Number(e.target.value);
-        updateQuantity(id, newQuantity, stockQuantity);
-      },
-      [id, stockQuantity, updateQuantity],
-    );
+  const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newQuantity = Number(e.target.value);
+    updateQuantity(id, newQuantity, stockQuantity);
+  };
 
-    const discountedPrice = useMemo(() => {
-      return discount > 0 ? getDiscountPrice(price, discount) : Number(price);
-    }, [price, discount]);
+  const discountedPrice =
+    discount > 0 ? getDiscountPrice(price, discount) : Number(price);
 
-    const subtotal = useMemo(() => {
-      return (discountedPrice * quantity).toFixed(2);
-    }, [discountedPrice, quantity]);
+  const subtotal = (discountedPrice * quantity).toFixed(2);
 
-    const formattedPrice = useMemo(() => {
-      return discountedPrice.toFixed(2);
-    }, [discountedPrice]);
-    return (
-      <div className={classes.orderItem}>
-        <div className={classes.itemInfo}>
+  return (
+    <div className={classes.orderItem}>
+      <div className={classes.itemInfo}>
+        <div className={classes.content}>
           <ShopLink
             className={classes.itemInfo}
             name={name}
             category={categoryName}
           >
-            <div className={classes.text} onClick={navigate}>
-              {name}
-            </div>
+            <div className={classes.title}>{name}</div>
           </ShopLink>
 
           <ShopLink
@@ -66,78 +51,61 @@ export const OrderItemRowVisual = memo(
               src={img}
               alt={name}
               className={classes.img}
-              onClick={navigate}
               width="115"
               height="150"
             />
           </ShopLink>
         </div>
+      </div>
 
-        <QuantityInput
-          quantity={quantity}
-          stock={stockQuantity}
-          onChange={handleQuantityChange}
-        />
-
-        {/* <div className={classes.priceContainer}> */}
-          <div
-            className={cn(classes.price, discount > 0 && classes.discountPrice)}
-          >
-            Price:
-            <br />
-            <p>${formattedPrice}</p>
-          </div>
+      <div className={classes.actions}>
+        <div className={classes.quantityGroup}>
+          <QuantityInput
+            quantity={quantity}
+            stock={stockQuantity}
+            onChange={handleQuantityChange}
+            size="small"
+          />
 
           <div
             className={cn(classes.price, discount > 0 && classes.discountPrice)}
           >
-            Subtotal:
+            Total:
             <br />
-            <p>${subtotal}</p>
+            ${subtotal}
           </div>
-        {/* </div> */}
-
+        </div>
+      </div>
         <button
           onClick={removeFromCart}
           aria-label={`Remove ${name} from order`}
+          className={classes.removeFromCart}
         >
-          <FaTrash className={classes.removeFromCart} />
+          <RiDeleteBinLine />
         </button>
-      </div>
-    );
-  },
-);
-export const OrderItemRow = memo(
-  ({
-    product,
-    stockQuantity,
-  }: {
-    product: OrderItem;
-    stockQuantity: number;
-  }) => {
-    const { removeFromCart, updateQuantity } = useCartContext();
-    const { navigateToCategory } = useShoppingNavigation();
+    </div>
+  );
+}
 
-    const { id, name, categoryName } = product;
+export function OrderItemRow({
+  product,
+  stockQuantity,
+}: {
+  product: OrderItem;
+  stockQuantity: number;
+}) {
+  const { removeFromCart, updateQuantity } = useCartContext();
 
-    const handleNavigate = useCallback(
-      () => navigateToCategory(categoryName, name),
-      [name, categoryName, navigateToCategory],
-    );
+  const { id } = product;
 
-    const handleRemoveFromCart = useCallback(
-      () => removeFromCart(id),
-      [removeFromCart, id],
-    );
+  const handleRemoveFromCart = () => removeFromCart(id);
 
-    return (
-      <OrderItemRowVisual
-        product={product}
-        stockQuantity={stockQuantity}
-        navigate={handleNavigate}
-        removeFromCart={handleRemoveFromCart}
-        updateQuantity={updateQuantity}
-      />
-    );
-  },
-);
+  return (
+    <OrderItemRowVisual
+      product={product}
+      stockQuantity={stockQuantity}
+      removeFromCart={handleRemoveFromCart}
+      updateQuantity={updateQuantity}
+    />
+  );
+}

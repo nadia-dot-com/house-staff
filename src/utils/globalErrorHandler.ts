@@ -1,6 +1,6 @@
 export function initGlobalErrorHandler() {
   window.onerror = function (message, source, lineno, colno, error) {
-    console.log("Global JS error:", {
+    console.error("Global JS error:", {
       message,
       source,
       lineno,
@@ -10,7 +10,7 @@ export function initGlobalErrorHandler() {
   };
 
   window.onunhandledrejection = function (event) {
-    console.log("Global error in Promis (without .catch!):", {
+    console.error("Global error in Promise (without .catch!):", {
       reason: event.reason,
     });
   };

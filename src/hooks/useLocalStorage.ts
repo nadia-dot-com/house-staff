@@ -9,7 +9,7 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
         const parsed = JSON.parse(storedValue);
 
         if (Array.isArray(initialValue) && !Array.isArray(parsed)) {
-          console.log(`Invalid data in locationStorage for key ${key}`);
+          console.error(`Invalid data in locationStorage for key ${key}`);
           window.localStorage.removeItem(key);
           return initialValue;
         }
@@ -18,7 +18,7 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
       }
       return initialValue;
     } catch (error) {
-      console.log(error);
+      console.error(error);
       return initialValue;
     }
   });

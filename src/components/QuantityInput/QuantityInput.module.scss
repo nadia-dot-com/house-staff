@@ -1,6 +1,76 @@
+@use "@/mixins" as m;
+@use "@/variables" as v;
+
 .quantityInput {
-  width: 40px;
-  text-align: center;
-  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid v.$border-color;
+  font-size: 14px;
+  justify-content: space-between;
+}
+
+.step {
+  @include m.flex-center;
+  width: 32px;
+  height: 32px;
+  border: none;
   background: transparent;
+  position: relative;
+  top: -1px;
+
+  color: v.$color-black;
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  padding: 24px 30px;
+  text-align: center;
+
+  &:disabled {
+    color: v.$color-gray-light;
+    cursor: not-allowed;
+  }
+}
+
+.input {
+  min-width: 40px;
+  width: auto;
+  height: auto;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-size: 16px;
+
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+.quantityInput.small {
+  font-size: 12px;
+
+  .step {
+    width: 24px;
+    height: 24px;
+    font-size: 18px;
+    padding: 16px 20px;
+  }
+
+  .input {
+    min-width: 28px;
+    font-size: 13px;
+  }
+}
+
+@media(max-width: 576px) {
+  .quantityContainer {
+    width: 100%;
+  }
 }

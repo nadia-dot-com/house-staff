@@ -42,6 +42,32 @@ export function Modal({
     };
   }, [isOpen, toggle]);
 
+  useEffect(() => {
+    const handleTab = (event: KeyboardEvent) => {
+      if (event.code !== "Tab") return;
+      if (!refModal.current) return;
+      if (!document.activeElement?.closest('[role="dialog"]')) return;
+
+      const focusableItems = refModal.current?.querySelectorAll('a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      const first = focusableItems[0];
+      const last = focusableItems[focusableItems.length - 1];
+
+      if (document.activeElement === last && (event.code === "Tab" && !event.shiftKey)) {
+        event.preventDefault();
+        (first as HTMLElement).focus();
+      }
+
+      if (document.activeElement === first && (event.code === "Tab" && event.shiftKey)) {
+        event.preventDefault();
+        (last as HTMLElement).focus();
+      }
+    }
+
+    document.addEventListener("keydown", handleTab);
+
+    return () => document.removeEventListener("keydown", handleTab);
+  }, [])
+
   return (
     <motion.div
       initial={{ opacity: 0 }}

@@ -1,35 +1,40 @@
 @use "@/variables" as v;
 
 .orderItem {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr 1fr auto;
+  display: flex;
   align-items: center;
   justify-content: center;
-  align-content: center;
+  gap: 20px;
   width: 100%;
   margin-bottom: 20px;
-  gap: 20px;
-  padding: 20px 10px;
 
   .itemInfo {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    align-items: center;
+    gap: 8px;
+    align-items: flex-start;
+    width: 115px;
+    flex-shrink: 0;
 
     .img {
-      max-width: 150px;
-      max-height: 150px;
+      width: 115px;
+      height: 150px;
       object-fit: cover;
       cursor: pointer;
     }
 
-    .text {
-      font-weight: 600;
+    .title {
+      font-weight: 400;
       font-size: 14px;
-      margin: 0 10px;
       cursor: pointer;
       transition: all 0.5s ease;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      line-clamp: 1;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      text-align: left;
 
       &:hover {
         color: v.$color-accent-dark;
@@ -37,27 +42,44 @@
     }
   }
 
-  // .priceContainer{
-  //   display: flex;
-  //   flex-direction: row;
-  //   justify-content: space-between;
-    .price {
-      font-size: 14px;
-      color: v.$color-black;
-      font-weight: 600;
-  
-      &.discountPrice {
-        color: v.$color-red-600;
-      }
-    // }
+  .actions {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex: 1;
+    gap: 15px 20px;
+    justify-content: center;
+    align-self: center;
   }
 
+  .quantityGroup {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 15px 20px;
+    justify-content: space-between;
+  }
+
+  .price {
+    flex: 1;
+    font-size: 14px;
+    color: v.$color-black;
+    font-weight: 600;
+    text-align: center;
+
+    &.discountPrice {
+      color: v.$color-red-600;
+    }
+  }
 
   .removeFromCart {
-    font-size: 16px;
+    font-size: 18px;
+    height: 40px;
+    width: 40px;
     color: v.$color-black;
     cursor: pointer;
     transition: all 500ms ease;
+    height: 100%;
 
     &:hover {
       color: v.$color-red-600;
@@ -65,18 +87,45 @@
     }
   }
 
-  @media (max-width: 576px) {
-    gap: 15px;
-  }
-
-  @media (max-width: 400px) {
-    .text {
-      font-size: 12px;
-      margin: 0;
+  @media (max-width: 530px) {
+    .quantityGroup {
+      flex-direction: column;
+      align-items: center;
+      flex: initial;
+      gap: 6px;
     }
 
     .price {
-      font-size: 12px;
+      order: -1;
+      flex: initial;
+      font-weight: 400;
+    }
+  }
+
+  @media (max-width: 530px) {
+    .quantityGroup {
+      flex-direction: column;
+      align-items: center;
+      flex: initial;
+      gap: 6px;
+    }
+
+
+    .price {
+      order: -1;
+      flex: initial;
+    }
+  }
+
+  @media (max-width: 384px) {
+    .removeFromCart {
+      padding-top: 15px;
+      align-self: flex-start;
+    }
+
+    .actions {
+      flex-direction: column;
+      align-items: center;
     }
   }
 }

@@ -1,0 +1,64 @@
+@use "@/variables" as v;
+
+.mobileContainer {
+  display: none;
+
+  .labels {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+
+  .mobileImgs {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .mobileImg {
+      width: 100%;
+      flex-shrink: 0;
+      height: 60dvh;
+      scroll-snap-align: center;
+      margin-bottom: 20px;
+      object-fit: contain;
+      background-color: v.$color-gray-extra-light;
+    }
+  }
+
+  .dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 0 20px 0;
+
+    .dot {
+      $size: 10px;
+      width: $size;
+      height: $size;
+      border-radius: 50%;
+      background: v.$color-gray-light;
+      transition: all 0.3s ease;
+
+      &.active {
+        background: v.$color-accent-olive-light;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+
+  @media (max-width: 576px) {
+    .mobileImg {
+      height: auto;
+    }
+  }
+}

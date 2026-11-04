@@ -7,10 +7,7 @@ export function useItemsByIds(ids: string[]) {
 
   const productsMap = useMemo(() => keyBy(products, "id"), [products]);
 
-  const filteredProducts = useMemo(
-    () => ids.map((id) => productsMap[id]).filter(Boolean),
-    [ids, productsMap],
-  );
+  const filteredProducts = ids.map((id) => productsMap[id]).filter(Boolean);
 
   return { productsMap, filteredProducts, error, isLoading };
 }

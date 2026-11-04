@@ -3,107 +3,27 @@
 
 .productDetails {
   position: relative;
-  display: grid;
-  justify-content: left;
-  align-items: center;
-  grid-template-columns: 1fr 1fr auto;
-  margin: 0 0 30px 0px;
+  display: flex;
   gap: 30px;
+  padding: 15px 0px 30px 0px;
 
   &.productDisabled {
     opacity: 0.8;
   }
 
-  .labels {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    top: 15px;
-    left: 15px;
-  }
-
-  .desktopContainer {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: auto;
-
-    .mainImg {
-      width: 100%;
-      max-width: 790px;
-      height: auto;
-      cursor: pointer;
-    }
-
-    .imgContainer {
-      display: flex;
-      justify-content: left;
-      gap: 15px;
-      margin-top: 15px;
-      width: 100%;
-
-      .img {
-        width: 20%;
-        aspect-ratio: 1/1;
-        max-width: 180px;
-        object-fit: cover;
-        opacity: 0.7;
-        cursor: pointer;
-        transition: opacity 0.3s ease;
-
-        &:hover {
-          opacity: 1;
-        }
-      }
-    }
-  }
-
-  .mobileContainer {
-    display: none;
-
-    .mobileImgs {
-      display: flex;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      scroll-snap-type: x mandatory;
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
-
-      .mobileImg {
-        width: 100%;
-        height: auto;
-        scroll-snap-align: center;
-        margin-bottom: 20px;
-      }
-    }
-
-    .dots {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin: 0 0 20px 0;
-
-      .dot {
-        $size: 10px;
-        width: $size;
-        height: $size;
-        border-radius: 50%;
-        background: v.$color-gray-light;
-        transition: all 0.3s ease;
-
-        &.active {
-          background: v.$color-accent-olive-light;
-        }
-      }
-    }
+  .desc {
+    margin: 0px;
   }
 
   .container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 15px;
+
     .title {
       display: flex;
+      width: 100%;
       align-items: center;
       gap: 16px;
       cursor: pointer;
@@ -148,32 +68,39 @@
     gap: 25px;
 
     .title {
-      font-size: 20px;
       gap: 10px;
-    }
-
-    .desc {
-      font-size: 14px;
     }
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 768px) {
     display: block;
-
-    .desktopContainer {
-      display: none;
-    }
-
-    .mobileContainer {
-      display: block;
-    }
 
     .title {
       margin-top: 10px;
     }
 
-    .closeBth {
+    .closeBtn {
       display: none;
+    }
+  }
+
+  @media(max-width: 576px) {
+    .quantityContainer {
+      width: 100%;
+
+      >* {
+        flex: 1;
+      }
+    }
+  }
+
+  @media(max-width: 400px) {
+    .quantityContainer {
+      flex-direction: column;
+
+      >* {
+        width: 100%;
+      }
     }
   }
 }

@@ -6,7 +6,7 @@ import { Wrapper } from "@/components/Wrapper/Wrapper";
 import { ToastContainer } from "react-toastify";
 import { useUserContext } from "@/context/UserContext";
 import { LoginModal } from "@/components/modals/LoginModal/LoginModal";
-import { OrderModal } from "@/components/modals/OrderModal/OrderModal";
+import { CartModal } from "@/components/modals/CartModal/CartModal";
 import { Suspense } from "react";
 import { LoadingSpinner } from "@/components/LoadingSpinner/LoadingSpinner";
 import { useCartUiContext } from "@/context/CartUIContext";
@@ -24,7 +24,7 @@ export function MainLayout() {
     <div className={classes.layout}>
       <Header />
 
-      <AnimatePresence>{isCartOpen && <OrderModal />}</AnimatePresence>
+      <AnimatePresence>{isCartOpen && <CartModal />}</AnimatePresence>
       <AnimatePresence>{isLoginModalOpen && <LoginModal />}</AnimatePresence>
 
       <main aria-hidden={isCartOpen || isLoginModalOpen}>

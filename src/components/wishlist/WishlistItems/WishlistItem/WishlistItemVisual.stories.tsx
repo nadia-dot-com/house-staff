@@ -7,7 +7,6 @@ const meta: Meta<typeof WishlistItemVisual> = {
   component: WishlistItemVisual,
   argTypes: {
     toggleLike: () => {},
-    navigate: () => {},
     addToCart: () => {},
   },
   decorators: [
