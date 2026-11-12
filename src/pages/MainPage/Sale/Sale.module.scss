@@ -55,7 +55,7 @@
 .table,
 .vase {
   position: absolute;
-  img {
+  .img {
     height: auto;
     object-fit: contain;
   }
@@ -65,25 +65,25 @@
   top: 110px;
   left: 40px;
 
-  img {
+  .img {
     width: 390px;
   }
 
   @include m.respond-to(v.$breakpoint-xl) {
     top: 180px;
-    img {
+    .img {
       width: 330px;
     }
   }
   @include m.respond-to(v.$breakpoint-lg) {
     top: 260px;
-    img {
+    .img {
       width: 270px;
     }
   }
   @include m.respond-to(v.$breakpoint-md) {
     top: 200px;
-    img {
+    .img {
       width: 200px;
     }
   }
@@ -92,7 +92,7 @@
   }
   @include m.respond-to(v.$breakpoint-xs) {
     top: 500px;
-    img {
+    .img {
       width: 180px;
     }
   }
@@ -102,39 +102,39 @@
   top: 75px;
   right: 100px;
 
-  img {
+  .img {
     width: 320px;
   }
 
   @include m.respond-to(v.$breakpoint-xl) {
     right: 50px;
-    img {
+    .img {
       width: 280px;
     }
   }
   @include m.respond-to(v.$breakpoint-lg) {
     top: 180px;
-    img {
+    .img {
       width: 250px;
     }
   }
   @include m.respond-to(v.$breakpoint-md) {
     top: 155px;
     right: 45px;
-    img {
+    .img {
       width: 180px;
     }
   }
   @include m.respond-to(v.$breakpoint-sm) {
     top: 60px;
     right: 20px;
-    img {
+    .img {
       width: 160px;
     }
   }
   @include m.respond-to(v.$breakpoint-xs) {
     top: 90px;
-    img {
+    .img {
       width: 140px;
     }
   }
@@ -143,25 +143,25 @@
 .vase {
   top: 300px;
   right: 60px;
-  img {
+  .img {
     width: 140px;
   }
 
   @include m.respond-to(v.$breakpoint-xl) {
     right: 20px;
-    img {
+    .img {
       width: 120px;
     }
   }
   @include m.respond-to(v.$breakpoint-lg) {
     top: 350px;
-    img {
+    .img {
       width: 100px;
     }
   }
   @include m.respond-to(v.$breakpoint-md) {
     top: 270px;
-    img {
+    .img {
       width: 80px;
     }
   }
@@ -171,7 +171,7 @@
   }
   @include m.respond-to(v.$breakpoint-xs) {
     top: 585px;
-    img {
+    .img {
       width: 72px;
     }
   }

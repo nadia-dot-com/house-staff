@@ -17,7 +17,7 @@
     font-size: 14px;
     padding: 0;
 
-    li {
+    .infoItem {
       @include m.flex-center;
       transition: color 0.3s ease;
       gap: 6px;
@@ -37,7 +37,7 @@
     gap: 15px;
     font-size: 22px;
 
-    a {
+    .socialLink {
       transition:
         color 0.3s ease,
         transform 0.3s ease;

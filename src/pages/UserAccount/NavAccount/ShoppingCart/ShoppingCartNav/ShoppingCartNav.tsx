@@ -14,6 +14,7 @@ export function ShoppingCartNav({ step }: { step: number }) {
         >
           Cart
           <svg
+            className={classes.arrow}
             width="30"
             height="40"
             viewBox="0 0 24 24"
@@ -32,6 +33,7 @@ export function ShoppingCartNav({ step }: { step: number }) {
         >
           Address
           <svg
+            className={classes.arrow}
             width="30"
             height="40"
             viewBox="0 0 24 24"
@@ -50,6 +52,7 @@ export function ShoppingCartNav({ step }: { step: number }) {
         >
           Delivery / Payment
           <svg
+            className={classes.arrow}
             width="30"
             height="40"
             viewBox="0 0 24 24"

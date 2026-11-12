@@ -99,7 +99,7 @@ export const ProductItemVisual = memo(
               isInStock ? `Add ${name} to cart` : `${name} out of stock`
             }
           >
-            <MdAdd />
+            <MdAdd className={classes.addIcon} />
           </button>
         </div>
       </motion.div>

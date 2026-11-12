@@ -98,7 +98,7 @@ export function Menu() {
                 className={classes.burgerList}
               >
                 {menuLinks.map((menu, i) => (
-                  <li key={i}>
+                  <li key={i} className={classes.burgerItem}>
                     <StyledLink to={menu.to}>{menu.label}</StyledLink>
                   </li>
                 ))}

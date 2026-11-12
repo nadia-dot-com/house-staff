@@ -20,6 +20,7 @@ export function Sale() {
         <div className={classes.contentLimit}>
           <div className={classes.chair}>
             <img
+              className={classes.img}
               src={getImagePath("img/sale/sale-chair.webp")}
               alt="sale-chair"
               width="390"
@@ -30,6 +31,7 @@ export function Sale() {
 
           <div className={classes.table}>
             <img
+              className={classes.img}
               src={getImagePath("img/sale/table-sale.webp")}
               alt="sale-table"
               width="320"
@@ -39,6 +41,7 @@ export function Sale() {
           </div>
           <div className={classes.vase}>
             <img
+              className={classes.img}
               src={getImagePath("img/sale/sale-vase.webp")}
               alt="sale-vase"
               width="140"

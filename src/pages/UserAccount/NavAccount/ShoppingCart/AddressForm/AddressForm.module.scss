@@ -23,7 +23,7 @@
     .inputGroup {
       @include m.input-group;
 
-      select {
+      .select {
         font-family: inherit;
         font-size: inherit;
         border: none;
@@ -38,7 +38,7 @@
         }
       }
 
-      textarea {
+      .textarea {
         border: none;
         border-bottom: 1px solid v.$border-color;
         padding: 10px 0;

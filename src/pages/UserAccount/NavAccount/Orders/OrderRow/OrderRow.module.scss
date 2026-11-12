@@ -1,4 +1,27 @@
+@use "@/variables" as v;
+@use "@/mixins" as m;
+
+.row {
+  &:hover .cell {
+    background: v.$color-gray-extra-light;
+  }
+
+  &:last-child .cell {
+    border-bottom: none;
+  }
+}
+
+.cell {
+  padding: 14px 16px;
+  border-bottom: 1px solid v.$color-gray-extra-light;
+
+  @include m.respond-to(v.$breakpoint-sm) {
+    white-space: nowrap;
+    padding: 10px 8px;
+  }
+}
+
 .total,
 .orderId {
-    font-weight: 400;
+  font-weight: 400;
 }

@@ -5,6 +5,7 @@ import { IoIosTime } from "react-icons/io";
 import { MdPlace } from "react-icons/md";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { FaSquareFacebook, FaSquareInstagram } from "react-icons/fa6";
+import { cn } from "@/utils/cn";
 import { StyledLink } from "@/components/StyledLink/StyledLink";
 import { ROUTES } from "@/config/routes/Routes";
 import {
@@ -21,19 +22,19 @@ export default function Footer() {
   return (
     <footer className={classes.footer}>
       <ul className={classes.info}>
-        <li>
+        <li className={classes.infoItem}>
           <FaPhoneAlt />
           <a href={`tel:${SHOP_PHONE_TEL}`}>{SHOP_PHONE}</a>
         </li>
-        <li>
+        <li className={classes.infoItem}>
           <MdOutlineAlternateEmail />
           <a href="mailto:housestaffcontact@gmail.com">{SHOP_EMAIL}</a>
         </li>
-        <li className={classes.time}>
+        <li className={cn(classes.infoItem, classes.time)}>
           <IoIosTime />
           {SHOP_WORKING_HOURS}
         </li>
-        <li>
+        <li className={classes.infoItem}>
           <MdPlace />
           <a
             href={SHOP_GOOGLE_MAPS_LOCATION_URL}
@@ -46,6 +47,7 @@ export default function Footer() {
       </ul>
       <div className={classes.socials}>
         <a
+          className={classes.socialLink}
           href={SHOP_SOCIALS.facebook}
           target="_blank"
           rel="noopener noreferrer"
@@ -54,6 +56,7 @@ export default function Footer() {
           <FaSquareFacebook />
         </a>
         <a
+          className={classes.socialLink}
           href={SHOP_SOCIALS.instagram}
           target="_blank"
           rel="noopener noreferrer"

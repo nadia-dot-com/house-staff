@@ -12,13 +12,13 @@ export default function Orders() {
     <DataLoader loading={isLoading} loaded={!!orders} error={error}>
       <div className={classes.tableContainer}>
         <table className={classes.ordersTable}>
-          <thead>
+          <thead className={classes.thead}>
             <tr>
-              <th>Order</th>
-              <th>Date</th>
-              <th>Status</th>
-              <th>Total</th>
-              <th>Actions</th>
+              <th className={classes.th}>Order</th>
+              <th className={classes.th}>Date</th>
+              <th className={classes.th}>Status</th>
+              <th className={classes.th}>Total</th>
+              <th className={classes.th}>Actions</th>
             </tr>
           </thead>
           <tbody>

@@ -151,6 +151,7 @@ export function AddressForm({
           <label htmlFor="notes">Order notes (optional)</label>
           <textarea
             id="notes"
+            className={classes.textarea}
             name="notes"
             defaultValue={shippingData?.notes ?? ""}
             placeholder="Notes about your order, e.g. special notes for delivery."

@@ -14,12 +14,8 @@
       border-bottom: 1px solid v.$border-color;
       text-align: center;
       font-weight: 500;
-      font-size: 60px;
+      font-size: 38px;
       padding: 40px;
-
-      @include m.respond-to(v.$breakpoint-lg) {
-        font-size: 38px;
-      }
 
       @include m.respond-to(v.$breakpoint-lg) {
         font-size: 26px;
