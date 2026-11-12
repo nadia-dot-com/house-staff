@@ -23,7 +23,7 @@ export function OrderList({
               <p>
                 {productName} x {item.quantity}
               </p>
-              <Price price={item.price} discount={item.discount}/>
+              <Price price={item.price} discount={item.discount} size="small"/>
             </li>
           );
         })}

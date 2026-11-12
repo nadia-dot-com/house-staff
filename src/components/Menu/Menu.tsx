@@ -35,15 +35,9 @@ export function Menu() {
           </li>
         ))}
 
-        <li key="account" className={classes.navIcon}>
+        <li key="icons" className={classes.navIcon}>
           <AccountIcon />
-        </li>
-
-        <li key="wishlist" className={classes.navIcon}>
           <WishlistIcon />
-        </li>
-
-        <li key="cart" className={classes.navIcon}>
           <ShoppingCartIcon active={isCartOpen} />
         </li>
       </ul>

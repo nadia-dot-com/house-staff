@@ -7,14 +7,25 @@
     justify-content: flex-end;
     list-style: none;
     align-items: center;
-    gap: 25px;
     font-size: 14px;
+    margin: 10px 0px;
+    gap: 25px
   }
 
   .navIcon {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 10px;
+    margin-left: -5px;
+
+    >button,
+    >a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+    }
 
     svg {
       display: flex;
@@ -29,6 +40,8 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    margin: 10px 0px;
+    padding-left: 0px;
     gap: 20px;
     z-index: 40;
   }
@@ -97,4 +110,11 @@
       display: flex;
     }
   }
+
+  @include m.respond-to(v.$breakpoint-xs) {
+    .mobileMenu {
+      gap: 10px;
+    }
+  }
+
 }

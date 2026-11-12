@@ -7,5 +7,9 @@ export function OrderQuantity() {
 
   const quantity = sumBy(cartItems, "quantity");
 
-  return <div role="status" className={classes.orderQuantity} aria-label={`${quantity} items in the shopping cart now`}>{quantity}</div>;
+  return <div role="status" className={classes.orderQuantity} aria-label={`${quantity} items in the shopping cart now`}>
+    <div className={classes.quantity}>
+      {quantity}
+    </div>
+  </div>;
 }

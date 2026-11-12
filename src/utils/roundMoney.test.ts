@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { roundMoney } from "@/utils/roundMoney";
 
 describe("roundMoney", () => {
-  it("should round ingine value correctly", () => {
+  it("should round a single value correctly", () => {
     expect(roundMoney(400.985)).toEqual(400.99);
   });
   it("should round floating point correctly", () => {

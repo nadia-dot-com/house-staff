@@ -12,6 +12,7 @@ import { WishlistButton } from "@/components/wishlist/WishlistButton/WishlistBut
 import { Price } from "@/components/Price/Price";
 import { motion } from "motion/react";
 import { ShopLink } from "@/components/ShopLink/ShopLink";
+import { MdAdd } from "react-icons/md";
 
 type ProductItemVisualProps = {
   product: Product;
@@ -86,8 +87,8 @@ export const ProductItemVisual = memo(
             </h3>
           </ShopLink>
 
-          <p>{shortDescription}</p>
-          <Price price={price} discount={discount} />
+          <div className={classes.shortDescription}>{shortDescription}</div>
+          <Price price={price} discount={discount} size="medium"/>
 
           <button
             className={classes.addToCart}
@@ -98,22 +99,7 @@ export const ProductItemVisual = memo(
               isInStock ? `Add ${name} to cart` : `${name} out of stock`
             }
           >
-            <svg
-              width="8"
-              height="8"
-              viewBox="0 0 14 14"
-              style={{ display: "block" }}
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path
-                d="M7 1V13M1 7H13"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
+            <MdAdd />
           </button>
         </div>
       </motion.div>

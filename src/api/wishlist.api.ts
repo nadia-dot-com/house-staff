@@ -18,7 +18,7 @@ export const fetchWishlist = async (
   );
 };
 
-export const fetchDeleteFromWiszlist = async (
+export const fetchDeleteFromWishlist = async (
   productId: string,
   token: string,
 ): Promise<void> => {

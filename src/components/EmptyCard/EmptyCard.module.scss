@@ -1,12 +1,13 @@
 .emptyCard {
   display: flex;
   justify-content: center;
+  height: 100%;
   align-items: center;
   font-size: 14px;
   margin: 10px 0 10px 0px;
   font-weight: 500;
 
-  .shopingIcon {
+  .shoppingIcon {
     position: relative;
     top: 1px;
     margin-left: 6px;

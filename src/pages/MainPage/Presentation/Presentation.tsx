@@ -8,14 +8,14 @@ import { AnimatePresence } from "motion/react";
 const DELAY = 3000;
 
 export function Presentation() {
-  const [activeSlideIndex, setctiveSlideIndex] = useState(0);
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const intervalRef = useRef<number | null>(null);
 
   const start = useCallback(() => {
     if (intervalRef.current !== null) return;
 
     intervalRef.current = window.setInterval(() => {
-      setctiveSlideIndex((prev) => (prev + 1) % PRESENTATION.length);
+      setActiveSlideIndex((prev) => (prev + 1) % PRESENTATION.length);
     }, DELAY);
   }, []);
 

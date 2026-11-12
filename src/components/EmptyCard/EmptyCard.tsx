@@ -5,7 +5,7 @@ export function EmptyCard() {
   return (
     <h2 className={classes.emptyCard}>
       No products in the cart
-      <FaCartShopping className={classes.shopingIcon} />
+      <FaCartShopping className={classes.shoppingIcon} />
     </h2>
   );
 }

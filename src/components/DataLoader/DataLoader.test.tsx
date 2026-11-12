@@ -3,7 +3,7 @@ import { DataLoader } from "@/components/DataLoader/DataLoader";
 import { AppError } from "@/errors";
 
 vi.mock("@/components/LoadingSpinner/LoadingSpinner", () => ({
-  LoadingSpinner: () => (<div aria-label="loading">MOcked Spinner</div>),
+  LoadingSpinner: () => (<div aria-label="loading">Mocked Spinner</div>),
 }));
 
 describe("DataLoader", () => {

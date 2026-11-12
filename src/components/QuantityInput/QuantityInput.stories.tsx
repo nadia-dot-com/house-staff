@@ -5,7 +5,7 @@ import { useState } from "react";
 const meta: Meta<typeof QuantityInput> = {
   component: QuantityInput,
   argTypes: {
-    onChange: { action: "quntity-input-change" },
+    onChange: { action: "quantity-input-change" },
   },
   decorators: [
     (Story) => (

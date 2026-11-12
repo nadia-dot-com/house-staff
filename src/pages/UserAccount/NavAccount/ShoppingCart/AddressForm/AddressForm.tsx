@@ -107,6 +107,7 @@ export function AddressForm({
             name="country"
             defaultValue={shippingData?.country ?? user?.country ?? ""}
             required
+            className={classes.select}
           >
             <option key="select" value="" disabled>
               Select Country

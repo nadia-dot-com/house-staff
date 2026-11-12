@@ -10,14 +10,14 @@ describe("useLocalStorage", () => {
     vi.clearAllMocks();
   });
 
-  test("shold return initial value when localStorage is empty", () => {
+  test("should return initial value when localStorage is empty", () => {
     const { result } = renderHook(() =>
       useLocalStorage<string>(TEST_KEY, "initial"),
     );
     expect(result.current[0]).toBe("initial");
   });
 
-  test("shold get exiting data from localStorage", () => {
+  test("should get existing data from localStorage", () => {
     window.localStorage.setItem(TEST_KEY, JSON.stringify("data"));
     const { result } = renderHook(() =>
       useLocalStorage<string>(TEST_KEY, "initial"),

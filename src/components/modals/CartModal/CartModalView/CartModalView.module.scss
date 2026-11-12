@@ -4,12 +4,11 @@
 .showOrderWrapper {
   margin-bottom: 20px;
   height: auto;
-  overflow-y: auto;
   text-align: center;
 }
 
 .orderList {
-  max-height: 600px;
+  max-height: 530px;
   overflow-y: auto;
   overflow-x: hidden;
   margin: 5px 30px;
@@ -34,6 +33,10 @@
 
   @include m.respond-to(v.$breakpoint-xs) {
     margin: 0px 5px;
+  }
+
+   @include m.respond-to(v.$breakpoint-sm) {
+     max-height: 100%;
   }
 }
 

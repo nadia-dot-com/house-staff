@@ -11,10 +11,10 @@ export const Price = memo(
   }: {
     price: number;
     discount: number;
-    size?: "default" | "small";
+    size?: "default" | "medium" | "small";
   }) => {
     return (
-      <div className={cn(classes.price, size === "small" && classes.small)}>
+      <div className={cn(classes.price, size === "small" && classes.small, size === "medium" && classes.medium)}>
         {discount <= 0 ? (
           <div>${Number(price).toFixed(2)}</div>
         ) : (

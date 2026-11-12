@@ -25,7 +25,7 @@ const createData = (firstItemOverrides: Partial<OrderItem> = {}) => [
 ];
 
 describe("getSubtotal", () => {
-  it("shoul return right value for ingine", () => {
+  it("should return right value for simple integers", () => {
     const data = createData();
     expect(getSubtotal(data)).toEqual(400);
   });

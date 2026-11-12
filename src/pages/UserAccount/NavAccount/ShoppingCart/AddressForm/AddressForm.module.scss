@@ -23,6 +23,21 @@
     .inputGroup {
       @include m.input-group;
 
+      select {
+        font-family: inherit;
+        font-size: inherit;
+        border: none;
+        border-bottom: 1px solid v.$border-color;
+        border-radius: 0;
+        outline: none;
+        padding: 10px 12px 10px 4px;
+        background-color: transparent;
+
+        &:focus {
+          border-bottom-color: v.$border-focus-color;
+        }
+      }
+
       textarea {
         border: none;
         border-bottom: 1px solid v.$border-color;

@@ -26,10 +26,10 @@ function TestComponent() {
 }
 
 describe("createContextHook", () => {
-  test("should throw Error if used withod Provider", () => {
+  test("should throw Error if used without Provider", () => {
     expect(() => render(<TestComponent />)).toThrow();
   });
-  test("should throw Error if used withod Provider", () => {
+  test("should throw Error if used without Provider", () => {
     render(
       <TestProvider>
         <TestComponent />
