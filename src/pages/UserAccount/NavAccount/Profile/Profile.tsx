@@ -150,6 +150,7 @@ export default function Profile() {
             value={formState.country ?? ""}
             onChange={handleChange}
             required
+            className={classes.select}
           >
             <option value="" disabled>
               Select Country
